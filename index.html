@@ -1255,7 +1255,9 @@
         var isPageVisible = document.visibilityState !== 'hidden';
         var duration = 17000;
         var frameInterval = 32;
-        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var mobileViewport = window.matchMedia('(max-width: 700px)');
+        var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var reducedMotion = motionPreference.matches || mobileViewport.matches;
 
         function clamp(value, lower, upper) {
           return Math.max(lower, Math.min(upper, value));
@@ -1297,7 +1299,7 @@
 
         function buildParticles() {
           var random = seededRandom(20261123);
-          var count = window.matchMedia('(max-width: 700px)').matches ? 130 : 180;
+          var count = mobileViewport.matches ? 130 : 180;
           var ribbons = 3;
           var pointsPerArm = Math.ceil(count / colours.length);
           var pointsPerRibbon = Math.ceil(pointsPerArm / ribbons);
@@ -1393,6 +1395,17 @@
           animationFrame = 0;
         }
 
+        function updateMotionMode() {
+          var nextReducedMotion = motionPreference.matches || mobileViewport.matches;
+          if (nextReducedMotion === reducedMotion) return;
+          reducedMotion = nextReducedMotion;
+          cancelRender();
+          elapsed = reducedMotion ? duration : 0;
+          hasPainted = false;
+          lastPaint = null;
+          requestRender();
+        }
+
         function render(time) {
           animationFrame = 0;
           if (!isInViewport || !isPageVisible) return;
@@ -1433,6 +1446,14 @@
               cancelRender();
             }
           }, { threshold: 0.08 }).observe(canvas);
+        }
+
+        if (mobileViewport.addEventListener) {
+          mobileViewport.addEventListener('change', updateMotionMode);
+          motionPreference.addEventListener('change', updateMotionMode);
+        } else if (mobileViewport.addListener) {
+          mobileViewport.addListener(updateMotionMode);
+          motionPreference.addListener(updateMotionMode);
         }
 
         document.addEventListener('visibilitychange', function () {
