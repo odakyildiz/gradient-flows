@@ -1298,14 +1298,20 @@
         function buildParticles() {
           var random = seededRandom(20261123);
           var count = window.matchMedia('(max-width: 700px)').matches ? 130 : 180;
+          var ribbons = 3;
+          var pointsPerArm = Math.ceil(count / colours.length);
+          var pointsPerRibbon = Math.ceil(pointsPerArm / ribbons);
           particles = Array.from({ length: count }, function (_, index) {
             var arm = index % 5;
             var sourceX = clamp(normal(random) * 0.19, -0.63, 0.63);
             var sourceY = clamp(normal(random) * 0.19, -0.63, 0.63);
-            var radius = 0.14 + 0.76 * Math.sqrt(random());
-            var radial = clamp(radius + normal(random) * 0.046, 0.07, 0.86);
-            var angle = arm * (Math.PI * 2 / 5) + radial * (3.6 / 5) + normal(random) * 0.072;
-            var tangent = normal(random) * 0.026;
+            var sequence = Math.floor(index / colours.length);
+            var ribbon = sequence % ribbons;
+            var row = Math.floor(sequence / ribbons);
+            var position = pointsPerRibbon > 1 ? row / (pointsPerRibbon - 1) : 0.5;
+            var radial = clamp(0.14 + position * 0.74 + normal(random) * 0.006, 0.11, 0.9);
+            var angle = arm * (Math.PI * 2 / 5) + radial * 1.45 + (ribbon - 1) * 0.065 + normal(random) * 0.008;
+            var tangent = (ribbon - 1) * 0.022 + normal(random) * 0.006;
             var targetX = radial * Math.cos(angle) - tangent * Math.sin(angle);
             var targetY = radial * Math.sin(angle) + tangent * Math.cos(angle);
             var sourceRadius = Math.sqrt(sourceX * sourceX + sourceY * sourceY);
@@ -1319,8 +1325,8 @@
               targetRadius: targetRadius,
               sourceAngle: sourceAngle,
               angleDelta: wrapAngle(targetAngle - sourceAngle),
-              bend: (arm % 2 === 0 ? 1 : -1) * (0.055 + random() * 0.035),
-              size: 1.6 + random() * 2.2
+              bend: 0.072 + (ribbon - 1) * 0.012,
+              size: 1.8 + random() * 0.9
             };
           });
         }
