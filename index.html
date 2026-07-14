@@ -1,1 +1,1444 @@
-Hello World.
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="3rd Workshop on Gradient Flows for Sampling, Inference, and Learning — 2026 edition. A research workshop at the intersection of statistics, machine learning and applied mathematics."
+    />
+    <meta name="theme-color" content="#071012" />
+    <title>3rd Workshop on Gradient Flows — 2026</title>
+    <style>
+      :root {
+        --ink: #071012;
+        --ink-soft: #0c1b1d;
+        --paper: #f5f4ee;
+        --paper-soft: #e8e9e0;
+        --mint: #b9f7c2;
+        --aqua: #69e4dc;
+        --blue: #7797ff;
+        --lilac: #c6a8ff;
+        --coral: #ff926d;
+        --line-dark: rgba(238, 249, 239, 0.14);
+        --line-light: rgba(7, 16, 18, 0.13);
+        --sans: "Space Grotesk", "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+        --display: "Iowan Old Style", "Baskerville", "Times New Roman", serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      body::selection {
+        background: var(--aqua);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 100;
+        top: 1rem;
+        left: 1rem;
+        padding: 0.75rem 1rem;
+        transform: translateY(-180%);
+        border-radius: 0.4rem;
+        background: var(--mint);
+        color: var(--ink);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site-header {
+        position: absolute;
+        z-index: 20;
+        top: 0;
+        right: 0;
+        left: 0;
+        color: var(--paper);
+      }
+
+      .nav-wrap {
+        position: relative;
+        display: flex;
+        width: min(100% - 3rem, 1280px);
+        min-height: 5.6rem;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: flex-end;
+        border-bottom: 1px solid rgba(245, 244, 238, 0.16);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.9rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        position: relative;
+        color: rgba(245, 244, 238, 0.76);
+        font-size: 0.78rem;
+        font-weight: 650;
+        letter-spacing: 0.055em;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 180ms ease;
+      }
+
+      .nav-links a::after {
+        position: absolute;
+        right: 0;
+        bottom: -0.45rem;
+        left: 0;
+        height: 1px;
+        transform: scaleX(0);
+        transform-origin: left;
+        background: var(--mint);
+        content: "";
+        transition: transform 180ms ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--paper);
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      .menu-toggle {
+        display: none;
+        width: 2.8rem;
+        height: 2.8rem;
+        padding: 0;
+        border: 1px solid rgba(245, 244, 238, 0.45);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--paper);
+      }
+
+      .menu-toggle span,
+      .menu-toggle::before,
+      .menu-toggle::after {
+        display: block;
+        width: 1.05rem;
+        height: 1px;
+        margin: 0 auto;
+        background: currentColor;
+        content: "";
+        transition: transform 180ms ease, opacity 180ms ease;
+      }
+
+      .menu-toggle::before {
+        transform: translateY(-0.26rem);
+      }
+
+      .menu-toggle::after {
+        transform: translateY(0.26rem);
+      }
+
+      .menu-toggle[aria-expanded="true"] span {
+        opacity: 0;
+      }
+
+      .menu-toggle[aria-expanded="true"]::before {
+        transform: translateY(1px) rotate(45deg);
+      }
+
+      .menu-toggle[aria-expanded="true"]::after {
+        transform: translateY(-1px) rotate(-45deg);
+      }
+
+      .hero {
+        position: relative;
+        display: grid;
+        overflow: hidden;
+        min-height: 100svh;
+        grid-template-rows: minmax(0, 1fr) auto;
+        background:
+          radial-gradient(circle at 12% 91%, rgba(31, 106, 100, 0.3), transparent 28rem),
+          radial-gradient(circle at 88% 6%, rgba(72, 58, 130, 0.38), transparent 31rem),
+          var(--ink);
+        color: var(--paper);
+      }
+
+      .hero::before {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: linear-gradient(rgba(245, 244, 238, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(245, 244, 238, 0.025) 1px, transparent 1px);
+        background-size: 3.5rem 3.5rem;
+        content: "";
+        mask-image: linear-gradient(to bottom, black, transparent 88%);
+      }
+
+      .hero-inner {
+        position: relative;
+        display: grid;
+        width: min(100% - 3rem, 1280px);
+        min-height: 0;
+        margin: 0 auto;
+        padding: 6.15rem 0 1.6rem;
+        grid-template-columns: minmax(0, 0.84fr) minmax(24rem, 1.16fr);
+        gap: clamp(1.25rem, 2.6vw, 2.8rem);
+        align-items: center;
+      }
+
+      .eyebrow,
+      .section-label {
+        display: flex;
+        gap: 0.65rem;
+        align-items: center;
+        margin: 0 0 1.15rem;
+        color: var(--mint);
+        font-size: 0.72rem;
+        font-weight: 750;
+        letter-spacing: 0.12em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before,
+      .section-label::before {
+        width: 1.8rem;
+        height: 1px;
+        background: currentColor;
+        content: "";
+      }
+
+      .hero h1 {
+        max-width: 13.8ch;
+        margin: 0;
+        font-size: clamp(2.25rem, 3.35vw, 3.95rem);
+        font-weight: 520;
+        letter-spacing: -0.052em;
+        line-height: 0.98;
+      }
+
+      .hero-title-block {
+        display: grid;
+        grid-template-columns: 3.25rem minmax(0, 1fr);
+        gap: 0.9rem;
+        align-items: start;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+      }
+
+      .event-logo {
+        position: relative;
+        display: block;
+        width: 3.25rem;
+        height: 3rem;
+        margin-top: 0.12rem;
+        color: var(--aqua);
+        font-family: var(--display);
+        font-size: 2.8rem;
+        font-style: italic;
+        line-height: 0.9;
+      }
+
+      .event-logo span {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .event-logo span + span {
+        left: 0.48em;
+        color: var(--mint);
+      }
+
+      .title-prelude {
+        display: block;
+        margin-bottom: 0.55rem;
+        color: rgba(245, 244, 238, 0.62);
+        font-size: 0.29em;
+        font-weight: 780;
+        letter-spacing: 0.1em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .hero-event-line {
+        max-width: 37rem;
+        margin: 1.1rem 0 0 4.15rem;
+        color: rgba(245, 244, 238, 0.8);
+        font-size: clamp(0.82rem, 1.05vw, 0.98rem);
+        font-weight: 630;
+        letter-spacing: -0.012em;
+        line-height: 1.45;
+      }
+
+      .hero-event-line .event-venue {
+        color: var(--paper);
+      }
+
+      .hero-event-line .event-campus {
+        color: rgba(245, 244, 238, 0.62);
+      }
+
+      .hero-date-line {
+        margin: 0.26rem 0 0 4.15rem;
+        color: var(--mint);
+        font-family: var(--display);
+        font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+        font-style: italic;
+        font-weight: 400;
+        letter-spacing: -0.035em;
+        line-height: 1.12;
+        white-space: nowrap;
+      }
+
+      .hero-facts {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        width: min(100% - 3rem, 1280px);
+        margin: 0 auto;
+        border-top: 1px solid var(--line-dark);
+        border-right: 1px solid var(--line-dark);
+        border-left: 1px solid var(--line-dark);
+        grid-template-columns: 1fr;
+      }
+
+      .hero-facts div {
+        min-width: 0;
+        padding: 0.92rem 1.25rem 1rem;
+        border-right: 0;
+      }
+
+      .hero-facts div:last-child {
+        border-right: 0;
+      }
+
+      .hero-facts dt {
+        color: rgba(245, 244, 238, 0.48);
+        font-size: 0.61rem;
+        font-weight: 780;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .hero-facts dd {
+        margin: 0.4rem 0 0;
+        color: rgba(245, 244, 238, 0.96);
+        font-size: clamp(0.83rem, 1.05vw, 0.99rem);
+        font-weight: 630;
+        letter-spacing: -0.012em;
+        line-height: 1.36;
+      }
+
+      .hero-facts .fact-organisers dd {
+        color: var(--aqua);
+        font-size: clamp(0.94rem, 1.15vw, 1.08rem);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 3rem;
+        padding: 0.85rem 1.15rem;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        background: var(--mint);
+        color: var(--ink);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.055em;
+        line-height: 1;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .button::after {
+        margin-left: 0.68rem;
+        content: "↗";
+        font-size: 1rem;
+        line-height: 0.6;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+        background: #d8ffdc;
+      }
+
+      .button-quiet {
+        border-color: rgba(245, 244, 238, 0.35);
+        background: rgba(245, 244, 238, 0.035);
+        color: var(--paper);
+      }
+
+      .button-quiet:hover,
+      .button-quiet:focus-visible {
+        border-color: var(--paper);
+        background: rgba(245, 244, 238, 0.12);
+      }
+
+      .measure-stage {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        min-height: clamp(24rem, 60svh, 34rem);
+        contain: layout;
+      }
+
+      #measure-canvas {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .section {
+        padding: clamp(5rem, 10vw, 9.5rem) 0;
+      }
+
+      .container {
+        width: min(100% - 3rem, 1180px);
+        margin: 0 auto;
+      }
+
+      .section-label {
+        color: #187a73;
+      }
+
+      .section-title {
+        max-width: 13ch;
+        margin: 0;
+        font-size: clamp(2.5rem, 5.4vw, 5rem);
+        font-weight: 480;
+        letter-spacing: -0.065em;
+        line-height: 0.94;
+      }
+
+      .section-title em {
+        color: #197f77;
+        font-family: var(--display);
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .intro-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.72fr);
+        gap: clamp(2rem, 10vw, 9rem);
+        align-items: end;
+      }
+
+      .intro-copy {
+        max-width: 37rem;
+        margin: 2.15rem 0 0;
+        color: #334143;
+        font-size: clamp(1rem, 1.6vw, 1.25rem);
+        line-height: 1.65;
+      }
+
+      .intro-copy p {
+        margin: 0;
+      }
+
+      .intro-copy p + p {
+        margin-top: 1.25rem;
+      }
+
+      .signal-card {
+        position: relative;
+        overflow: hidden;
+        padding: 1.55rem;
+        border: 1px solid var(--line-light);
+        border-radius: 1rem;
+        background: #e9eee7;
+      }
+
+      .signal-card::after {
+        position: absolute;
+        width: 12rem;
+        height: 12rem;
+        right: -4.4rem;
+        bottom: -6.2rem;
+        border: 1px solid rgba(25, 127, 119, 0.4);
+        border-radius: 50%;
+        box-shadow: 0 0 0 1.2rem rgba(25, 127, 119, 0.08), 0 0 0 2.4rem rgba(25, 127, 119, 0.04);
+        content: "";
+      }
+
+      .signal-card span {
+        display: block;
+        color: #197f77;
+        font-family: var(--display);
+        font-size: 3rem;
+        font-style: italic;
+        line-height: 0.85;
+      }
+
+      .signal-card p {
+        position: relative;
+        z-index: 1;
+        max-width: 17rem;
+        margin: 1.1rem 0 0;
+        color: #243537;
+        font-size: 0.94rem;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .archive {
+        background: #dedfd6;
+      }
+
+      .archive-heading {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.5fr);
+        align-items: end;
+      }
+
+      .archive-heading p {
+        max-width: 23rem;
+        margin: 0 0 0.35rem;
+        color: #4e5b5c;
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .past-grid {
+        display: grid;
+        margin-top: 3.6rem;
+        gap: 1.25rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .past-card {
+        position: relative;
+        display: flex;
+        min-height: 34rem;
+        padding: 1.65rem;
+        overflow: hidden;
+        flex-direction: column;
+        border: 1px solid rgba(7, 16, 18, 0.16);
+        border-radius: 1rem;
+        background: var(--paper);
+      }
+
+      .past-card::after {
+        position: absolute;
+        z-index: 0;
+        width: 17rem;
+        height: 17rem;
+        right: -9rem;
+        top: -8rem;
+        border: 1px solid rgba(30, 117, 112, 0.22);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2.3rem rgba(30, 117, 112, 0.04), 0 0 0 4.6rem rgba(30, 117, 112, 0.025);
+        content: "";
+      }
+
+      .past-card:nth-child(2)::after {
+        border-color: rgba(101, 84, 173, 0.22);
+        box-shadow: 0 0 0 2.3rem rgba(101, 84, 173, 0.04), 0 0 0 4.6rem rgba(101, 84, 173, 0.025);
+      }
+
+      .past-topline,
+      .past-card h3,
+      .past-card > p,
+      .event-meta,
+      .speakers-label,
+      .speaker-list,
+      .archive-link {
+        position: relative;
+        z-index: 1;
+      }
+
+      .past-topline {
+        display: flex;
+        justify-content: space-between;
+        color: #596464;
+        font-size: 0.67rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .past-topline strong {
+        color: #197f77;
+      }
+
+      .past-card h3 {
+        max-width: 16ch;
+        margin: 3.1rem 0 0;
+        font-size: clamp(1.55rem, 2.55vw, 2.4rem);
+        font-weight: 490;
+        letter-spacing: -0.063em;
+        line-height: 0.98;
+      }
+
+      .past-card > p:not(.speakers-label) {
+        max-width: 33rem;
+        margin: 1.2rem 0 0;
+        color: #4d5b5c;
+        font-size: 0.89rem;
+        line-height: 1.58;
+      }
+
+      .event-meta {
+        display: grid;
+        gap: 0.75rem;
+        margin: 1.5rem 0 0;
+      }
+
+      .event-meta div {
+        display: grid;
+        grid-template-columns: 5.2rem 1fr;
+        gap: 0.65rem;
+      }
+
+      .event-meta dt {
+        color: #74807f;
+        font-size: 0.64rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .event-meta dd {
+        margin: 0;
+        color: #202d2e;
+        font-size: 0.79rem;
+        font-weight: 650;
+        line-height: 1.4;
+      }
+
+      .speaker-list {
+        display: flex;
+        margin: 0.55rem 0 0;
+        padding: 0;
+        flex-wrap: wrap;
+        gap: 0.42rem;
+        list-style: none;
+      }
+
+      .speakers-label {
+        margin: 1.45rem 0 0;
+        color: #74807f;
+        font-size: 0.64rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .speaker-list li {
+        padding: 0.33rem 0.53rem;
+        border: 1px solid rgba(7, 16, 18, 0.13);
+        border-radius: 999px;
+        color: #4a5b5b;
+        font-size: 0.67rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .archive-link {
+        display: inline-flex;
+        gap: 0.65rem;
+        align-items: center;
+        width: fit-content;
+        margin-top: auto;
+        padding-top: 1.6rem;
+        color: #126d67;
+        font-size: 0.73rem;
+        font-weight: 850;
+        letter-spacing: 0.07em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .archive-link::after {
+        content: "↗";
+        font-size: 1.05rem;
+      }
+
+      .archive-link:hover,
+      .archive-link:focus-visible {
+        color: #004d49;
+        text-decoration: underline;
+        text-underline-offset: 0.3rem;
+      }
+
+      .closing {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(5rem, 10vw, 9rem) 0 3.7rem;
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .closing::before {
+        position: absolute;
+        width: min(70vw, 60rem);
+        height: min(70vw, 60rem);
+        left: 50%;
+        bottom: -43rem;
+        transform: translateX(-50%);
+        border: 1px solid rgba(185, 247, 194, 0.2);
+        border-radius: 50%;
+        box-shadow: 0 0 0 3rem rgba(185, 247, 194, 0.025), 0 0 0 6rem rgba(185, 247, 194, 0.02), 0 0 0 9rem rgba(185, 247, 194, 0.015);
+        content: "";
+      }
+
+      .closing-inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(15rem, 0.55fr);
+        gap: 2rem;
+        align-items: end;
+      }
+
+      .closing .section-label {
+        color: var(--mint);
+      }
+
+      .closing h2 {
+        max-width: 12ch;
+        margin: 0;
+        font-size: clamp(3rem, 6.3vw, 6.2rem);
+        font-weight: 470;
+        letter-spacing: -0.075em;
+        line-height: 0.88;
+      }
+
+      .closing h2 em {
+        color: var(--mint);
+        font-family: var(--display);
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .closing-side {
+        padding-bottom: 0.45rem;
+      }
+
+      .closing-side p {
+        max-width: 24rem;
+        margin: 0;
+        color: rgba(245, 244, 238, 0.68);
+        font-size: 1rem;
+        line-height: 1.58;
+      }
+
+      .closing-side .button {
+        margin-top: 1.5rem;
+      }
+
+      .closing-status {
+        position: relative;
+        display: flex;
+        width: min(100% - 3rem, 1180px);
+        margin: 4rem auto 0;
+        padding: 1.15rem 0 0;
+        justify-content: space-between;
+        border-top: 1px solid var(--line-dark);
+        color: rgba(245, 244, 238, 0.47);
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .closing-status strong {
+        color: var(--mint);
+      }
+
+      .site-footer {
+        position: relative;
+        padding: 1.3rem 0 2rem;
+        background: var(--ink);
+        color: rgba(245, 244, 238, 0.55);
+      }
+
+      .footer-inner {
+        display: flex;
+        width: min(100% - 3rem, 1180px);
+        margin: 0 auto;
+        justify-content: space-between;
+        gap: 1.2rem;
+        font-size: 0.69rem;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: var(--mint);
+        text-decoration: none;
+      }
+
+      .footer-links a:hover,
+      .footer-links a:focus-visible {
+        text-decoration: underline;
+        text-underline-offset: 0.25rem;
+      }
+
+      @media (max-width: 780px) {
+        .hero {
+          min-height: 0;
+        }
+
+        .hero-inner {
+          padding-top: 6.25rem;
+          padding-bottom: 2rem;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          align-items: start;
+        }
+
+        .hero-copy {
+          max-width: 42rem;
+        }
+
+        .hero-event-line {
+          margin-top: 1.15rem;
+        }
+
+        .measure-stage {
+          min-height: 27rem;
+        }
+
+        .hero-facts {
+          width: min(100% - 3rem, 1280px);
+          grid-template-columns: 1fr;
+        }
+
+        .hero-facts div {
+          border-right: 0;
+          border-bottom: 1px solid var(--line-dark);
+        }
+
+        .hero-facts div:last-child {
+          border-bottom: 0;
+        }
+
+        .intro-grid,
+        .closing-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .signal-card {
+          max-width: 30rem;
+        }
+
+        .archive-heading {
+          grid-template-columns: 1fr;
+        }
+
+        .closing-side {
+          max-width: 31rem;
+          padding-bottom: 0;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .nav-wrap,
+        .hero-inner,
+        .container,
+        .footer-inner {
+          width: min(100% - 2rem, 1280px);
+        }
+
+        .nav-wrap {
+          min-height: 4.8rem;
+          border-bottom: 0;
+        }
+
+        .menu-toggle {
+          position: relative;
+          z-index: 2;
+          display: block;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: 0.75rem;
+          right: 0;
+          display: none;
+          width: min(19rem, calc(100vw - 2rem));
+          padding: 4.4rem 1.25rem 1.3rem;
+          flex-direction: column;
+          align-items: stretch;
+          border: 1px solid rgba(245, 244, 238, 0.16);
+          border-radius: 1rem;
+          background: rgba(7, 16, 18, 0.95);
+          box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.38);
+          backdrop-filter: blur(14px);
+        }
+
+        .nav-links.is-open {
+          display: flex;
+        }
+
+        .nav-links a {
+          padding: 0.45rem 0;
+        }
+
+        .nav-links a::after {
+          display: none;
+        }
+
+        .hero-inner {
+          min-height: 0;
+          padding-top: 6rem;
+          padding-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+          max-width: 13ch;
+          font-size: clamp(2.45rem, 10.5vw, 3.55rem);
+        }
+
+        .hero-title-block {
+          grid-template-columns: 2.6rem minmax(0, 1fr);
+          gap: 0.65rem;
+        }
+
+        .event-logo {
+          width: 2.6rem;
+          height: 2.45rem;
+          font-size: 2.25rem;
+        }
+
+        .hero-event-line {
+          max-width: none;
+          margin-left: 0;
+        }
+
+        .hero-date-line {
+          margin-left: 0;
+        }
+
+        .measure-stage {
+          min-height: 25rem;
+        }
+
+        .hero-facts {
+          width: min(100% - 2rem, 1280px);
+        }
+
+        .section {
+          padding: 5rem 0;
+        }
+
+        .section-title {
+          font-size: clamp(2.6rem, 12vw, 4.2rem);
+        }
+
+        .past-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .past-card {
+          min-height: 0;
+        }
+
+        .past-card h3 {
+          margin-top: 3.1rem;
+        }
+
+        .archive-link {
+          margin-top: 1.7rem;
+        }
+
+        .closing {
+          padding-top: 5.5rem;
+        }
+
+        .closing h2 {
+          font-size: clamp(3.1rem, 14vw, 5.1rem);
+        }
+
+        .closing-status {
+          width: min(100% - 2rem, 1180px);
+          margin-top: 3rem;
+          flex-direction: column;
+          gap: 0.45rem;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          line-height: 1.5;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="nav-wrap">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+          <span class="sr-only">Open menu</span>
+        </button>
+        <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#past-events">Past events</a>
+          <a href="#updates">2026 information</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <div class="hero-title-block">
+              <span class="event-logo" aria-hidden="true"><span>∇</span><span>∇</span></span>
+              <h1 id="hero-title"><span class="title-prelude">3rd Workshop on</span>Gradient Flows for Sampling, Inference, and Learning</h1>
+            </div>
+            <p class="hero-event-line">
+              <span class="event-venue">Imperial College London, <span class="event-campus">South Kensington Campus</span></span>
+            </p>
+            <p class="hero-date-line"><time datetime="2026-11-23">23</time>–<time datetime="2026-11-25">25 November 2026</time></p>
+          </div>
+
+          <figure class="measure-stage" role="img" aria-label="An abstract particle animation in which a compact Gaussian cloud transforms into a structured five-arm form.">
+            <canvas id="measure-canvas" aria-hidden="true"></canvas>
+          </figure>
+        </div>
+
+        <dl class="hero-facts" aria-label="2026 workshop information">
+          <div class="fact-organisers">
+            <dt>Organisers</dt>
+            <dd>O. Deniz Akyildiz · Louis Sharrock · Greg Pavliotis</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="container intro-grid">
+          <div>
+            <p class="section-label">Overview</p>
+            <h2 class="section-title" id="about-title">Gradient flows across <em>probability</em>, statistics and learning.</h2>
+            <div class="intro-copy">
+              <p>
+                Gradient flows give us a language for following distributions as they change. They connect the geometry of probability with practical questions in sampling, inference, optimisation and generative modelling.
+              </p>
+              <p>
+                The third workshop brings together researchers in statistics, machine learning and applied mathematics to examine both foundational questions and computational methods.
+              </p>
+            </div>
+          </div>
+          <aside class="signal-card" aria-label="2026 workshop organisers">
+            <span>2026</span>
+            <p><strong>Organisers</strong><br />O. Deniz Akyildiz<br />Louis Sharrock<br />Greg Pavliotis</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section archive" id="past-events" aria-labelledby="archive-title">
+        <div class="container">
+          <div class="archive-heading">
+            <div>
+              <p class="section-label">Past events / 01—02</p>
+              <h2 class="section-title" id="archive-title">Previous <em>editions.</em></h2>
+            </div>
+            <p>Two editions have already brought together the community around continuous dynamics, probabilistic inference and machine learning.</p>
+          </div>
+
+          <div class="past-grid">
+            <article class="past-card">
+              <div class="past-topline"><span>Edition 02</span><strong>2025</strong></div>
+              <h3>2nd Workshop on Gradient Flows for Sampling, Inference, and Learning</h3>
+              <p>
+                A one-day exploration of gradient-flow approaches for sampling, inference and learning—from Langevin and Wasserstein dynamics to diffusion models, robustness and sequential Bayesian methods.
+              </p>
+              <dl class="event-meta">
+                <div>
+                  <dt>Date</dt>
+                  <dd><time datetime="2025-03-24">Monday 24 March 2025</time>, 10:00</dd>
+                </div>
+                <div>
+                  <dt>Venue</dt>
+                  <dd>The Alan Turing Institute, British Library, 96 Euston Road, London NW1 2DB</dd>
+                </div>
+                <div>
+                  <dt>Organisers</dt>
+                  <dd>O. Deniz Akyildiz, Andrew Duncan &amp; Francesca Crucinio</dd>
+                </div>
+              </dl>
+              <p class="speakers-label">Speakers</p>
+              <ul class="speaker-list" aria-label="2025 speakers">
+                <li>Sahani Pathiraja</li>
+                <li>Rocco Caprio</li>
+                <li>Anna Korba</li>
+                <li>Paula Cordero Encinar</li>
+                <li>Arthur Gretton</li>
+                <li>Jonas Latz</li>
+              </ul>
+              <a class="archive-link" href="https://rss.org.uk/training-events/events/events-2025/section-groups/2nd-rss-turing-workshop-on-gradient-flows-for-samp/" target="_blank" rel="noreferrer">View the 2025 event</a>
+            </article>
+
+            <article class="past-card">
+              <div class="past-topline"><span>Edition 01</span><strong>2023</strong></div>
+              <h3>1st Workshop on Gradient Flows for Sampling, Inference, and Learning</h3>
+              <p>
+                The inaugural one-day workshop connected continuous dynamics with Bayesian posterior sampling, variational inference, generative modelling and deep-learning optimisation.
+              </p>
+              <dl class="event-meta">
+                <div>
+                  <dt>Date</dt>
+                  <dd><time datetime="2023-12-01">Friday 1 December 2023</time>, 10:00</dd>
+                </div>
+                <div>
+                  <dt>Venue</dt>
+                  <dd>Royal Statistical Society, 12 Errol Street, London EC1Y 8LX</dd>
+                </div>
+                <div>
+                  <dt>Organisers</dt>
+                  <dd>O. Deniz Akyildiz, Christopher Nemeth, Theodore Papamarkou &amp; Louis Sharrock</dd>
+                </div>
+              </dl>
+              <p class="speakers-label">Speakers</p>
+              <ul class="speaker-list" aria-label="2023 speakers">
+                <li>Nikolas Nüsken</li>
+                <li>Alessandro Barp</li>
+                <li>Anna Korba</li>
+                <li>Song Liu</li>
+                <li>Francesca Crucinio</li>
+                <li>Qiang Liu</li>
+              </ul>
+              <a class="archive-link" href="https://rss.org.uk/training-events/events/events-2023/sections/gradient-flows-for-sampling%2C-inference%2C-and-learni/" target="_blank" rel="noreferrer">View the 2023 event</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" id="updates" aria-labelledby="updates-title">
+        <div class="container closing-inner">
+          <div>
+            <p class="section-label">2026 announcement</p>
+            <h2 id="updates-title">2026 <em>information.</em></h2>
+          </div>
+          <div class="closing-side">
+            <p>23–25 November 2026 at Imperial College London, South Kensington Campus. Registration and speaker information will be added here.</p>
+            <a class="button" href="#top">Back to top</a>
+          </div>
+        </div>
+        <div class="closing-status"><span><strong>23–25 November 2026</strong> / Imperial College London</span><span>South Kensington Campus</span></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>3rd Workshop on Gradient Flows for Sampling, Inference, and Learning</span>
+        <div class="footer-links">
+          <a href="#past-events">Past editions</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var toggle = document.querySelector('.menu-toggle');
+        var nav = document.querySelector('.nav-links');
+
+        if (toggle && nav) {
+          toggle.addEventListener('click', function () {
+            var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!isOpen));
+            toggle.querySelector('.sr-only').textContent = isOpen ? 'Open menu' : 'Close menu';
+            nav.classList.toggle('is-open', !isOpen);
+          });
+
+          nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+              toggle.setAttribute('aria-expanded', 'false');
+              toggle.querySelector('.sr-only').textContent = 'Open menu';
+              nav.classList.remove('is-open');
+            });
+          });
+        }
+
+        var canvas = document.getElementById('measure-canvas');
+        if (!canvas || !canvas.getContext) return;
+
+        var context = canvas.getContext('2d');
+        var particles = [];
+        var colours = [
+          [119, 151, 255],
+          [105, 228, 220],
+          [185, 247, 194],
+          [198, 168, 255],
+          [255, 146, 109]
+        ];
+        var sourceColour = [157, 176, 255];
+        var fillStyles = new Array(colours.length);
+        var width = 0;
+        var height = 0;
+        var centreX = 0;
+        var centreY = 0;
+        var scaleX = 0;
+        var scaleY = 0;
+        var pixelRatio = 1;
+        var elapsed = 0;
+        var lastPaint = null;
+        var animationFrame = 0;
+        var resizeFrame = 0;
+        var hasPainted = false;
+        var isInViewport = true;
+        var isPageVisible = document.visibilityState !== 'hidden';
+        var duration = 17000;
+        var frameInterval = 32;
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function clamp(value, lower, upper) {
+          return Math.max(lower, Math.min(upper, value));
+        }
+
+        function seededRandom(seed) {
+          return function () {
+            seed += 0x6d2b79f5;
+            var value = seed;
+            value = Math.imul(value ^ (value >>> 15), value | 1);
+            value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+            return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+          };
+        }
+
+        function normal(random) {
+          var first = Math.max(random(), 0.0001);
+          var second = random();
+          return Math.sqrt(-2 * Math.log(first)) * Math.cos(Math.PI * 2 * second);
+        }
+
+        function smooth(value) {
+          return value * value * (3 - 2 * value);
+        }
+
+        function wrapAngle(angle) {
+          return Math.atan2(Math.sin(angle), Math.cos(angle));
+        }
+
+        function updateFillStyles(progress) {
+          for (var arm = 0; arm < colours.length; arm += 1) {
+            var target = colours[arm];
+            var red = Math.round(sourceColour[0] + (target[0] - sourceColour[0]) * progress);
+            var green = Math.round(sourceColour[1] + (target[1] - sourceColour[1]) * progress);
+            var blue = Math.round(sourceColour[2] + (target[2] - sourceColour[2]) * progress);
+            fillStyles[arm] = 'rgba(' + red + ', ' + green + ', ' + blue + ', 0.88)';
+          }
+        }
+
+        function buildParticles() {
+          var random = seededRandom(20261123);
+          var count = window.matchMedia('(max-width: 700px)').matches ? 130 : 180;
+          particles = Array.from({ length: count }, function (_, index) {
+            var arm = index % 5;
+            var sourceX = clamp(normal(random) * 0.19, -0.63, 0.63);
+            var sourceY = clamp(normal(random) * 0.19, -0.63, 0.63);
+            var radius = 0.14 + 0.76 * Math.sqrt(random());
+            var radial = clamp(radius + normal(random) * 0.046, 0.07, 0.86);
+            var angle = arm * (Math.PI * 2 / 5) + radial * (3.6 / 5) + normal(random) * 0.072;
+            var tangent = normal(random) * 0.026;
+            var targetX = radial * Math.cos(angle) - tangent * Math.sin(angle);
+            var targetY = radial * Math.sin(angle) + tangent * Math.cos(angle);
+            var sourceRadius = Math.sqrt(sourceX * sourceX + sourceY * sourceY);
+            var targetRadius = Math.sqrt(targetX * targetX + targetY * targetY);
+            var sourceAngle = Math.atan2(sourceY, sourceX);
+            var targetAngle = Math.atan2(targetY, targetX);
+
+            return {
+              arm: arm,
+              sourceRadius: sourceRadius,
+              targetRadius: targetRadius,
+              sourceAngle: sourceAngle,
+              angleDelta: wrapAngle(targetAngle - sourceAngle),
+              bend: (arm % 2 === 0 ? 1 : -1) * (0.055 + random() * 0.035),
+              size: 1.6 + random() * 2.2
+            };
+          });
+        }
+
+        function draw(progress) {
+          context.clearRect(0, 0, width, height);
+          var amount = smooth(progress);
+          var bend = Math.sin(Math.PI * amount);
+          updateFillStyles(progress);
+
+          for (var arm = 0; arm < colours.length; arm += 1) {
+            context.beginPath();
+            for (var index = arm; index < particles.length; index += colours.length) {
+              var particle = particles[index];
+              var radius = particle.sourceRadius + (particle.targetRadius - particle.sourceRadius) * amount;
+              var angle = particle.sourceAngle + particle.angleDelta * amount + particle.bend * bend;
+              var x = centreX + Math.cos(angle) * radius * scaleX;
+              var y = centreY + Math.sin(angle) * radius * scaleY;
+              context.moveTo(x + particle.size, y);
+              context.arc(x, y, particle.size, 0, Math.PI * 2);
+            }
+            context.fillStyle = fillStyles[arm];
+            context.fill();
+          }
+          hasPainted = true;
+        }
+
+        function resizeCanvas() {
+          resizeFrame = 0;
+          var nextWidth = canvas.offsetWidth;
+          var nextHeight = canvas.offsetHeight;
+          var nextPixelRatio = Math.min(window.devicePixelRatio || 1, 1.25);
+          if (!nextWidth || !nextHeight) return;
+          if (nextWidth === width && nextHeight === height && nextPixelRatio === pixelRatio) return;
+
+          width = nextWidth;
+          height = nextHeight;
+          pixelRatio = nextPixelRatio;
+          centreX = width * 0.5;
+          centreY = height * 0.5;
+          scaleX = Math.min(width * 0.55, height * 0.82);
+          scaleY = Math.min(height * 0.55, width * 0.44);
+          canvas.width = Math.round(width * pixelRatio);
+          canvas.height = Math.round(height * pixelRatio);
+          context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+          hasPainted = false;
+          lastPaint = null;
+          requestRender();
+        }
+
+        function queueResize() {
+          if (!resizeFrame) resizeFrame = window.requestAnimationFrame(resizeCanvas);
+        }
+
+        function requestRender() {
+          if (animationFrame || !isInViewport || !isPageVisible || !width || !height) return;
+          if (hasPainted && (reducedMotion || elapsed >= duration)) return;
+          animationFrame = window.requestAnimationFrame(render);
+        }
+
+        function cancelRender() {
+          if (!animationFrame || !window.cancelAnimationFrame) return;
+          window.cancelAnimationFrame(animationFrame);
+          animationFrame = 0;
+        }
+
+        function render(time) {
+          animationFrame = 0;
+          if (!isInViewport || !isPageVisible) return;
+
+          if (reducedMotion) {
+            draw(1);
+            return;
+          }
+
+          if (lastPaint === null) {
+            lastPaint = time;
+            draw(elapsed / duration);
+          } else if (time - lastPaint >= frameInterval) {
+            elapsed = Math.min(duration, elapsed + Math.min(time - lastPaint, 80));
+            lastPaint = time;
+            draw(elapsed / duration);
+          }
+
+          if (elapsed < duration) requestRender();
+        }
+
+        buildParticles();
+        resizeCanvas();
+
+        if (window.ResizeObserver) {
+          new window.ResizeObserver(queueResize).observe(canvas);
+        } else {
+          window.addEventListener('resize', queueResize, { passive: true });
+        }
+
+        if (window.IntersectionObserver) {
+          new window.IntersectionObserver(function (entries) {
+            isInViewport = entries[0].isIntersecting && entries[0].intersectionRatio > 0.08;
+            if (isInViewport) {
+              lastPaint = null;
+              requestRender();
+            } else {
+              cancelRender();
+            }
+          }, { threshold: 0.08 }).observe(canvas);
+        }
+
+        document.addEventListener('visibilitychange', function () {
+          isPageVisible = document.visibilityState !== 'hidden';
+          if (isPageVisible) {
+            lastPaint = null;
+            requestRender();
+          } else {
+            cancelRender();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
