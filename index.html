@@ -1137,7 +1137,7 @@
             <p class="hero-date-line"><time datetime="2026-11-23">23</time>–<time datetime="2026-11-25">25 November 2026</time></p>
           </div>
 
-          <figure class="measure-stage" role="img" aria-label="An abstract particle animation in which a compact Gaussian cloud continuously transforms through seven symmetric distribution-like forms.">
+          <figure class="measure-stage" role="img" aria-label="An abstract particle animation in which a compact Gaussian cloud continuously transforms through six symmetric distribution-like forms.">
             <canvas id="measure-canvas" aria-hidden="true"></canvas>
           </figure>
         </div>
@@ -1345,8 +1345,8 @@
         var isPageVisible = document.visibilityState !== 'hidden';
         var duration = 1000;
         var holdDuration = 500;
-        var shapeCount = 7;
-        var shapeSpins = [1, -1, 1, -1, 1, -1, 1];
+        var shapeCount = 6;
+        var shapeSpins = [1, -1, 1, -1, 1, -1];
         var frameInterval = 32;
         var loopStylesReady = false;
         var isHolding = false;
@@ -1550,14 +1550,6 @@
               0.018 * transverseJitter
             );
 
-            // A calmer braid closes the loop back into the opening rosette.
-            writePolarTarget(
-              6,
-              index,
-              0.18 + 0.67 * position + 0.04 * petal + 0.025 * radialJitter,
-              armAngle + 0.1 + 1.5 * position - 0.3 * position * position + 0.14 * ribbonOffset * petal,
-              0.065 * petal * (ribbonOffset + 0.5 * transverseJitter)
-            );
           }
         }
 
