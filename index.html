@@ -970,7 +970,7 @@
         }
 
         .measure-stage {
-          min-height: 25rem;
+          display: none;
         }
 
         .hero-facts {
@@ -1253,7 +1253,7 @@
         var hasPainted = false;
         var isInViewport = true;
         var isPageVisible = document.visibilityState !== 'hidden';
-        var duration = 17000;
+        var duration = 1500;
         var frameInterval = 32;
         var mobileViewport = window.matchMedia('(max-width: 700px)');
         var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -1279,8 +1279,9 @@
           return Math.sqrt(-2 * Math.log(first)) * Math.cos(Math.PI * 2 * second);
         }
 
-        function smooth(value) {
-          return value * value * (3 - 2 * value);
+        function settle(value) {
+          var smoothValue = value * value * (3 - 2 * value);
+          return smoothValue + 0.22 * value * Math.sin(Math.PI * value);
         }
 
         function wrapAngle(angle) {
@@ -1335,7 +1336,7 @@
 
         function draw(progress) {
           context.clearRect(0, 0, width, height);
-          var amount = smooth(progress);
+          var amount = settle(progress);
           var bend = Math.sin(Math.PI * amount);
           updateFillStyles(progress);
 
@@ -1384,7 +1385,7 @@
         }
 
         function requestRender() {
-          if (animationFrame || !isInViewport || !isPageVisible || !width || !height) return;
+          if (animationFrame || mobileViewport.matches || !isInViewport || !isPageVisible || !width || !height) return;
           if (hasPainted && (reducedMotion || elapsed >= duration)) return;
           animationFrame = window.requestAnimationFrame(render);
         }
@@ -1408,7 +1409,7 @@
 
         function render(time) {
           animationFrame = 0;
-          if (!isInViewport || !isPageVisible) return;
+          if (mobileViewport.matches || !isInViewport || !isPageVisible) return;
 
           if (reducedMotion) {
             draw(1);
