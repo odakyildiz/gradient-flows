@@ -1137,7 +1137,7 @@
             <p class="hero-date-line"><time datetime="2026-11-23">23</time>–<time datetime="2026-11-25">25 November 2026</time></p>
           </div>
 
-          <figure class="measure-stage" role="img" aria-label="An abstract particle animation in which a compact Gaussian cloud transforms into a structured five-petal form.">
+          <figure class="measure-stage" role="img" aria-label="An abstract particle animation in which a compact Gaussian cloud continuously transforms through seven symmetric distribution-like forms.">
             <canvas id="measure-canvas" aria-hidden="true"></canvas>
           </figure>
         </div>
@@ -1313,6 +1313,7 @@
 
         var context = canvas.getContext('2d');
         var particles = [];
+        var shapeTargets = new Float32Array(0);
         var colours = [
           [119, 151, 255],
           [105, 228, 220],
@@ -1334,7 +1335,8 @@
         var scaleX = 0;
         var scaleY = 0;
         var pixelRatio = 1;
-        var elapsed = 0;
+        var segmentElapsed = 0;
+        var shapeIndex = -1;
         var lastPaint = null;
         var animationFrame = 0;
         var resizeFrame = 0;
@@ -1342,7 +1344,12 @@
         var isInViewport = true;
         var isPageVisible = document.visibilityState !== 'hidden';
         var duration = 1000;
+        var holdDuration = 500;
+        var shapeCount = 7;
+        var shapeSpins = [1, -1, 1, -1, 1, -1, 1];
         var frameInterval = 32;
+        var loopStylesReady = false;
+        var isHolding = false;
         var mobileViewport = window.matchMedia('(max-width: 700px)');
         var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
         var reducedMotion = motionPreference.matches || mobileViewport.matches;
@@ -1390,6 +1397,31 @@
           }
         }
 
+        function targetOffset(shape, index) {
+          return (shape * particles.length + index) * 2;
+        }
+
+        function writeTarget(shape, index, x, y) {
+          var offset = targetOffset(shape, index);
+          shapeTargets[offset] = x;
+          shapeTargets[offset + 1] = y;
+        }
+
+        function writePolarTarget(shape, index, radius, angle, transverse) {
+          writeTarget(
+            shape,
+            index,
+            radius * Math.cos(angle) - transverse * Math.sin(angle),
+            radius * Math.sin(angle) + transverse * Math.cos(angle)
+          );
+        }
+
+        function updateLoopFillStyles() {
+          if (loopStylesReady) return;
+          updateFillStyles(1, 1);
+          loopStylesReady = true;
+        }
+
         function buildParticles() {
           var random = seededRandom(20261123);
           var count = mobileViewport.matches ? 130 : 240;
@@ -1432,6 +1464,9 @@
 
             return {
               arm: arm,
+              armAngle: armAngle,
+              ribbon: ribbon,
+              position: position,
               sourceX: sourceX,
               sourceY: sourceY,
               streamX: streamX,
@@ -1447,6 +1482,83 @@
               tailY: []
             };
           });
+
+          buildTargetLayouts();
+        }
+
+        function buildTargetLayouts() {
+          var targetRandom = seededRandom(20261126);
+          shapeTargets = new Float32Array(shapeCount * particles.length * 2);
+
+          for (var index = 0; index < particles.length; index += 1) {
+            var particle = particles[index];
+            var position = particle.position;
+            var signedPosition = position * 2 - 1;
+            var petal = Math.sin(Math.PI * position);
+            var ribbonOffset = particle.ribbon - 1;
+            var radialJitter = clamp(normal(targetRandom), -1.15, 1.15);
+            var transverseJitter = clamp(normal(targetRandom), -1.15, 1.15);
+            var armAngle = particle.armAngle;
+
+            // The approved opening five-petal fold.
+            writeTarget(0, index, particle.targetX, particle.targetY);
+
+            // A five-sector iris with a quiet central aperture.
+            writePolarTarget(
+              1,
+              index,
+              0.58 + 0.12 * Math.cos(Math.PI * signedPosition) + 0.03 * ribbonOffset + 0.022 * radialJitter,
+              armAngle + 0.56 * signedPosition + 0.1 * Math.sin(Math.PI * 2 * position),
+              0.065 * (ribbonOffset + 0.6 * transverseJitter)
+            );
+
+            // Three broken orbital bands, with a small five-fold ripple.
+            var orbitAngle = armAngle + 1.22 * signedPosition;
+            writePolarTarget(
+              2,
+              index,
+              0.32 + 0.23 * (ribbonOffset + 1) + 0.04 * Math.cos(5 * orbitAngle + 0.25) + 0.03 * radialJitter,
+              orbitAngle,
+              0.04 * transverseJitter
+            );
+
+            // Broad aperture petals rather than thin radial spokes.
+            writePolarTarget(
+              3,
+              index,
+              0.17 + 0.67 * position + 0.02 * radialJitter,
+              armAngle + 0.31 * signedPosition * (0.35 + 0.65 * petal),
+              0.17 * petal * (ribbonOffset + 0.45 * transverseJitter)
+            );
+
+            // A dense wheel of curved crescents.
+            writePolarTarget(
+              4,
+              index,
+              0.46 + 0.25 * position + 0.04 * radialJitter,
+              armAngle + 0.98 * signedPosition + 0.25 * petal,
+              0.085 * (ribbonOffset + 0.55 * transverseJitter)
+            );
+
+            // A full halo whose density swells into five soft waves.
+            var haloAngle = armAngle + Math.PI * 2 * position + 0.1 * ribbonOffset + 0.04 * transverseJitter;
+            writePolarTarget(
+              5,
+              index,
+              0.52 + 0.15 * Math.cos(5 * haloAngle) + 0.07 * ribbonOffset + 0.035 * radialJitter,
+              haloAngle,
+              0.018 * transverseJitter
+            );
+
+            // A calmer braid closes the loop back into the opening rosette.
+            writePolarTarget(
+              6,
+              index,
+              0.18 + 0.67 * position + 0.04 * petal + 0.025 * radialJitter,
+              armAngle + 0.1 + 1.5 * position - 0.3 * position * position + 0.14 * ribbonOffset * petal,
+              0.065 * petal * (ribbonOffset + 0.5 * transverseJitter)
+            );
+          }
         }
 
         function resetTails() {
@@ -1492,8 +1604,18 @@
           }
         }
 
-        function draw(progress) {
+        function recordTail(particle) {
+          particle.tailX.push(particle.renderX);
+          particle.tailY.push(particle.renderY);
+          if (particle.tailX.length > 4) {
+            particle.tailX.shift();
+            particle.tailY.shift();
+          }
+        }
+
+        function drawOpening(progress) {
           context.clearRect(0, 0, width, height);
+          loopStylesReady = false;
           var streamStage = ease(clamp(progress / 0.38, 0, 1));
           var braidStage = ease(clamp((progress - 0.24) / 0.52, 0, 1));
           var lockInput = clamp((progress - 0.62) / 0.38, 0, 1);
@@ -1519,18 +1641,62 @@
             particle.renderX = centreX + particleX * scaleX;
             particle.renderY = centreY + particleY * scaleY;
             if (particle.tailed && !reducedMotion && progress > 0.1 && progress < 0.78) {
-              particle.tailX.push(particle.renderX);
-              particle.tailY.push(particle.renderY);
-              if (particle.tailX.length > 4) {
-                particle.tailX.shift();
-                particle.tailY.shift();
-              }
+              recordTail(particle);
             }
           }
 
           drawTails(tailFade);
           drawParticles();
           hasPainted = true;
+        }
+
+        function drawMorph(progress, fromShape, toShape) {
+          context.clearRect(0, 0, width, height);
+          var transportStage = ease(progress);
+          var flowPulse = Math.sin(Math.PI * progress);
+          var spinDirection = shapeSpins[fromShape];
+          var holding = progress >= 1;
+          updateLoopFillStyles();
+
+          for (var index = 0; index < particles.length; index += 1) {
+            var particle = particles[index];
+            var fromOffset = targetOffset(fromShape, index);
+            var toOffset = targetOffset(toShape, index);
+            var fromX = shapeTargets[fromOffset];
+            var fromY = shapeTargets[fromOffset + 1];
+            var deltaX = shapeTargets[toOffset] - fromX;
+            var deltaY = shapeTargets[toOffset + 1] - fromY;
+            var transportX = fromX + deltaX * transportStage;
+            var transportY = fromY + deltaY * transportStage;
+            var travelDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            var bend = flowPulse * (0.085 + 0.105 * Math.min(travelDistance, 1)) * spinDirection * particle.flowBias;
+            var curvedX = transportX - deltaY * bend;
+            var curvedY = transportY + deltaX * bend;
+            var transportRadius = Math.sqrt(curvedX * curvedX + curvedY * curvedY);
+            var fieldTurn = flowPulse * spinDirection * (0.08 + 0.15 * Math.min(transportRadius, 0.95)) * particle.flowBias;
+            var fieldCos = Math.cos(fieldTurn);
+            var fieldSin = Math.sin(fieldTurn);
+            var particleX = curvedX * fieldCos - curvedY * fieldSin;
+            var particleY = curvedX * fieldSin + curvedY * fieldCos;
+            particle.renderX = centreX + particleX * scaleX;
+            particle.renderY = centreY + particleY * scaleY;
+
+            if (particle.tailed && !reducedMotion && !holding) recordTail(particle);
+          }
+
+          drawTails(holding ? 0 : 1);
+          drawParticles();
+          hasPainted = true;
+        }
+
+        function drawCurrentPhase() {
+          var progress = Math.min(segmentElapsed / duration, 1);
+          if (shapeIndex < 0) {
+            drawOpening(progress);
+            return;
+          }
+
+          drawMorph(progress, shapeIndex, (shapeIndex + 1) % shapeCount);
         }
 
         function resizeCanvas() {
@@ -1554,6 +1720,7 @@
           context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
           resetTails();
           hasPainted = false;
+          isHolding = false;
           lastPaint = null;
           requestRender();
         }
@@ -1564,7 +1731,7 @@
 
         function requestRender() {
           if (animationFrame || mobileViewport.matches || !isInViewport || !isPageVisible || !width || !height) return;
-          if (hasPainted && (reducedMotion || elapsed >= duration)) return;
+          if (hasPainted && reducedMotion) return;
           animationFrame = window.requestAnimationFrame(render);
         }
 
@@ -1579,7 +1746,10 @@
           if (nextReducedMotion === reducedMotion) return;
           reducedMotion = nextReducedMotion;
           cancelRender();
-          elapsed = reducedMotion ? duration : 0;
+          segmentElapsed = 0;
+          shapeIndex = -1;
+          loopStylesReady = false;
+          isHolding = false;
           resetTails();
           hasPainted = false;
           lastPaint = null;
@@ -1591,20 +1761,28 @@
           if (mobileViewport.matches || !isInViewport || !isPageVisible) return;
 
           if (reducedMotion) {
-            draw(1);
+            drawOpening(1);
             return;
           }
 
           if (lastPaint === null) {
             lastPaint = time;
-            draw(elapsed / duration);
+            isHolding = segmentElapsed >= duration;
+            drawCurrentPhase();
           } else if (time - lastPaint >= frameInterval) {
-            elapsed = Math.min(duration, elapsed + Math.min(time - lastPaint, 80));
+            segmentElapsed += Math.min(time - lastPaint, 80);
+            while (segmentElapsed >= duration + holdDuration) {
+              segmentElapsed -= duration + holdDuration;
+              shapeIndex = shapeIndex < 0 ? 0 : (shapeIndex + 1) % shapeCount;
+              resetTails();
+            }
+            var wasHolding = isHolding;
+            isHolding = segmentElapsed >= duration;
             lastPaint = time;
-            draw(elapsed / duration);
+            if (!isHolding || !wasHolding) drawCurrentPhase();
           }
 
-          if (elapsed < duration) requestRender();
+          requestRender();
         }
 
         buildParticles();
