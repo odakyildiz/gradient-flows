@@ -1137,7 +1137,7 @@
             <p class="hero-date-line"><time datetime="2026-11-23">23</time>–<time datetime="2026-11-25">25 November 2026</time></p>
           </div>
 
-          <figure class="measure-stage" role="img" aria-label="An abstract particle animation in which a compact Gaussian cloud continuously transforms through six symmetric distribution-like forms.">
+          <figure class="measure-stage" role="img" aria-label="An abstract particle animation in which a compact Gaussian cloud continuously transforms through five symmetric distribution-like forms.">
             <canvas id="measure-canvas" aria-hidden="true"></canvas>
           </figure>
         </div>
@@ -1344,9 +1344,9 @@
         var isInViewport = true;
         var isPageVisible = document.visibilityState !== 'hidden';
         var duration = 1000;
-        var holdDuration = 500;
-        var shapeCount = 6;
-        var shapeSpins = [1, -1, 1, -1, 1, -1];
+        var holdDuration = 3000;
+        var shapeCount = 5;
+        var shapeSpins = [1, -1, 1, -1, 1];
         var frameInterval = 32;
         var loopStylesReady = false;
         var isHolding = false;
@@ -1538,16 +1538,6 @@
               0.46 + 0.25 * position + 0.04 * radialJitter,
               armAngle + 0.98 * signedPosition + 0.25 * petal,
               0.085 * (ribbonOffset + 0.55 * transverseJitter)
-            );
-
-            // A full halo whose density swells into five soft waves.
-            var haloAngle = armAngle + Math.PI * 2 * position + 0.1 * ribbonOffset + 0.04 * transverseJitter;
-            writePolarTarget(
-              5,
-              index,
-              0.52 + 0.15 * Math.cos(5 * haloAngle) + 0.07 * ribbonOffset + 0.035 * radialJitter,
-              haloAngle,
-              0.018 * transverseJitter
             );
 
           }
