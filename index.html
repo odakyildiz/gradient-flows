@@ -393,10 +393,10 @@
 
       .hero-sponsor-strip {
         display: grid;
-        width: min(100%, 24rem);
+        width: min(100%, 36rem);
         align-items: stretch;
         column-gap: 0.65rem;
-        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .hero-sponsor-mark {
@@ -437,6 +437,12 @@
 
       .hero-sponsor-mark--g-research img {
         max-width: 10.75rem;
+      }
+
+      .hero-sponsor-mark--rss img {
+        width: auto;
+        max-width: 100%;
+        max-height: 3.5rem;
       }
 
       .button {
@@ -1045,6 +1051,13 @@
 
         .hero-sponsor-strip {
           width: 100%;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hero-sponsor-mark--rss {
+          width: calc((100% - 0.65rem) / 2);
+          grid-column: 1 / -1;
+          justify-self: center;
         }
 
         .section {
@@ -1157,6 +1170,9 @@
                 <a class="hero-sponsor-mark hero-sponsor-mark--g-research" href="https://www.gresearch.com/" target="_blank" rel="noreferrer" aria-label="Visit G-Research">
                   <img src="sponsor_assets/2.png" width="720" height="119" alt="G-Research" decoding="async" />
                 </a>
+                <span class="hero-sponsor-mark hero-sponsor-mark--rss">
+                  <img src="sponsor_assets/3.jpg" width="1276" height="709" alt="Royal Statistical Society" decoding="async" />
+                </span>
               </div>
             </dd>
           </div>
