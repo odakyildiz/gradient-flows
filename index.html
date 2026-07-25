@@ -445,48 +445,12 @@
         max-height: 3.5rem;
       }
 
-      .button {
-        display: inline-flex;
-        min-height: 3rem;
-        padding: 0.85rem 1.15rem;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid transparent;
-        border-radius: 999px;
-        background: var(--mint);
-        color: var(--ink);
-        font-size: 0.76rem;
-        font-weight: 800;
-        letter-spacing: 0.055em;
-        line-height: 1;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-      }
-
-      .button::after {
-        margin-left: 0.68rem;
-        content: "↗";
-        font-size: 1rem;
-        line-height: 0.6;
-      }
-
-      .button:hover,
-      .button:focus-visible {
-        transform: translateY(-2px);
-        background: #d8ffdc;
-      }
-
-      .button-quiet {
-        border-color: rgba(245, 244, 238, 0.35);
-        background: rgba(245, 244, 238, 0.035);
-        color: var(--paper);
-      }
-
-      .button-quiet:hover,
-      .button-quiet:focus-visible {
-        border-color: var(--paper);
-        background: rgba(245, 244, 238, 0.12);
+      .information-note {
+        max-width: 34rem;
+        margin: 1.6rem 0 0;
+        color: #405052;
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
+        line-height: 1.55;
       }
 
       .measure-stage {
@@ -533,70 +497,6 @@
         font-family: var(--display);
         font-style: italic;
         font-weight: 400;
-      }
-
-      .intro-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.72fr);
-        gap: clamp(2rem, 10vw, 9rem);
-        align-items: end;
-      }
-
-      .intro-copy {
-        max-width: 37rem;
-        margin: 2.15rem 0 0;
-        color: #334143;
-        font-size: clamp(1rem, 1.6vw, 1.25rem);
-        line-height: 1.65;
-      }
-
-      .intro-copy p {
-        margin: 0;
-      }
-
-      .intro-copy p + p {
-        margin-top: 1.25rem;
-      }
-
-      .signal-card {
-        position: relative;
-        overflow: hidden;
-        padding: 1.55rem;
-        border: 1px solid var(--line-light);
-        border-radius: 1rem;
-        background: #e9eee7;
-      }
-
-      .signal-card::after {
-        position: absolute;
-        width: 12rem;
-        height: 12rem;
-        right: -4.4rem;
-        bottom: -6.2rem;
-        border: 1px solid rgba(25, 127, 119, 0.4);
-        border-radius: 50%;
-        box-shadow: 0 0 0 1.2rem rgba(25, 127, 119, 0.08), 0 0 0 2.4rem rgba(25, 127, 119, 0.04);
-        content: "";
-      }
-
-      .signal-card span {
-        display: block;
-        color: #197f77;
-        font-family: var(--display);
-        font-size: 3rem;
-        font-style: italic;
-        line-height: 0.85;
-      }
-
-      .signal-card p {
-        position: relative;
-        z-index: 1;
-        max-width: 17rem;
-        margin: 1.1rem 0 0;
-        color: #243537;
-        font-size: 0.94rem;
-        font-weight: 600;
-        line-height: 1.5;
       }
 
       .archive {
@@ -781,90 +681,6 @@
         text-underline-offset: 0.3rem;
       }
 
-      .closing {
-        position: relative;
-        overflow: hidden;
-        padding: clamp(5rem, 10vw, 9rem) 0 3.7rem;
-        background: var(--ink);
-        color: var(--paper);
-      }
-
-      .closing::before {
-        position: absolute;
-        width: min(70vw, 60rem);
-        height: min(70vw, 60rem);
-        left: 50%;
-        bottom: -43rem;
-        transform: translateX(-50%);
-        border: 1px solid rgba(185, 247, 194, 0.2);
-        border-radius: 50%;
-        box-shadow: 0 0 0 3rem rgba(185, 247, 194, 0.025), 0 0 0 6rem rgba(185, 247, 194, 0.02), 0 0 0 9rem rgba(185, 247, 194, 0.015);
-        content: "";
-      }
-
-      .closing-inner {
-        position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(15rem, 0.55fr);
-        gap: 2rem;
-        align-items: end;
-      }
-
-      .closing .section-label {
-        color: var(--mint);
-      }
-
-      .closing h2 {
-        max-width: 12ch;
-        margin: 0;
-        font-size: clamp(3rem, 6.3vw, 6.2rem);
-        font-weight: 470;
-        letter-spacing: -0.075em;
-        line-height: 0.88;
-      }
-
-      .closing h2 em {
-        color: var(--mint);
-        font-family: var(--display);
-        font-style: italic;
-        font-weight: 400;
-      }
-
-      .closing-side {
-        padding-bottom: 0.45rem;
-      }
-
-      .closing-side p {
-        max-width: 24rem;
-        margin: 0;
-        color: rgba(245, 244, 238, 0.68);
-        font-size: 1rem;
-        line-height: 1.58;
-      }
-
-      .closing-side .button {
-        margin-top: 1.5rem;
-      }
-
-      .closing-status {
-        position: relative;
-        display: flex;
-        width: min(100% - 3rem, 1180px);
-        margin: 4rem auto 0;
-        padding: 1.15rem 0 0;
-        justify-content: space-between;
-        border-top: 1px solid var(--line-dark);
-        color: rgba(245, 244, 238, 0.47);
-        font-size: 0.66rem;
-        font-weight: 700;
-        letter-spacing: 0.09em;
-        text-transform: uppercase;
-      }
-
-      .closing-status strong {
-        color: var(--mint);
-      }
-
       .site-footer {
         position: relative;
         padding: 1.3rem 0 2rem;
@@ -939,22 +755,8 @@
           border-bottom: 0;
         }
 
-        .intro-grid,
-        .closing-inner {
-          grid-template-columns: 1fr;
-        }
-
-        .signal-card {
-          max-width: 30rem;
-        }
-
         .archive-heading {
           grid-template-columns: 1fr;
-        }
-
-        .closing-side {
-          max-width: 31rem;
-          padding-bottom: 0;
         }
       }
 
@@ -1084,21 +886,6 @@
           margin-top: 1.7rem;
         }
 
-        .closing {
-          padding-top: 5.5rem;
-        }
-
-        .closing h2 {
-          font-size: clamp(3.1rem, 14vw, 5.1rem);
-        }
-
-        .closing-status {
-          width: min(100% - 2rem, 1180px);
-          margin-top: 3rem;
-          flex-direction: column;
-          gap: 0.45rem;
-        }
-
         .footer-inner {
           flex-direction: column;
           line-height: 1.5;
@@ -1129,9 +916,8 @@
           <span class="sr-only">Open menu</span>
         </button>
         <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
-          <a href="#about">About</a>
+          <a href="#information">2026 information</a>
           <a href="#past-events">Past events</a>
-          <a href="#updates">2026 information</a>
         </nav>
       </div>
     </header>
@@ -1179,24 +965,11 @@
         </dl>
       </section>
 
-      <section class="section" id="about" aria-labelledby="about-title">
-        <div class="container intro-grid">
-          <div>
-            <p class="section-label">Overview</p>
-            <h2 class="section-title" id="about-title">Gradient flows across <em>probability</em>, statistics and learning.</h2>
-            <div class="intro-copy">
-              <p>
-                Gradient flows give us a language for following distributions as they change. They connect the geometry of probability with practical questions in sampling, inference, optimisation and generative modelling.
-              </p>
-              <p>
-                The third workshop brings together researchers in statistics, machine learning and applied mathematics to examine both foundational questions and computational methods.
-              </p>
-            </div>
-          </div>
-          <aside class="signal-card" aria-label="2026 workshop organisers">
-            <span>2026</span>
-            <p><strong>Organisers</strong><br />O. Deniz Akyildiz<br />Louis Sharrock<br />Grigorios A. Pavliotis</p>
-          </aside>
+      <section class="section" id="information" aria-labelledby="information-title">
+        <div class="container">
+          <p class="section-label">2026</p>
+          <h2 class="section-title" id="information-title">2026 <em>information.</em></h2>
+          <p class="information-note">The programme, invited speakers and registration information will be announced shortly.</p>
         </div>
       </section>
 
@@ -1278,19 +1051,6 @@
         </div>
       </section>
 
-      <section class="closing" id="updates" aria-labelledby="updates-title">
-        <div class="container closing-inner">
-          <div>
-            <p class="section-label">2026 announcement</p>
-            <h2 id="updates-title">2026 <em>information.</em></h2>
-          </div>
-          <div class="closing-side">
-            <p>23–25 November 2026 at Imperial College London, South Kensington Campus. Registration and speaker information will be added here.</p>
-            <a class="button" href="#top">Back to top</a>
-          </div>
-        </div>
-        <div class="closing-status"><span><strong>23–25 November 2026</strong> / Imperial College London</span><span>South Kensington Campus</span></div>
-      </section>
     </main>
 
     <footer class="site-footer">
