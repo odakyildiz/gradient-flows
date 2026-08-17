@@ -853,13 +853,14 @@
 
         .hero-sponsor-strip {
           width: 100%;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          row-gap: 0.55rem;
+          grid-template-columns: 1fr;
         }
 
         .hero-sponsor-mark--rss {
-          width: calc((100% - 0.65rem) / 2);
-          grid-column: 1 / -1;
-          justify-self: center;
+          width: 100%;
+          grid-column: auto;
+          justify-self: stretch;
         }
 
         .section {
