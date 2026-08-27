@@ -453,6 +453,200 @@
         line-height: 1.55;
       }
 
+      .accepted-speakers {
+        border-top: 1px solid rgba(7, 16, 18, 0.08);
+        background: var(--paper);
+      }
+
+      .accepted-heading {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.5fr);
+        align-items: end;
+      }
+
+      .accepted-heading > p {
+        max-width: 23rem;
+        margin: 0 0 0.35rem;
+        color: #4e5b5c;
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .speaker-grid {
+        display: grid;
+        margin-top: 4.25rem;
+        gap: 3.5rem 1.25rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .speaker-card {
+        min-width: 0;
+        text-align: center;
+      }
+
+      .speaker-portrait {
+        width: clamp(8.25rem, 14vw, 10.75rem);
+        aspect-ratio: 1;
+        margin: 0 auto;
+        overflow: hidden;
+        border: 1px solid rgba(7, 16, 18, 0.12);
+        border-radius: 50%;
+        background: var(--paper-soft);
+        box-shadow: 0 0 0 0.35rem var(--paper), 0 0 0 0.46rem rgba(25, 127, 119, 0.27);
+      }
+
+      .speaker-portrait img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: var(--object-position, 50% 38%);
+      }
+
+      .speaker-card:nth-child(4n + 2) .speaker-portrait {
+        box-shadow: 0 0 0 0.35rem var(--paper), 0 0 0 0.46rem rgba(101, 84, 173, 0.28);
+      }
+
+      .speaker-card:nth-child(4n + 3) .speaker-portrait {
+        box-shadow: 0 0 0 0.35rem var(--paper), 0 0 0 0.46rem rgba(255, 146, 109, 0.3);
+      }
+
+      .speaker-card:nth-child(4n + 4) .speaker-portrait {
+        box-shadow: 0 0 0 0.35rem var(--paper), 0 0 0 0.46rem rgba(119, 151, 255, 0.3);
+      }
+
+      .speaker-card h3 {
+        margin: 1.35rem 0 0.35rem;
+        color: var(--ink);
+        font-size: 1rem;
+        font-weight: 720;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+      }
+
+      .speaker-card p {
+        max-width: 16rem;
+        margin: 0 auto;
+        color: #536161;
+        font-size: 0.79rem;
+        line-height: 1.45;
+      }
+
+      .venue-section {
+        position: relative;
+        display: flex;
+        min-height: clamp(31rem, 52vw, 42rem);
+        overflow: hidden;
+        align-items: center;
+        isolation: isolate;
+        background-color: var(--ink);
+        background-image:
+          linear-gradient(90deg, rgba(7, 16, 18, 0.94) 0%, rgba(7, 16, 18, 0.8) 46%, rgba(7, 16, 18, 0.34) 100%),
+          url("venue_assets/170QG_entrance.png");
+        background-position: center;
+        background-size: cover;
+        color: var(--paper);
+      }
+
+      .venue-section .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .venue-copy {
+        max-width: 45rem;
+      }
+
+      .venue-section .section-label {
+        color: var(--mint);
+      }
+
+      .venue-section .section-title {
+        max-width: 11ch;
+        color: var(--paper);
+      }
+
+      .venue-section .section-title em {
+        color: var(--aqua);
+      }
+
+      .venue-lede {
+        display: block;
+        margin-bottom: 0.65rem;
+        color: var(--aqua);
+        font-family: var(--display);
+        font-size: clamp(1.45rem, 2.2vw, 2rem);
+        font-style: italic;
+        line-height: 1.1;
+      }
+
+      .venue-description {
+        max-width: 39rem;
+        margin: 1.8rem 0 0;
+        color: rgba(245, 244, 238, 0.86);
+        font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+        line-height: 1.6;
+      }
+
+      .venue-description + .venue-description {
+        max-width: 37rem;
+        margin-top: 0.9rem;
+      }
+
+      .venue-meta {
+        display: grid;
+        max-width: 39rem;
+        margin: 2.5rem 0 0;
+        gap: 1.1rem 2.2rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .venue-meta div {
+        padding-top: 0.85rem;
+        border-top: 1px solid rgba(245, 244, 238, 0.3);
+      }
+
+      .venue-meta dt {
+        color: rgba(245, 244, 238, 0.58);
+        font-size: 0.64rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .venue-meta dd {
+        margin: 0.42rem 0 0;
+        color: var(--paper);
+        font-size: 0.86rem;
+        font-weight: 650;
+        line-height: 1.4;
+      }
+
+      .registration-note {
+        display: inline-flex;
+        max-width: 39rem;
+        margin: 2.3rem 0 0;
+        padding: 0.8rem 1rem;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        align-items: baseline;
+        border: 1px solid rgba(185, 247, 194, 0.45);
+        border-radius: 0.45rem;
+        background: rgba(7, 16, 18, 0.42);
+        color: rgba(245, 244, 238, 0.86);
+        font-size: 0.83rem;
+        line-height: 1.45;
+      }
+
+      .registration-note strong {
+        color: var(--mint);
+        font-size: 0.67rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
       .measure-stage {
         position: relative;
         z-index: 1;
@@ -758,6 +952,14 @@
         .archive-heading {
           grid-template-columns: 1fr;
         }
+
+        .accepted-heading {
+          grid-template-columns: 1fr;
+        }
+
+        .speaker-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 700px) {
@@ -871,6 +1073,37 @@
           font-size: clamp(2.6rem, 12vw, 4.2rem);
         }
 
+        .speaker-grid {
+          margin-top: 3.25rem;
+          gap: 3rem 0.9rem;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .speaker-portrait {
+          width: clamp(7.25rem, 29vw, 9.5rem);
+        }
+
+        .speaker-card h3 {
+          font-size: 0.94rem;
+        }
+
+        .speaker-card p {
+          font-size: 0.74rem;
+        }
+
+        .venue-section {
+          min-height: 0;
+          align-items: flex-start;
+          background-image:
+            linear-gradient(180deg, rgba(7, 16, 18, 0.9) 0%, rgba(7, 16, 18, 0.82) 72%, rgba(7, 16, 18, 0.9) 100%),
+            url("venue_assets/170QG_entrance.png");
+          background-position: center;
+        }
+
+        .venue-meta {
+          grid-template-columns: 1fr;
+        }
+
         .past-grid {
           grid-template-columns: 1fr;
         }
@@ -917,6 +1150,7 @@
           <span class="sr-only">Open menu</span>
         </button>
         <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
+          <a href="#accepted-speakers">Accepted speakers</a>
           <a href="#information">2026 information</a>
           <a href="#past-events">Past events</a>
         </nav>
@@ -966,11 +1200,139 @@
         </dl>
       </section>
 
-      <section class="section" id="information" aria-labelledby="information-title">
+      <section class="section accepted-speakers" id="accepted-speakers" aria-labelledby="accepted-speakers-title">
         <div class="container">
-          <p class="section-label">2026</p>
-          <h2 class="section-title" id="information-title">2026 <em>information.</em></h2>
-          <p class="information-note">The programme, invited speakers and registration information will be announced shortly.</p>
+          <div class="accepted-heading">
+            <div>
+              <p class="section-label">2026 / Accepted</p>
+              <h2 class="section-title" id="accepted-speakers-title">Accepted <em>speakers.</em></h2>
+            </div>
+            <p>Meet the researchers joining us in London this November.</p>
+          </div>
+
+          <!-- To edit a speaker: update the image, name and affiliation; adjust --object-position when a crop needs fine-tuning. -->
+          <div class="speaker-grid" aria-label="Accepted speakers for the 2026 workshop">
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 30%;">
+                <img src="speakers/agazzi.png" width="1023" height="1537" alt="Portrait of Andrea Agazzi" loading="lazy" decoding="async" />
+              </div>
+              <h3>Andrea Agazzi</h3>
+              <p>University of Bern</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 44%;">
+                <img src="speakers/crucinio.jpeg" width="568" height="837" alt="Portrait of Francesca Crucinio" loading="lazy" decoding="async" />
+              </div>
+              <h3>Francesca Crucinio</h3>
+              <p>University of Turin</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 50%;">
+                <img src="speakers/duncan.jpeg" width="720" height="720" alt="Portrait of Andrew Duncan" loading="lazy" decoding="async" />
+              </div>
+              <h3>Andrew Duncan</h3>
+              <p>Imperial College London</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 40%;">
+                <img src="speakers/korba.jpeg" width="2806" height="3608" alt="Portrait of Anna Korba" loading="lazy" decoding="async" />
+              </div>
+              <h3>Anna Korba</h3>
+              <p>ENSAE Paris / CREST</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 38%;">
+                <img src="speakers/monmarche.jpg" width="3014" height="4301" alt="Portrait of Pierre Monmarché" loading="lazy" decoding="async" />
+              </div>
+              <h3>Pierre Monmarché</h3>
+              <p>Université Gustave Eiffel</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 50%;">
+                <img src="speakers/reich.jpeg" width="225" height="225" alt="Portrait of Sebastian Reich" loading="lazy" decoding="async" />
+              </div>
+              <h3>Sebastian Reich</h3>
+              <p>University of Potsdam</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 40%;">
+                <img src="speakers/schillings.jpg" width="328" height="415" alt="Portrait of Claudia Schillings" loading="lazy" decoding="async" />
+              </div>
+              <h3>Claudia Schillings</h3>
+              <p>Freie Universität Berlin</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 36%;">
+                <img src="speakers/schlichting.jpg" width="450" height="600" alt="Portrait of André Schlichting" loading="lazy" decoding="async" />
+              </div>
+              <h3>André Schlichting</h3>
+              <p>University of Ulm</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 40%;">
+                <img src="speakers/shalova.jpg" width="1280" height="1505" alt="Portrait of Anna Shalova" loading="lazy" decoding="async" />
+              </div>
+              <h3>Anna Shalova</h3>
+              <p>University of Amsterdam</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 50%;">
+                <img src="speakers/vanden-eijnden.jpg" width="200" height="200" alt="Portrait of Eric Vanden-Eijnden" loading="lazy" decoding="async" />
+              </div>
+              <h3>Eric Vanden-Eijnden</h3>
+              <p>New York University</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 30%;">
+                <img src="speakers/wolfram.webp" width="144" height="173" alt="Portrait of Marie-Therese Wolfram" loading="lazy" decoding="async" />
+              </div>
+              <h3>Marie-Therese Wolfram</h3>
+              <p>University of Warwick</p>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-portrait" style="--object-position: 50% 40%;">
+                <img src="speakers/zahm.png" width="648" height="915" alt="Portrait of Olivier Zahm" loading="lazy" decoding="async" />
+              </div>
+              <h3>Olivier Zahm</h3>
+              <p>Inria / Université Grenoble Alpes</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section venue-section" id="information" aria-labelledby="information-title">
+        <div class="container">
+          <div class="venue-copy">
+            <p class="section-label">2026 / Venue</p>
+            <h2 class="section-title" id="information-title">2026 <em>information.</em></h2>
+            <p class="venue-description">
+              The workshop will take place at 170 Queen’s Gate, an elegant Victorian venue in South Kensington for meetings, seminars and conferences.
+            </p>
+
+            <dl class="venue-meta">
+              <div>
+                <dt>Venue</dt>
+                <dd>170 Queen’s Gate</dd>
+              </div>
+              <div>
+                <dt>Location</dt>
+                <dd>South Kensington, London</dd>
+              </div>
+            </dl>
+
+            <p class="registration-note"><strong>Registration</strong> Information will be made available soon.</p>
+          </div>
         </div>
       </section>
 
@@ -1058,6 +1420,7 @@
       <div class="footer-inner">
         <span>3rd Workshop on Gradient Flows for Sampling, Inference, and Learning</span>
         <div class="footer-links">
+          <a href="#accepted-speakers">Accepted speakers</a>
           <a href="#past-events">Past editions</a>
         </div>
       </div>
