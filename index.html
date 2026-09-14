@@ -33,7 +33,7 @@
       }
 
       html {
-        scroll-behavior: smooth;
+        scroll-behavior: auto;
       }
 
       body {
@@ -770,7 +770,7 @@
         line-height: 1;
       }
 
-      .registration-card > p:not(.registration-status, .poster-registration-note, .poster-subject, .poster-warning) {
+      .registration-card > p:not(.registration-status, .poster-registration-note, .poster-subject) {
         max-width: 34rem;
         margin: 1.15rem 0 0;
         color: #4d5b5c;
@@ -884,7 +884,7 @@
       }
 
       .poster-deadline,
-      .poster-decision,
+      .poster-contents,
       .poster-format {
         margin: 0;
         padding: 0.9rem 1rem;
@@ -901,13 +901,13 @@
         background: rgba(77, 217, 209, 0.1);
       }
 
-      .poster-decision {
+      .poster-contents {
         border: 1px solid rgba(119, 151, 255, 0.3);
         background: rgba(119, 151, 255, 0.1);
       }
 
       .poster-deadline span,
-      .poster-decision span,
+      .poster-contents span,
       .poster-format span {
         display: block;
         margin-bottom: 0.4rem;
@@ -925,12 +925,12 @@
         color: #126d67;
       }
 
-      .poster-decision span {
+      .poster-contents span {
         color: #465ba0;
       }
 
       .poster-deadline strong,
-      .poster-decision strong,
+      .poster-contents strong,
       .poster-format strong {
         color: var(--ink);
         font-size: 1rem;
@@ -979,18 +979,6 @@
         color: var(--ink);
         font-size: 0.96rem;
         line-height: 1.45;
-      }
-
-      .poster-warning {
-        margin: auto 0 0;
-        padding-top: 1.4rem;
-        color: #73311d;
-        font-size: 0.9rem;
-        line-height: 1.55;
-      }
-
-      .poster-warning strong {
-        font-weight: 850;
       }
 
       .archive {
@@ -1437,10 +1425,6 @@
           grid-template-columns: 1fr;
         }
 
-        .poster-warning {
-          margin-top: 2.2rem;
-        }
-
         .past-grid {
           grid-template-columns: 1fr;
         }
@@ -1758,18 +1742,21 @@
               <h3>Submit a poster abstract</h3>
               <div class="poster-requirements" aria-label="Poster abstract requirements">
                 <p class="poster-deadline">
-                  <span>Abstract submission deadline</span>
-                  <strong><time datetime="2026-10-23T17:00:00+01:00">23 October 2026 · 5:00 pm (UK time)</time></strong>
-                </p>
-                <p class="poster-decision">
-                  <span>Decision notification</span>
+                  <span>Final submission deadline</span>
                   <strong><time datetime="2026-10-30">30 October 2026</time></strong>
                 </p>
+                <p class="poster-contents">
+                  <span>Submission contents</span>
+                  <strong>Title + short abstract</strong>
+                </p>
                 <p class="poster-format">
-                  <span>Required format</span>
-                  <strong>PDF · 1 page</strong>
+                  <span>File format</span>
+                  <strong>PDF · maximum 1 page</strong>
                 </p>
               </div>
+              <p class="poster-registration-note">
+                <strong>Please submit as soon as possible.</strong> Abstracts will be reviewed as they arrive, and suitable submissions will be accepted on a rolling basis. Poster capacity is limited, so submissions may close before the final deadline once all available places have been filled.
+              </p>
               <p class="poster-registration-note">
                 <strong>Workshop registration is separate.</strong> A poster abstract does not reserve a place. Please
                 <a
@@ -1788,7 +1775,6 @@
                 <span>Email subject</span>
                 <strong>Poster Submission to Gradient Flows Workshop</strong>
               </p>
-              <p class="poster-warning"><strong>Please make sure that the subject line is exactly as above.</strong> Otherwise, your submission might go missing.</p>
             </article>
           </div>
         </div>
