@@ -13,6 +13,8 @@
       :root {
         --ink: #071012;
         --ink-soft: #0c1b1d;
+        --charcoal: #283436;
+        --charcoal-soft: #202c2e;
         --paper: #f5f4ee;
         --paper-soft: #e8e9e0;
         --mint: #b9f7c2;
@@ -393,15 +395,16 @@
 
       .hero-sponsor-strip {
         display: grid;
-        width: min(100%, 36rem);
+        width: min(100%, 48rem);
         align-items: stretch;
         column-gap: 0.65rem;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
       .hero-sponsor-mark {
         display: flex;
         width: 100%;
+        height: 4.1rem;
         min-height: 4.1rem;
         padding: 0.68rem 0.72rem;
         min-width: 0;
@@ -445,6 +448,18 @@
         max-height: 3.5rem;
       }
 
+      .hero-sponsor-mark--qrt {
+        padding: 0.3rem 0.45rem;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .hero-sponsor-mark--qrt img {
+        width: auto;
+        max-width: 100%;
+        max-height: 3.5rem;
+      }
+
       .information-note {
         max-width: 34rem;
         margin: 1.6rem 0 0;
@@ -454,8 +469,21 @@
       }
 
       .accepted-speakers {
-        border-top: 1px solid rgba(7, 16, 18, 0.08);
-        background: var(--paper);
+        border-top: 1px solid rgba(245, 244, 238, 0.1);
+        background: var(--charcoal);
+        color: var(--paper);
+      }
+
+      .accepted-speakers .section-label {
+        color: var(--mint);
+      }
+
+      .accepted-speakers .section-title {
+        color: var(--paper);
+      }
+
+      .accepted-speakers .section-title em {
+        color: var(--aqua);
       }
 
       .accepted-heading {
@@ -468,7 +496,7 @@
       .accepted-heading > p {
         max-width: 23rem;
         margin: 0 0 0.35rem;
-        color: #4e5b5c;
+        color: rgba(245, 244, 238, 0.7);
         font-size: 0.98rem;
         line-height: 1.55;
       }
@@ -490,10 +518,10 @@
         aspect-ratio: 1;
         margin: 0 auto;
         overflow: hidden;
-        border: 1px solid rgba(7, 16, 18, 0.12);
+        border: 1px solid rgba(245, 244, 238, 0.14);
         border-radius: 50%;
-        background: var(--paper-soft);
-        box-shadow: 0 0 0 0.35rem var(--paper), 0 0 0 0.46rem rgba(25, 127, 119, 0.27);
+        background: var(--charcoal-soft);
+        box-shadow: 0 0 0 0.35rem var(--charcoal), 0 0 0 0.46rem rgba(105, 228, 220, 0.4);
       }
 
       .speaker-portrait img {
@@ -505,20 +533,20 @@
       }
 
       .speaker-card:nth-child(4n + 2) .speaker-portrait {
-        box-shadow: 0 0 0 0.35rem var(--paper), 0 0 0 0.46rem rgba(101, 84, 173, 0.28);
+        box-shadow: 0 0 0 0.35rem var(--charcoal), 0 0 0 0.46rem rgba(198, 168, 255, 0.44);
       }
 
       .speaker-card:nth-child(4n + 3) .speaker-portrait {
-        box-shadow: 0 0 0 0.35rem var(--paper), 0 0 0 0.46rem rgba(255, 146, 109, 0.3);
+        box-shadow: 0 0 0 0.35rem var(--charcoal), 0 0 0 0.46rem rgba(255, 146, 109, 0.46);
       }
 
       .speaker-card:nth-child(4n + 4) .speaker-portrait {
-        box-shadow: 0 0 0 0.35rem var(--paper), 0 0 0 0.46rem rgba(119, 151, 255, 0.3);
+        box-shadow: 0 0 0 0.35rem var(--charcoal), 0 0 0 0.46rem rgba(119, 151, 255, 0.46);
       }
 
       .speaker-card h3 {
         margin: 1.35rem 0 0.35rem;
-        color: var(--ink);
+        color: var(--paper);
         font-size: 1rem;
         font-weight: 720;
         letter-spacing: -0.025em;
@@ -528,7 +556,7 @@
       .speaker-card p {
         max-width: 16rem;
         margin: 0 auto;
-        color: #536161;
+        color: rgba(245, 244, 238, 0.62);
         font-size: 0.79rem;
         line-height: 1.45;
       }
@@ -540,13 +568,13 @@
         overflow: hidden;
         align-items: center;
         isolation: isolate;
-        background-color: var(--ink);
+        background-color: var(--paper);
         background-image:
-          linear-gradient(90deg, rgba(7, 16, 18, 0.94) 0%, rgba(7, 16, 18, 0.8) 46%, rgba(7, 16, 18, 0.34) 100%),
+          linear-gradient(90deg, rgba(245, 244, 238, 0.98) 0%, rgba(245, 244, 238, 0.91) 48%, rgba(245, 244, 238, 0.5) 100%),
           url("venue_assets/170QG_entrance.png");
         background-position: center;
         background-size: cover;
-        color: var(--paper);
+        color: var(--ink);
       }
 
       .venue-section .container {
@@ -559,22 +587,22 @@
       }
 
       .venue-section .section-label {
-        color: var(--mint);
+        color: #187a73;
       }
 
       .venue-section .section-title {
         max-width: 11ch;
-        color: var(--paper);
+        color: var(--ink);
       }
 
       .venue-section .section-title em {
-        color: var(--aqua);
+        color: #197f77;
       }
 
       .venue-lede {
         display: block;
         margin-bottom: 0.65rem;
-        color: var(--aqua);
+        color: #126d67;
         font-family: var(--display);
         font-size: clamp(1.45rem, 2.2vw, 2rem);
         font-style: italic;
@@ -584,7 +612,7 @@
       .venue-description {
         max-width: 39rem;
         margin: 1.8rem 0 0;
-        color: rgba(245, 244, 238, 0.86);
+        color: #344547;
         font-size: clamp(1.05rem, 1.5vw, 1.2rem);
         line-height: 1.6;
       }
@@ -604,11 +632,11 @@
 
       .venue-meta div {
         padding-top: 0.85rem;
-        border-top: 1px solid rgba(245, 244, 238, 0.3);
+        border-top: 1px solid rgba(7, 16, 18, 0.22);
       }
 
       .venue-meta dt {
-        color: rgba(245, 244, 238, 0.58);
+        color: #647171;
         font-size: 0.64rem;
         font-weight: 800;
         letter-spacing: 0.1em;
@@ -617,34 +645,10 @@
 
       .venue-meta dd {
         margin: 0.42rem 0 0;
-        color: var(--paper);
+        color: var(--ink);
         font-size: 0.86rem;
         font-weight: 650;
         line-height: 1.4;
-      }
-
-      .registration-note {
-        display: inline-flex;
-        max-width: 39rem;
-        margin: 2.3rem 0 0;
-        padding: 0.8rem 1rem;
-        gap: 0.8rem;
-        flex-wrap: wrap;
-        align-items: baseline;
-        border: 1px solid rgba(185, 247, 194, 0.45);
-        border-radius: 0.45rem;
-        background: rgba(7, 16, 18, 0.42);
-        color: rgba(245, 244, 238, 0.86);
-        font-size: 0.83rem;
-        line-height: 1.45;
-      }
-
-      .registration-note strong {
-        color: var(--mint);
-        font-size: 0.67rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
       }
 
       .measure-stage {
@@ -693,8 +697,291 @@
         font-weight: 400;
       }
 
+      .registration-section {
+        border-top: 1px solid rgba(7, 16, 18, 0.08);
+        background:
+          radial-gradient(circle at 95% 8%, rgba(105, 228, 220, 0.16), transparent 24rem),
+          var(--paper);
+      }
+
+      .registration-heading {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.5fr);
+        align-items: end;
+      }
+
+      .registration-heading > p {
+        max-width: 23rem;
+        margin: 0 0 0.35rem;
+        color: #425354;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .registration-grid {
+        display: grid;
+        margin-top: 3.6rem;
+        gap: 1.25rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .registration-card {
+        display: flex;
+        min-width: 0;
+        min-height: 26rem;
+        padding: clamp(1.5rem, 3.5vw, 2.6rem);
+        flex-direction: column;
+        border: 1px solid rgba(7, 16, 18, 0.15);
+        border-radius: 1rem;
+        background: var(--paper);
+      }
+
+      .registration-card--primary {
+        border-color: rgba(185, 247, 194, 0.3);
+        background: var(--charcoal);
+        color: var(--paper);
+      }
+
+      .registration-status {
+        width: fit-content;
+        margin: 0 0 2.6rem;
+        padding: 0.42rem 0.7rem;
+        border: 1px solid rgba(25, 127, 119, 0.35);
+        border-radius: 999px;
+        color: #126d67;
+        font-size: 0.7rem;
+        font-weight: 850;
+        letter-spacing: 0.09em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .registration-card--primary .registration-status {
+        border-color: rgba(185, 247, 194, 0.42);
+        color: var(--mint);
+      }
+
+      .registration-card h3 {
+        margin: 0;
+        font-size: clamp(1.7rem, 3vw, 2.7rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 1;
+      }
+
+      .registration-card > p:not(.registration-status, .registration-requirement, .poster-subject, .poster-warning) {
+        max-width: 34rem;
+        margin: 1.15rem 0 0;
+        color: #4d5b5c;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .registration-card--primary > p:not(.registration-status) {
+        color: rgba(245, 244, 238, 0.76);
+      }
+
+      .price-list {
+        display: grid;
+        margin: 2rem 0;
+        gap: 0.75rem;
+      }
+
+      .price-list div {
+        display: flex;
+        padding-top: 0.8rem;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        border-top: 1px solid rgba(245, 244, 238, 0.18);
+      }
+
+      .price-list dt {
+        color: rgba(245, 244, 238, 0.7);
+        font-size: 0.87rem;
+        font-weight: 650;
+      }
+
+      .price-list dd {
+        margin: 0;
+        color: var(--aqua);
+        font-family: var(--display);
+        font-size: 1.65rem;
+        font-style: italic;
+        line-height: 1;
+      }
+
+      .registration-link {
+        display: inline-flex;
+        width: fit-content;
+        margin-top: auto;
+        padding: 0.9rem 1.15rem;
+        align-items: center;
+        gap: 0.65rem;
+        border-radius: 0.45rem;
+        background: var(--mint);
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.07em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .registration-link::after {
+        content: "↗";
+        font-size: 1rem;
+      }
+
+      .registration-link:hover,
+      .registration-link:focus-visible {
+        background: var(--aqua);
+        text-decoration: underline;
+        text-underline-offset: 0.22rem;
+      }
+
+      .poster-email {
+        color: #126d67;
+        font-weight: 750;
+        overflow-wrap: anywhere;
+        text-underline-offset: 0.22rem;
+      }
+
+      .poster-requirements {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin: 1.55rem 0 0;
+        gap: 0.65rem;
+      }
+
+      .poster-deadline,
+      .poster-decision,
+      .poster-format {
+        margin: 0;
+        padding: 0.9rem 1rem;
+        border-radius: 0.45rem;
+      }
+
+      .poster-deadline {
+        border: 1px solid rgba(188, 78, 43, 0.24);
+        background: rgba(255, 146, 109, 0.12);
+      }
+
+      .poster-format {
+        border: 1px solid rgba(25, 127, 119, 0.28);
+        background: rgba(77, 217, 209, 0.1);
+      }
+
+      .poster-decision {
+        border: 1px solid rgba(119, 151, 255, 0.3);
+        background: rgba(119, 151, 255, 0.1);
+      }
+
+      .poster-deadline span,
+      .poster-decision span,
+      .poster-format span {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-size: 0.65rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .poster-deadline span {
+        color: #8a3d26;
+      }
+
+      .poster-format span {
+        color: #126d67;
+      }
+
+      .poster-decision span {
+        color: #465ba0;
+      }
+
+      .poster-deadline strong,
+      .poster-decision strong,
+      .poster-format strong {
+        color: var(--ink);
+        font-size: 1rem;
+        line-height: 1.45;
+      }
+
+      .registration-requirement {
+        margin: 0 0 1.5rem;
+        padding: 0.95rem 1rem;
+        border-left: 0.25rem solid var(--mint);
+        background: rgba(185, 247, 194, 0.08);
+        color: rgba(245, 244, 238, 0.78);
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+
+      .registration-requirement strong {
+        color: var(--paper);
+        font-weight: 850;
+      }
+
+      .registration-requirement a {
+        color: var(--mint);
+        font-weight: 800;
+        text-underline-offset: 0.22rem;
+      }
+
+      .poster-subject {
+        margin: 1.55rem 0 0;
+        padding: 1rem;
+        border-left: 0.25rem solid #197f77;
+        background: #dde5de;
+      }
+
+      .poster-subject span {
+        display: block;
+        margin-bottom: 0.45rem;
+        color: #647171;
+        font-size: 0.65rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .poster-subject strong {
+        color: var(--ink);
+        font-size: 0.96rem;
+        line-height: 1.45;
+      }
+
+      .poster-warning {
+        margin: auto 0 0;
+        padding-top: 1.4rem;
+        color: #73311d;
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .poster-warning strong {
+        font-weight: 850;
+      }
+
       .archive {
-        background: #dedfd6;
+        background:
+          radial-gradient(circle at 8% 92%, rgba(31, 106, 100, 0.22), transparent 28rem),
+          var(--charcoal);
+        color: var(--paper);
+      }
+
+      .archive .section-label {
+        color: var(--mint);
+      }
+
+      .archive .section-title {
+        color: var(--paper);
+      }
+
+      .archive .section-title em {
+        color: var(--aqua);
       }
 
       .archive-heading {
@@ -707,7 +994,7 @@
       .archive-heading p {
         max-width: 23rem;
         margin: 0 0 0.35rem;
-        color: #4e5b5c;
+        color: rgba(245, 244, 238, 0.7);
         font-size: 0.98rem;
         line-height: 1.55;
       }
@@ -729,6 +1016,7 @@
         border: 1px solid rgba(7, 16, 18, 0.16);
         border-radius: 1rem;
         background: var(--paper);
+        color: var(--ink);
       }
 
       .past-card::after {
@@ -878,7 +1166,7 @@
       .site-footer {
         position: relative;
         padding: 1.3rem 0 2rem;
-        background: var(--ink);
+        background: var(--charcoal);
         color: rgba(245, 244, 238, 0.55);
       }
 
@@ -954,6 +1242,10 @@
         }
 
         .accepted-heading {
+          grid-template-columns: 1fr;
+        }
+
+        .registration-heading {
           grid-template-columns: 1fr;
         }
 
@@ -1041,7 +1333,8 @@
         }
 
         .measure-stage {
-          display: none;
+          display: block;
+          min-height: clamp(19rem, 84vw, 22rem);
         }
 
         .hero-facts {
@@ -1095,13 +1388,29 @@
           min-height: 0;
           align-items: flex-start;
           background-image:
-            linear-gradient(180deg, rgba(7, 16, 18, 0.9) 0%, rgba(7, 16, 18, 0.82) 72%, rgba(7, 16, 18, 0.9) 100%),
+            linear-gradient(180deg, rgba(245, 244, 238, 0.96) 0%, rgba(245, 244, 238, 0.9) 72%, rgba(245, 244, 238, 0.96) 100%),
             url("venue_assets/170QG_entrance.png");
           background-position: center;
         }
 
         .venue-meta {
           grid-template-columns: 1fr;
+        }
+
+        .registration-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .registration-card {
+          min-height: 0;
+        }
+
+        .poster-requirements {
+          grid-template-columns: 1fr;
+        }
+
+        .poster-warning {
+          margin-top: 2.2rem;
         }
 
         .past-grid {
@@ -1150,8 +1459,9 @@
           <span class="sr-only">Open menu</span>
         </button>
         <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
+          <a href="#information">General information</a>
           <a href="#accepted-speakers">Confirmed speakers</a>
-          <a href="#information">2026 information</a>
+          <a href="#registration">Registration</a>
           <a href="#past-events">Past events</a>
         </nav>
       </div>
@@ -1191,13 +1501,66 @@
                 <a class="hero-sponsor-mark hero-sponsor-mark--g-research" href="https://www.gresearch.com/" target="_blank" rel="noreferrer" aria-label="Visit G-Research">
                   <img src="sponsor_assets/2.png" width="720" height="119" alt="G-Research" decoding="async" />
                 </a>
-                <span class="hero-sponsor-mark hero-sponsor-mark--rss">
+                <a
+                  class="hero-sponsor-mark hero-sponsor-mark--qrt"
+                  href="https://www.imperial.ac.uk/news/articles/engineering/computing/2026/imperial-cambridge-and-oxford-launch-qrt-labs-for-multidisciplinary-research/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Read about QRT Labs"
+                >
+                  <img src="sponsor_assets/qrt-bw.png" width="869" height="350" alt="QRT Labs" decoding="async" />
+                </a>
+                <a
+                  class="hero-sponsor-mark hero-sponsor-mark--rss"
+                  href="https://rss.org.uk/membership/rss-groups-and-committees/sections/statistical-computing/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Visit the RSS Statistical Computing Section"
+                >
                   <img src="sponsor_assets/3.jpg" width="1276" height="709" alt="Royal Statistical Society" decoding="async" />
-                </span>
+                </a>
               </div>
             </dd>
           </div>
         </dl>
+      </section>
+
+      <section class="section venue-section" id="information" aria-labelledby="information-title">
+        <div class="container">
+          <div class="venue-copy">
+            <p class="section-label">2026 / General information</p>
+            <h2 class="section-title" id="information-title">General <em>information.</em></h2>
+            <p class="venue-description">
+              The workshop will take place at 170 Queen’s Gate, an elegant Victorian venue in South Kensington.
+            </p>
+            <p class="venue-description">
+              Running for two and a half days, the programme begins on the morning of 23 November and continues through 25 November. A dedicated poster session is scheduled for the afternoon of 24 November.
+            </p>
+
+            <dl class="venue-meta">
+              <div>
+                <dt>Venue</dt>
+                <dd>170 Queen’s Gate</dd>
+              </div>
+              <div>
+                <dt>Location</dt>
+                <dd>South Kensington, London</dd>
+              </div>
+              <div>
+                <dt>Dates</dt>
+                <dd>23–25 November 2026</dd>
+              </div>
+              <div>
+                <dt>Duration</dt>
+                <dd>Two and a half days</dd>
+              </div>
+              <div>
+                <dt>Poster session</dt>
+                <dd>24 November, afternoon</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
       </section>
 
       <section class="section accepted-speakers" id="accepted-speakers" aria-labelledby="accepted-speakers-title">
@@ -1319,27 +1682,76 @@
         </div>
       </section>
 
-      <section class="section venue-section" id="information" aria-labelledby="information-title">
+      <section class="section registration-section" id="registration" aria-labelledby="registration-title">
         <div class="container">
-          <div class="venue-copy">
-            <p class="section-label">2026 / Venue</p>
-            <h2 class="section-title" id="information-title">2026 <em>information.</em></h2>
-            <p class="venue-description">
-              The workshop will take place at 170 Queen’s Gate, an elegant Victorian venue in South Kensington for meetings, seminars and conferences.
-            </p>
+          <div class="registration-heading">
+            <div>
+              <p class="section-label">2026 / Registration</p>
+              <h2 class="section-title" id="registration-title">Registration is <em>open.</em></h2>
+            </div>
+            <p>Book your place at the 3rd Workshop on Gradient Flows for Sampling, Inference, and Learning.</p>
+          </div>
 
-            <dl class="venue-meta">
-              <div>
-                <dt>Venue</dt>
-                <dd>170 Queen’s Gate</dd>
-              </div>
-              <div>
-                <dt>Location</dt>
-                <dd>South Kensington, London</dd>
-              </div>
-            </dl>
+          <div class="registration-grid">
+            <article class="registration-card registration-card--primary">
+              <p class="registration-status">Registration open</p>
+              <h3>Join us in London</h3>
+              <p>Registration is now available online, with reduced pricing for students.</p>
+              <dl class="price-list" aria-label="Registration prices">
+                <div>
+                  <dt>Student</dt>
+                  <dd>£40</dd>
+                </div>
+                <div>
+                  <dt>Non-student</dt>
+                  <dd>£80</dd>
+                </div>
+              </dl>
+              <p class="registration-requirement">
+                <strong>Register before submitting a poster abstract.</strong> An abstract submission does not reserve a workshop place. Please
+                <a
+                  href="https://imperialuk.estore.flywire.com/products/3rd-workshop-on-gradient-flows-for-sampling-inference-and-learning-462057"
+                  target="_blank"
+                  rel="noreferrer"
+                >check space availability and register</a>
+                first.
+              </p>
+              <a
+                class="registration-link"
+                href="https://imperialuk.estore.flywire.com/products/3rd-workshop-on-gradient-flows-for-sampling-inference-and-learning-462057"
+                target="_blank"
+                rel="noreferrer"
+              >Register online</a>
+            </article>
 
-            <p class="registration-note"><strong>Registration</strong> Information will be made available soon.</p>
+            <article class="registration-card">
+              <p class="registration-status">Poster abstract submissions open</p>
+              <h3>Submit a poster abstract</h3>
+              <div class="poster-requirements" aria-label="Poster abstract requirements">
+                <p class="poster-deadline">
+                  <span>Abstract submission deadline</span>
+                  <strong><time datetime="2026-10-30T17:00:00+00:00">30 October 2026 · 5:00 pm (UK time)</time></strong>
+                </p>
+                <p class="poster-decision">
+                  <span>Decision notification</span>
+                  <strong><time datetime="2026-11-06">6 November 2026</time></strong>
+                </p>
+                <p class="poster-format">
+                  <span>Required format</span>
+                  <strong>PDF · 1 page</strong>
+                </p>
+              </div>
+              <p>
+                To be considered for the poster session, email your abstract to
+                <a class="poster-email" href="mailto:deniz.akyildiz@imperial.ac.uk?subject=Poster%20Submission%20to%20Gradient%20Flows%20Workshop">deniz.akyildiz@imperial.ac.uk</a>
+                using exactly the subject line below.
+              </p>
+              <p class="poster-subject">
+                <span>Email subject</span>
+                <strong>Poster Submission to Gradient Flows Workshop</strong>
+              </p>
+              <p class="poster-warning"><strong>Please make sure that the subject line is exactly as above.</strong> Otherwise, your submission might go missing.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -1428,7 +1840,9 @@
       <div class="footer-inner">
         <span>3rd Workshop on Gradient Flows for Sampling, Inference, and Learning</span>
         <div class="footer-links">
+          <a href="#information">General information</a>
           <a href="#accepted-speakers">Confirmed speakers</a>
+          <a href="#registration">Registration</a>
           <a href="#past-events">Past editions</a>
         </div>
       </div>
@@ -1500,7 +1914,7 @@
         var isHolding = false;
         var mobileViewport = window.matchMedia('(max-width: 700px)');
         var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-        var reducedMotion = motionPreference.matches || mobileViewport.matches;
+        var reducedMotion = motionPreference.matches;
 
         function clamp(value, lower, upper) {
           return Math.max(lower, Math.min(upper, value));
@@ -1860,7 +2274,7 @@
         }
 
         function requestRender() {
-          if (animationFrame || mobileViewport.matches || !isInViewport || !isPageVisible || !width || !height) return;
+          if (animationFrame || !isInViewport || !isPageVisible || !width || !height) return;
           if (hasPainted && reducedMotion) return;
           animationFrame = window.requestAnimationFrame(render);
         }
@@ -1872,7 +2286,7 @@
         }
 
         function updateMotionMode() {
-          var nextReducedMotion = motionPreference.matches || mobileViewport.matches;
+          var nextReducedMotion = motionPreference.matches;
           if (nextReducedMotion === reducedMotion) return;
           reducedMotion = nextReducedMotion;
           cancelRender();
@@ -1886,9 +2300,22 @@
           requestRender();
         }
 
+        function updateViewportMode() {
+          cancelRender();
+          buildParticles();
+          segmentElapsed = 0;
+          shapeIndex = -1;
+          loopStylesReady = false;
+          isHolding = false;
+          hasPainted = false;
+          lastPaint = null;
+          resizeCanvas();
+          requestRender();
+        }
+
         function render(time) {
           animationFrame = 0;
-          if (mobileViewport.matches || !isInViewport || !isPageVisible) return;
+          if (!isInViewport || !isPageVisible) return;
 
           if (reducedMotion) {
             drawOpening(1);
@@ -1937,10 +2364,10 @@
         }
 
         if (mobileViewport.addEventListener) {
-          mobileViewport.addEventListener('change', updateMotionMode);
+          mobileViewport.addEventListener('change', updateViewportMode);
           motionPreference.addEventListener('change', updateMotionMode);
         } else if (mobileViewport.addListener) {
-          mobileViewport.addListener(updateMotionMode);
+          mobileViewport.addListener(updateViewportMode);
           motionPreference.addListener(updateMotionMode);
         }
 
