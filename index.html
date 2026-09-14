@@ -770,7 +770,7 @@
         line-height: 1;
       }
 
-      .registration-card > p:not(.registration-status, .registration-requirement, .poster-subject, .poster-warning) {
+      .registration-card > p:not(.registration-status, .poster-registration-note, .poster-subject, .poster-warning) {
         max-width: 34rem;
         margin: 1.15rem 0 0;
         color: #4d5b5c;
@@ -810,6 +810,34 @@
         font-size: 1.65rem;
         font-style: italic;
         line-height: 1;
+      }
+
+      .registration-context {
+        display: grid;
+        margin: 0 0 1.5rem;
+        gap: 0.75rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .registration-context div {
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(245, 244, 238, 0.18);
+      }
+
+      .registration-context dt {
+        color: rgba(245, 244, 238, 0.5);
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .registration-context dd {
+        margin: 0.4rem 0 0;
+        color: var(--paper);
+        font-size: 0.84rem;
+        font-weight: 650;
+        line-height: 1.4;
       }
 
       .registration-link {
@@ -909,23 +937,23 @@
         line-height: 1.45;
       }
 
-      .registration-requirement {
-        margin: 0 0 1.5rem;
-        padding: 0.95rem 1rem;
-        border-left: 0.25rem solid var(--mint);
-        background: rgba(185, 247, 194, 0.08);
-        color: rgba(245, 244, 238, 0.78);
+      .poster-registration-note {
+        margin: 1rem 0 0;
+        padding: 0.8rem 0.9rem;
+        border-left: 0.25rem solid #465ba0;
+        background: rgba(119, 151, 255, 0.1);
+        color: #33414f;
         font-size: 0.92rem;
-        line-height: 1.55;
+        line-height: 1.5;
       }
 
-      .registration-requirement strong {
-        color: var(--paper);
+      .poster-registration-note strong {
+        color: var(--ink);
         font-weight: 850;
       }
 
-      .registration-requirement a {
-        color: var(--mint);
+      .poster-registration-note a {
+        color: #126d67;
         font-weight: 800;
         text-underline-offset: 0.22rem;
       }
@@ -1707,15 +1735,16 @@
                   <dd>£80</dd>
                 </div>
               </dl>
-              <p class="registration-requirement">
-                <strong>Register before submitting a poster abstract.</strong> An abstract submission does not reserve a workshop place. Please
-                <a
-                  href="https://imperialuk.estore.flywire.com/products/3rd-workshop-on-gradient-flows-for-sampling-inference-and-learning-462057"
-                  target="_blank"
-                  rel="noreferrer"
-                >check space availability and register</a>
-                first.
-              </p>
+              <dl class="registration-context" aria-label="Workshop dates and venue">
+                <div>
+                  <dt>Dates</dt>
+                  <dd>23–25 November 2026</dd>
+                </div>
+                <div>
+                  <dt>Venue</dt>
+                  <dd>170 Queen’s Gate</dd>
+                </div>
+              </dl>
               <a
                 class="registration-link"
                 href="https://imperialuk.estore.flywire.com/products/3rd-workshop-on-gradient-flows-for-sampling-inference-and-learning-462057"
@@ -1741,6 +1770,15 @@
                   <strong>PDF · 1 page</strong>
                 </p>
               </div>
+              <p class="poster-registration-note">
+                <strong>Workshop registration is separate.</strong> A poster abstract does not reserve a place. Please
+                <a
+                  href="https://imperialuk.estore.flywire.com/products/3rd-workshop-on-gradient-flows-for-sampling-inference-and-learning-462057"
+                  target="_blank"
+                  rel="noreferrer"
+                >check availability and register</a>
+                before submitting.
+              </p>
               <p>
                 To be considered for the poster session, email your abstract to
                 <a class="poster-email" href="mailto:deniz.akyildiz@imperial.ac.uk?subject=Poster%20Submission%20to%20Gradient%20Flows%20Workshop">deniz.akyildiz@imperial.ac.uk</a>
