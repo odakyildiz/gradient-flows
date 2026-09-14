@@ -33,7 +33,7 @@
       }
 
       html {
-        scroll-behavior: auto;
+        scroll-behavior: smooth;
       }
 
       body {
@@ -959,6 +959,10 @@
       }
 
       .poster-subject {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.35rem 1rem;
+        align-items: center;
         margin: 1.55rem 0 0;
         padding: 1rem;
         border-left: 0.25rem solid #197f77;
@@ -967,6 +971,7 @@
 
       .poster-subject span {
         display: block;
+        grid-column: 1 / -1;
         margin-bottom: 0.45rem;
         color: #647171;
         font-size: 0.65rem;
@@ -979,6 +984,30 @@
         color: var(--ink);
         font-size: 0.96rem;
         line-height: 1.45;
+      }
+
+      .subject-copy {
+        min-width: 7.2rem;
+        padding: 0.62rem 0.8rem;
+        border: 1px solid rgba(25, 127, 119, 0.42);
+        border-radius: 999px;
+        background: rgba(245, 244, 238, 0.75);
+        color: #126d67;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.04em;
+        line-height: 1.2;
+        text-transform: uppercase;
+        transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+      }
+
+      .subject-copy:hover,
+      .subject-copy:focus-visible {
+        border-color: #197f77;
+        background: #197f77;
+        color: var(--paper);
       }
 
       .archive {
@@ -1771,10 +1800,11 @@
                 <a class="poster-email" href="mailto:deniz.akyildiz@imperial.ac.uk?subject=Poster%20Submission%20to%20Gradient%20Flows%20Workshop">deniz.akyildiz@imperial.ac.uk</a>
                 using exactly the subject line below.
               </p>
-              <p class="poster-subject">
+              <div class="poster-subject">
                 <span>Email subject</span>
-                <strong>Poster Submission to Gradient Flows Workshop</strong>
-              </p>
+                <strong id="poster-email-subject">Poster Submission to Gradient Flows Workshop</strong>
+                <button class="subject-copy" type="button" data-copy-target="poster-email-subject">Copy subject</button>
+              </div>
             </article>
           </div>
         </div>
@@ -1891,6 +1921,36 @@
               toggle.querySelector('.sr-only').textContent = 'Open menu';
               nav.classList.remove('is-open');
             });
+          });
+        }
+
+        var copyButton = document.querySelector('[data-copy-target]');
+        if (copyButton) {
+          copyButton.addEventListener('click', function () {
+            var subject = document.getElementById(copyButton.getAttribute('data-copy-target'));
+            if (!subject) return;
+
+            function confirmCopy() {
+              copyButton.textContent = 'Copied';
+              window.setTimeout(function () {
+                copyButton.textContent = 'Copy subject';
+              }, 1800);
+            }
+
+            if (navigator.clipboard && window.isSecureContext) {
+              navigator.clipboard.writeText(subject.textContent.trim()).then(confirmCopy);
+              return;
+            }
+
+            var textArea = document.createElement('textarea');
+            textArea.value = subject.textContent.trim();
+            textArea.setAttribute('readonly', '');
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+            if (document.execCommand('copy')) confirmCopy();
+            textArea.remove();
           });
         }
 
