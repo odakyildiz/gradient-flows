@@ -651,6 +651,86 @@
         line-height: 1.4;
       }
 
+      .contact-actions {
+        display: flex;
+        margin-top: 2rem;
+        align-items: stretch;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .venue-contact {
+        display: inline-flex;
+        padding: 0.9rem 1.15rem;
+        align-items: center;
+        gap: 0.7rem;
+        border: 1px solid #197f77;
+        border-radius: 0.45rem;
+        background: #197f77;
+        color: var(--paper);
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.07em;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background 160ms ease, color 160ms ease;
+      }
+
+      .venue-contact::after {
+        content: "↗";
+        font-size: 1rem;
+      }
+
+      .venue-contact:hover,
+      .venue-contact:focus-visible {
+        background: transparent;
+        color: #126d67;
+      }
+
+      .email-copy {
+        display: inline-flex;
+        width: 3rem;
+        min-height: 3rem;
+        padding: 0.65rem;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(25, 127, 119, 0.45);
+        border-radius: 0.45rem;
+        background: rgba(245, 244, 238, 0.8);
+        color: #126d67;
+        cursor: pointer;
+        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+      }
+
+      .email-copy:hover,
+      .email-copy:focus-visible,
+      .email-copy.is-copied {
+        border-color: #197f77;
+        background: #197f77;
+        color: var(--paper);
+      }
+
+      .email-copy svg {
+        width: 1.1rem;
+        height: 1.1rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .email-copy .copy-check,
+      .email-copy.is-copied .copy-pages {
+        display: none;
+      }
+
+      .email-copy.is-copied .copy-check {
+        display: block;
+      }
+
       .measure-stage {
         position: relative;
         z-index: 1;
@@ -770,7 +850,7 @@
         line-height: 1;
       }
 
-      .registration-card > p:not(.registration-status, .poster-registration-note, .poster-subject) {
+      .registration-card > p:not(.registration-status, .poster-registration-note, .poster-subject, .email-hint) {
         max-width: 34rem;
         margin: 1.15rem 0 0;
         color: #4d5b5c;
@@ -870,10 +950,36 @@
       }
 
       .poster-email {
+        padding: 0;
+        border: 0;
+        background: transparent;
         color: #126d67;
+        cursor: pointer;
+        font: inherit;
         font-weight: 750;
-        overflow-wrap: anywhere;
+        text-decoration: underline;
         text-underline-offset: 0.22rem;
+      }
+
+      .poster-email:hover,
+      .poster-email:focus-visible {
+        color: #004d49;
+      }
+
+      .email-copy--inline {
+        width: 1.85rem;
+        min-height: 1.85rem;
+        margin-left: 0.35rem;
+        padding: 0.32rem;
+        vertical-align: middle;
+      }
+
+      .email-hint {
+        max-width: 35rem;
+        margin: 0.7rem 0 0;
+        color: #425354;
+        font-size: 0.86rem;
+        line-height: 1.5;
       }
 
       .poster-requirements {
@@ -1600,6 +1706,16 @@
                 <dd>24 November, afternoon</dd>
               </div>
             </dl>
+            <div class="contact-actions">
+              <a class="venue-contact" href="mailto:" data-email-action="general" data-email-hint="general-email-hint">Contact workshop organiser</a>
+              <button class="email-copy" type="button" data-copy-email aria-label="Copy organiser email address" title="Copy email address">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g class="copy-pages"><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" /></g>
+                  <path class="copy-check" d="m5 12 4 4L19 6" />
+                </svg>
+              </button>
+            </div>
+            <p class="email-hint" id="general-email-hint" role="status" hidden>If an email window does not open, use the copy icon and paste the address into your usual email app.</p>
           </div>
         </div>
       </section>
@@ -1796,10 +1912,9 @@
                 before submitting.
               </p>
               <p>
-                To be considered for the poster session, email your abstract to
-                <a class="poster-email" href="mailto:deniz.akyildiz@imperial.ac.uk?subject=Poster%20Submission%20to%20Gradient%20Flows%20Workshop">deniz.akyildiz@imperial.ac.uk</a>
-                using exactly the subject line below.
+                To be considered for the poster session, <a class="poster-email" href="mailto:" data-email-action="poster" data-email-hint="poster-email-hint">email your abstract to the workshop organiser</a><button class="email-copy email-copy--inline" type="button" data-copy-email aria-label="Copy organiser email address" title="Copy email address"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="copy-pages"><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" /></g><path class="copy-check" d="m5 12 4 4L19 6" /></svg></button> using exactly the subject line below.
               </p>
+              <p class="email-hint" id="poster-email-hint" role="status" hidden>If an email window does not open, use the copy icon and paste the address into your usual email app.</p>
               <div class="poster-subject">
                 <span>Email subject</span>
                 <strong id="poster-email-subject">Poster Submission to Gradient Flows Workshop</strong>
@@ -1924,6 +2039,55 @@
           });
         }
 
+        var emailParts = ['deniz', 'akyildiz', 'imperial', 'ac', 'uk'];
+        var organiserEmail = emailParts[0] + '.' + emailParts[1] + '@' + emailParts[2] + '.' + emailParts[3] + '.' + emailParts[4];
+        document.querySelectorAll('[data-email-action]').forEach(function (link) {
+          var subject = link.getAttribute('data-email-action') === 'poster'
+            ? document.getElementById('poster-email-subject').textContent.trim()
+            : 'Gradient Flows Workshop enquiry';
+          link.href = 'mailto:' + organiserEmail + '?subject=' + encodeURIComponent(subject);
+          link.addEventListener('click', function () {
+            var hint = document.getElementById(link.getAttribute('data-email-hint'));
+            if (hint) hint.hidden = false;
+          });
+        });
+
+        function copyText(value, onSuccess) {
+          function fallbackCopy() {
+            var textArea = document.createElement('textarea');
+            textArea.value = value;
+            textArea.setAttribute('readonly', '');
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+            var copied = document.execCommand('copy');
+            textArea.remove();
+            if (copied) onSuccess();
+          }
+
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(value).then(onSuccess, fallbackCopy);
+          } else {
+            fallbackCopy();
+          }
+        }
+
+        document.querySelectorAll('[data-copy-email]').forEach(function (button) {
+          button.addEventListener('click', function () {
+            copyText(organiserEmail, function () {
+              button.classList.add('is-copied');
+              button.setAttribute('aria-label', 'Email address copied');
+              button.title = 'Email address copied';
+              window.setTimeout(function () {
+                button.classList.remove('is-copied');
+                button.setAttribute('aria-label', 'Copy organiser email address');
+                button.title = 'Copy email address';
+              }, 1800);
+            });
+          });
+        });
+
         var copyButton = document.querySelector('[data-copy-target]');
         if (copyButton) {
           copyButton.addEventListener('click', function () {
@@ -1936,21 +2100,7 @@
                 copyButton.textContent = 'Copy subject';
               }, 1800);
             }
-
-            if (navigator.clipboard && window.isSecureContext) {
-              navigator.clipboard.writeText(subject.textContent.trim()).then(confirmCopy);
-              return;
-            }
-
-            var textArea = document.createElement('textarea');
-            textArea.value = subject.textContent.trim();
-            textArea.setAttribute('readonly', '');
-            textArea.style.position = 'fixed';
-            textArea.style.opacity = '0';
-            document.body.appendChild(textArea);
-            textArea.select();
-            if (document.execCommand('copy')) confirmCopy();
-            textArea.remove();
+            copyText(subject.textContent.trim(), confirmCopy);
           });
         }
 
