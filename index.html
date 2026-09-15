@@ -850,7 +850,7 @@
         line-height: 1;
       }
 
-      .registration-card > p:not(.registration-status, .poster-registration-note, .poster-subject, .email-hint) {
+      .registration-card > p:not(.registration-status, .poster-registration-note, .poster-awards, .poster-subject, .email-hint) {
         max-width: 34rem;
         margin: 1.15rem 0 0;
         color: #4d5b5c;
@@ -920,6 +920,38 @@
         line-height: 1.4;
       }
 
+      .registration-window {
+        margin: auto 0;
+        padding: 1.1rem 1.25rem;
+        border-left: 0.25rem solid var(--mint);
+        background: rgba(185, 247, 194, 0.08);
+      }
+
+      .registration-window span {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--mint);
+        font-size: 0.65rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .registration-window strong {
+        display: block;
+        color: var(--paper);
+        font-size: 1.12rem;
+        font-weight: 750;
+        line-height: 1.3;
+      }
+
+      .registration-window p {
+        margin: 0.6rem 0 0;
+        color: rgba(245, 244, 238, 0.76);
+        font-size: 0.91rem;
+        line-height: 1.5;
+      }
+
       .registration-link {
         display: inline-flex;
         width: fit-content;
@@ -935,6 +967,10 @@
         letter-spacing: 0.07em;
         text-decoration: none;
         text-transform: uppercase;
+      }
+
+      .registration-card--primary .registration-link {
+        margin-top: 2rem;
       }
 
       .registration-link::after {
@@ -1041,6 +1077,21 @@
         color: var(--ink);
         font-size: 1rem;
         line-height: 1.45;
+      }
+
+      .poster-awards {
+        margin: 1rem 0 0;
+        padding: 0.8rem 0.9rem;
+        border-left: 0.25rem solid #197f77;
+        background: rgba(185, 247, 194, 0.25);
+        color: #273d3b;
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      .poster-awards strong {
+        color: var(--ink);
+        font-weight: 850;
       }
 
       .poster-registration-note {
@@ -1874,6 +1925,11 @@
                   <dd>170 Queen’s Gate</dd>
                 </div>
               </dl>
+              <div class="registration-window">
+                <span>Registration window</span>
+                <strong>Until <time datetime="2026-11-06">6 November 2026</time></strong>
+                <p>Registration may close earlier if the workshop reaches capacity. Places are limited, so we recommend registering early.</p>
+              </div>
               <a
                 class="registration-link"
                 href="https://imperialuk.estore.flywire.com/products/3rd-workshop-on-gradient-flows-for-sampling-inference-and-learning-462057"
@@ -1899,6 +1955,7 @@
                   <strong>PDF · maximum 1 page</strong>
                 </p>
               </div>
+              <p class="poster-awards"><strong>Poster awards.</strong> We’re excited to recognise outstanding work presented in the poster session.</p>
               <p class="poster-registration-note">
                 <strong>Please submit as soon as possible.</strong> Abstracts will be reviewed as they arrive, and suitable submissions will be accepted on a rolling basis. Poster capacity is limited, so submissions may close before the final deadline once all available places have been filled.
               </p>
