@@ -1,0 +1,12 @@
+# Retain original portrait sources locally; publish optimised variants instead.
+/speakers/agazzi.png
+/speakers/borghi.jpg
+/speakers/crucinio.jpeg
+/speakers/duncan.jpeg
+/speakers/korba.jpeg
+/speakers/monmarche.jpg
+/speakers/shalova.jpg
+/speakers/zahm.png
+
+# macOS metadata
+.DS_Store
