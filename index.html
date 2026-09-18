@@ -850,7 +850,7 @@
         line-height: 1;
       }
 
-      .registration-card > p:not(.registration-status, .poster-registration-note, .poster-awards, .poster-subject, .email-hint) {
+      .registration-card > p:not(.registration-status, .poster-registration-note, .poster-awards, .poster-board-note, .poster-subject, .email-hint) {
         max-width: 34rem;
         margin: 1.15rem 0 0;
         color: #4d5b5c;
@@ -1091,6 +1091,20 @@
 
       .poster-awards strong {
         color: var(--ink);
+        font-weight: 850;
+      }
+
+      .poster-board-note {
+        margin: 1rem 0 0;
+        padding: 0.8rem 0.9rem;
+        border-left: 0.25rem solid #b42318;
+        background: rgba(180, 35, 24, 0.06);
+        color: #b42318;
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      .poster-board-note strong {
         font-weight: 850;
       }
 
@@ -1955,6 +1969,7 @@
                   <strong>PDF · maximum 1 page</strong>
                 </p>
               </div>
+              <p class="poster-board-note"><strong>Printed posters: portrait orientation is recommended.</strong> The poster boards are 1 metre wide; please ensure your poster fits within this width.</p>
               <p class="poster-awards"><strong>Poster awards.</strong> We’re excited to recognise outstanding work presented in the poster session.</p>
               <p class="poster-registration-note">
                 <strong>Please submit as soon as possible.</strong> Abstracts will be reviewed as they arrive, and suitable submissions will be accepted on a rolling basis. Poster capacity is limited, so submissions may close before the final deadline once all available places have been filled.
