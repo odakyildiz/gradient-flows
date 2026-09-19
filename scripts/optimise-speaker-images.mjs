@@ -16,6 +16,7 @@ const portraits = [
   ['korba.jpeg', 0.40],
   ['monmarche.jpg', 0.38],
   ['shalova.jpg', 0.40],
+  ['vaes.jpg', 0.50],
   ['zahm.png', 0.40],
 ];
 
