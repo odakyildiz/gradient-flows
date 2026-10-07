@@ -842,6 +842,18 @@
         color: var(--mint);
       }
 
+      .registration-status--closed {
+        border-color: rgba(180, 35, 24, 0.28);
+        background: rgba(180, 35, 24, 0.06);
+        color: #963721;
+      }
+
+      .registration-card--primary .registration-status--closed {
+        border-color: rgba(255, 146, 109, 0.5);
+        background: rgba(255, 146, 109, 0.08);
+        color: #ffb49b;
+      }
+
       .registration-card h3 {
         margin: 0;
         font-size: clamp(1.7rem, 3vw, 2.7rem);
@@ -1926,16 +1938,16 @@
           <div class="registration-heading">
             <div>
               <p class="section-label">2026 / Registration</p>
-              <h2 class="section-title" id="registration-title">Registration is <em>open.</em></h2>
+              <h2 class="section-title" id="registration-title">Registration is <em>closed.</em></h2>
             </div>
-            <p>Book your place at the 3rd Workshop on Gradient Flows for Sampling, Inference, and Learning.</p>
+            <p>Registration and poster abstract submissions for the 2026 workshop are now closed.</p>
           </div>
 
           <div class="registration-grid">
             <article class="registration-card registration-card--primary">
-              <p class="registration-status">Registration open</p>
-              <h3>Join us in London</h3>
-              <p>Registration is now available online, with reduced pricing for students.</p>
+              <p class="registration-status registration-status--closed">Registration closed</p>
+              <h3>Registration has closed</h3>
+              <p>We are no longer accepting registrations for the 2026 workshop. We look forward to welcoming registered participants to London.</p>
               <dl class="price-list" aria-label="Registration prices">
                 <div>
                   <dt>Student</dt>
@@ -1957,25 +1969,20 @@
                 </div>
               </dl>
               <div class="registration-window">
-                <span>Registration window</span>
-                <strong>Until <time datetime="2026-11-06">6 November 2026</time></strong>
-                <p>Registration may close earlier if the workshop reaches capacity. Places are limited, so we recommend registering early.</p>
+                <span>Registration status</span>
+                <strong>Closed</strong>
+                <p>No further registrations can be accepted.</p>
               </div>
-              <a
-                class="registration-link"
-                href="https://imperialuk.estore.flywire.com/products/3rd-workshop-on-gradient-flows-for-sampling-inference-and-learning-462057"
-                target="_blank"
-                rel="noreferrer"
-              >Register</a>
             </article>
 
             <article class="registration-card">
-              <p class="registration-status">Poster abstract submissions open</p>
-              <h3>Submit a poster abstract</h3>
+              <p class="registration-status registration-status--closed">Poster abstract submissions closed</p>
+              <h3>Poster submissions have closed</h3>
+              <p>As workshop registration is now closed, we are no longer accepting new poster abstracts.</p>
               <div class="poster-requirements" aria-label="Poster abstract requirements">
                 <p class="poster-deadline">
-                  <span>Final submission deadline</span>
-                  <strong><time datetime="2026-11-06">6 November 2026</time></strong>
+                  <span>Submission status</span>
+                  <strong>Closed</strong>
                 </p>
                 <p class="poster-contents">
                   <span>Submission contents</span>
@@ -1989,26 +1996,8 @@
               <p class="poster-board-note"><strong>Printed posters: portrait orientation is recommended.</strong> The poster boards are 1 metre wide; please ensure your poster fits within this width.</p>
               <p class="poster-awards"><strong>Poster awards.</strong> We’re excited to recognise outstanding work presented in the poster session.</p>
               <p class="poster-registration-note">
-                <strong>Please submit as soon as possible.</strong> Abstracts will be reviewed as they arrive, and suitable submissions will be accepted on a rolling basis. Poster capacity is limited, so submissions may close before the final deadline once all available places have been filled.
+                <strong>Already accepted?</strong> The format and board dimensions above remain applicable to accepted poster presenters.
               </p>
-              <p class="poster-registration-note">
-                <strong>Workshop registration is separate.</strong> A poster abstract does not reserve a place. Please
-                <a
-                  href="https://imperialuk.estore.flywire.com/products/3rd-workshop-on-gradient-flows-for-sampling-inference-and-learning-462057"
-                  target="_blank"
-                  rel="noreferrer"
-                >check availability and register</a>
-                before submitting.
-              </p>
-              <p>
-                To be considered for the poster session, <a class="poster-email" href="mailto:" data-email-action="poster" data-email-hint="poster-email-hint">email your abstract to the workshop organiser</a><button class="email-copy email-copy--inline" type="button" data-copy-email aria-label="Copy organiser email address" title="Copy email address"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="copy-pages"><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" /></g><path class="copy-check" d="m5 12 4 4L19 6" /></svg></button> using exactly the subject line below.
-              </p>
-              <p class="email-hint" id="poster-email-hint" role="status" hidden>If an email window does not open, use the copy icon and paste the address into your usual email app.</p>
-              <div class="poster-subject">
-                <span>Email subject</span>
-                <strong id="poster-email-subject">Poster Submission to Gradient Flows Workshop</strong>
-                <button class="subject-copy" type="button" data-copy-target="poster-email-subject">Copy subject</button>
-              </div>
             </article>
           </div>
         </div>
