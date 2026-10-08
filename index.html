@@ -1996,8 +1996,9 @@
               <p class="poster-board-note"><strong>Printed posters: portrait orientation is recommended.</strong> The poster boards are 1 metre wide; please ensure your poster fits within this width.</p>
               <p class="poster-awards"><strong>Poster awards.</strong> We’re excited to recognise outstanding work presented in the poster session.</p>
               <p class="poster-registration-note">
-                <strong>Already accepted?</strong> The format and board dimensions above remain applicable to accepted poster presenters.
+                <strong>Already registered?</strong> If you are already registered and would like to present a poster, <a class="poster-email" href="mailto:" data-email-action="general" data-email-hint="poster-contact-email-hint">contact the workshop organizer</a><button class="email-copy email-copy--inline" type="button" data-copy-email aria-label="Copy organizer email address" title="Copy email address"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="copy-pages"><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" /></g><path class="copy-check" d="m5 12 4 4L19 6" /></svg></button>.
               </p>
+              <p class="email-hint" id="poster-contact-email-hint" role="status" hidden>If an email window does not open, use the copy icon and paste the address into your usual email app.</p>
             </article>
           </div>
         </div>
@@ -2152,6 +2153,8 @@
         }
 
         document.querySelectorAll('[data-copy-email]').forEach(function (button) {
+          var defaultLabel = button.getAttribute('aria-label');
+          var defaultTitle = button.title;
           button.addEventListener('click', function () {
             copyText(organiserEmail, function () {
               button.classList.add('is-copied');
@@ -2159,8 +2162,8 @@
               button.title = 'Email address copied';
               window.setTimeout(function () {
                 button.classList.remove('is-copied');
-                button.setAttribute('aria-label', 'Copy organiser email address');
-                button.title = 'Copy email address';
+                button.setAttribute('aria-label', defaultLabel);
+                button.title = defaultTitle;
               }, 1800);
             });
           });
