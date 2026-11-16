@@ -1,0 +1,566 @@
+{
+  "talks": [
+    {
+      "id": "T01",
+      "speaker": "Sebastian Reich",
+      "title": "Interacting particle formulations for stochastic optimal control",
+      "titleHtml": "Interacting particle formulations for stochastic optimal control",
+      "affiliationHtml": "University of Potsdam",
+      "abstractHtml": "<p>The work is motived by optimal control problems for partially observed Markov decision processes (POMDP). It builds upon two strands of work: Interacting particle formulations for stochastic filtering in continuous time, such as the ensemble Kalman-Bucy filter (EnKBF), and a novel mean field formulation of the Pontryagin minimum principle (PMP) for (fully observed) Markov decision processes (MDP). The first part of the talk will motive the mathematical setting in the context of the digital twin paradigm. The second part, develops the novel mean field PMP formulation for MDP including numerical demonstrations. The final part outlines how to combine particle based filtering algorithms, such as the EnKBF, with mean field PMP in order to tackle optimal control problems for POMDP.</p>",
+      "date": "2026-11-23",
+      "time": "10:00–10:50"
+    },
+    {
+      "id": "T02",
+      "speaker": "Giacomo Borghi",
+      "title": "Convergence of replicator–mutator particle systems via a bounded Wasserstein distance",
+      "titleHtml": "Convergence of replicator–mutator particle systems via a bounded Wasserstein distance",
+      "affiliationHtml": "TU Munich",
+      "abstractHtml": "<p>Interacting particle systems with selection and mutation arise in many contexts: biological modelling, evolutionary optimization, particle filtering, and the approximation of Wasserstein–Fisher–Rao gradient flows. A quantitative link between the microscopic dynamics and their continuum description is important for identifying appropriate parameter regimes and scalings, particularly for numerical algorithms. In this talk, I will consider the replicator–mutator PDE, which combines diffusion with a source term that depends on an external potential. I will show how to derive quantitative error estimates for the distance between the PDE solution and the empirical measure of an unweighted particle system. The proof uses a Wasserstein-1 distance with a bounded ground cost, which allows us to treat unbounded potentials on unbounded state spaces. Interestingly, a dependence on the space dimension already appears in the coupling estimate, where mean-field-type systems typically exhibit a dimension-independent Monte Carlo rate instead. Based on the work:</p><p>G. Borghi, “Convergence of replicator–mutator particle systems via a bounded Wasserstein distance” (2026, soon on arXiv)</p>",
+      "date": "2026-11-23",
+      "time": "10:50–11:40"
+    },
+    {
+      "id": "T03",
+      "speaker": "Claudia Schillings",
+      "title": "Ensemble Kalman Inversion/Optimisation: Choosing and Escaping the Subspace",
+      "titleHtml": "Ensemble Kalman Inversion/Optimisation: Choosing and Escaping the Subspace",
+      "affiliationHtml": "Freie Universität Berlin",
+      "abstractHtml": "<p>Ensemble Kalman inversion (EKI) is a derivative-free method for inverse problems. In its continuous-time limit it is a gradient flow preconditioned by the ensemble covariance, so its dynamics are confined to the span of the initial ensemble. This subspace property is both a strength and a limitation: it reduces the dimension in which the method works, but the quality of the solution depends on how well the subspace captures the problem. In this talk we take both views. First, we embrace the subspace and ask how to choose it well. Second, we ask how to escape it.</p><p>In the first part, we present a subspace optimisation approach in which the subspace is built adaptively, steering the dynamics towards the directions that matter most for the problem. In the second part, we introduce a randomised Ensemble Kalman Optimisation scheme that adds noise to the ensemble update. The noise turns the degenerate preconditioned flow into a stochastic dynamics that can leave the initial subspace. We also discuss a projected variant that controls the ensemble spread with a moving-ball constraint in observation space, which can be read as a constrained gradient flow. We outline theoretical results on how both schemes behave and illustrate their performance on representative examples.</p><p>The first part is joint work with Ruben Harris (FU Berlin). The second part is joint work with Jonas Latz (University of Manchester), Alix Leroy (University of Edinburgh) and Simon Weissmann (University of Mannheim).</p>",
+      "date": "2026-11-23",
+      "time": "12:10–13:00"
+    },
+    {
+      "id": "T04",
+      "speaker": "Andrew Duncan",
+      "title": "Soft Specialists: Mean-Field Langevin Dynamics and the Emergence of Diversity in LLM Post-Training",
+      "titleHtml": "Soft Specialists: Mean-Field Langevin Dynamics and the Emergence of Diversity in LLM Post-Training",
+      "affiliationHtml": "Imperial College London",
+      "abstractHtml": "<p>Post-training a large language model usually returns a single set of weights, even when the data are heterogeneous or contradictory. We study a variational objective over probability measures on parameter space in which each observation is scored by the \\(\\alpha\\)-power mean of its likelihood, interpolating between generalised variational Bayes and predictively oriented posteriors. The resulting free energy is linearly convex and entropy-regularised, so its Wasserstein gradient flow is a mean-field Langevin dynamics whose interaction acts through likelihood-based responsibilities, and whose unique stationary state satisfies a self-consistent fixed-point equation. The associated particle system gives a practical algorithm: an ensemble of LoRA adapters trained with soft routing of examples between members, which I will illustrate on supervised fine-tuning and preference optimisation. While convexity rules out phase transitions at positive temperature, I will argue that sharp transitions nonetheless appear in the limit where regularisation is small relative to the data, and that they govern when the ensemble specialises through a nucleation process. I will discuss different scaling regimes, the metastability of the non-convex particle system, and some connections to phase transitions and coarsening in McKean–Vlasov equations.</p>",
+      "date": "2026-11-23",
+      "time": "14:00–14:50"
+    },
+    {
+      "id": "T05",
+      "speaker": "Pierre Monmarché",
+      "title": "Convergence rates for Wasserstein gradient flows of free energies and associated particle systems",
+      "titleHtml": "Convergence rates for Wasserstein gradient flows of free energies and associated particle systems",
+      "affiliationHtml": "Université Gustave Eiffel",
+      "abstractHtml": "<p>For gradient flows, exponential convergence is characterised by a Polyak–Łojasiewicz (PL) inequality. For the Wasserstein gradient flows of entropic-regularised energies, the PL inequality for the corresponding system of mean-field interacting particles is a log-Sobolev inequality (LSI). A fast convergence thus corresponds to a log-Sobolev constant independent from the number of particles. We will review some recent results on this topic : equivalence between the mean-field PL and uniform LSI, degenerate situations at phase transitions, local convergence, Nesterov acceleration, time-discretisation, and sampling of local minimisers.</p>",
+      "date": "2026-11-23",
+      "time": "14:50–15:40"
+    },
+    {
+      "id": "T06",
+      "speaker": "Anna Korba",
+      "title": "Stein Transport for Generative Data Augmentation",
+      "titleHtml": "Stein Transport for Generative Data Augmentation",
+      "affiliationHtml": "ENSAE Paris / CREST",
+      "abstractHtml": "<p>Generating additional samples from limited observations is important when data acquisition or Monte Carlo simulation is costly. We propose a nonparametric approach to generative modeling based on Stein operators and probability transport that learns from target samples alone. Using an Ornstein–Uhlenbeck probability path, we derive a tractable conditional regression objective for learning the transport field, without evaluating the target density or its gradient. Restricting the field to a reproducing kernel Hilbert space yields closed-form kernel ridge regression solutions at each time step, with deterministic, stochastic, and coordinatewise variants. We establish convergence rates for the excess conditional Stein risk and show that the regression targets are noise-free given the augmented inputs, identifying a structural distinction from denoising score matching. Experiments on Gaussian mixtures and Bayesian posterior emulation show effective generation in small-data regimes and greater robustness to hyperparameter choices than kernel score matching. On tabular benchmarks, we obtain competitive downstream predictive performance and explore the use of generated samples for data augmentation. This is a joint work with Clémentine Chazal, Linfeng Wang, Nikolas Nusken.</p>",
+      "date": "2026-11-23",
+      "time": "16:10–17:00"
+    },
+    {
+      "id": "T07",
+      "speaker": "Francesca Romana Crucinio",
+      "title": "Wasserstein–Fisher–Rao gradient flows for sampling: algorithms, convergence, and numerical analysis",
+      "titleHtml": "Wasserstein–Fisher–Rao gradient flows for sampling: algorithms, convergence, and numerical analysis",
+      "affiliationHtml": "University of Turin",
+      "abstractHtml": "<p>Sampling from complex probability distributions can be formulated as an optimisation problem over probability measures, where the objective is to minimise the Kullback–Leibler (KL) divergence to a target distribution. Wasserstein–Fisher–Rao (WFR) gradient flows provide a natural framework for this task by combining Wasserstein transport, which moves probability mass through space, with Fisher–Rao dynamics, which allow changes in mass through birth–death mechanisms.</p><p>In this talk, I will present recent developments on WFR gradient flows from three complementary perspectives: convergence theory, numerical approximation, and sampling algorithms.</p><p>First, I will turn to the convergence theory of WFR flows targeting distributions known up to a normalisation constant. For strongly log-concave targets satisfying suitable curvature conditions, I will show that strong log-concavity is preserved along the flow. This property yields explicit non-asymptotic convergence rates for the symmetrised KL divergence, without requiring a warm start. Moreover, the rates decompose additively into Wasserstein and Fisher–Rao contributions.</p><p>Second, I will discuss operator splitting schemes for approximating WFR dynamics by sequentially applying Wasserstein and Fisher–Rao flows. I will present variational characterisations of the resulting time-discrete dynamics and examine the role of operator ordering. In particular, I will show that, with an appropriate step size and ordering, a splitting scheme can converge to the target faster than the exact WFR flow in model time, and identify conditions under which each splitting order is advantageous.</p><p>Finally, I will discuss the connections between KL-divergence minimisation flows and Monte Carlo methods, highlighting how the WFR geometry can be exploited to construct practical sampling algorithms based on importance sampling and sequential Monte Carlo. Building on these connections, I will introduce a novel algorithm for approximating WFR flows and present numerical comparisons with established Monte Carlo methods.</p><p>Overall, the talk will illustrate how the interplay between transport and mass variation in WFR geometry leads to new theoretical insights, numerical methods, and practical sampling algorithms.</p>",
+      "date": "2026-11-24",
+      "time": "10:00–10:50"
+    },
+    {
+      "id": "T08",
+      "speaker": "Andrea Agazzi",
+      "title": "A multiscale analysis of information propagation dynamics in deep transformer models",
+      "titleHtml": "A multiscale analysis of information propagation dynamics in deep transformer models",
+      "affiliationHtml": "University of Bern",
+      "abstractHtml": "<p>In this talk, we study the evolution of tokens across the depth of encoder-only transformer models at inference time, modeling them as a system of interacting particles in the infinite-depth limit. Motivated by techniques for extending the context length of large language models, we focus on the moderate interaction regime, where the number of tokens is large and the inverse temperature parameter scales accordingly. In this setting, the dynamics exhibit a multiscale structure. Using PDE analysis, we identify different phases depending on the choice of parameters.</p>",
+      "date": "2026-11-24",
+      "time": "10:50–11:40"
+    },
+    {
+      "id": "T09",
+      "speaker": "Olivier Zahm",
+      "title": "Gradient-free Riemannian Langevin sampler",
+      "titleHtml": "Gradient-free Riemannian Langevin sampler",
+      "affiliationHtml": "Inria / Université Grenoble Alpes",
+      "abstractHtml": "<p>In this talk, we address the problem of efficiently sampling multimodal probability distributions, where standard Markov Chain Monte Carlo methods often suffer from poor mixing and mode trapping. To mitigate these issues, we propose GRiLS (Gradient-free Riemannian Langevin Sampler), a novel preconditioning framework that enhances exploration without requiring gradient evaluations. Our approach introduces a Riemannian metric which reshapes the local geometry in order to facilitate transitions across modes. The resulting gradient-free MCMC algorithm is particularly suitable for complex, computationally expensive targets where derivatives are unavailable or impractical.</p>",
+      "date": "2026-11-24",
+      "time": "12:10–13:00"
+    },
+    {
+      "id": "T10",
+      "speaker": "Marie-Therese Wolfram",
+      "title": "On Boltzmann mean field games",
+      "titleHtml": "On Boltzmann mean field games",
+      "affiliationHtml": "University of Warwick",
+      "abstractHtml": "<p>In this talk I will focus on a generalisation of a Boltzmann mean field game (BMFG) for knowledge growth, originally introduced by the economists Lucas and Moll. In BMFG the evolution of the agent density with respect to their knowledge level is described by a Boltzmann equation. Agents increase their knowledge through binary interactions with others; their increase is modulated by the interaction and learning rate.</p><p>I will discuss different aspects and challenges of this model – first the existence of special solutions, which relate to overall exponential growth. Second the connection to variational mean-field games and gradient flows in suitable scaling limits.</p>",
+      "date": "2026-11-24",
+      "time": "14:00–14:50"
+    },
+    {
+      "id": "T11",
+      "speaker": "Urbain Vaes",
+      "title": "Rare events and the narrow escape problem",
+      "titleHtml": "Rare events and the narrow escape problem",
+      "affiliationHtml": "Inria Paris / CERMICS",
+      "abstractHtml": "<p>Many stochastic dynamics, such as Langevin dynamics in molecular simulation, are metastable: they remain trapped for very long times in some region of the state space before transitioning to another one. When the trapping is due to energetic barriers, such rare events are well described by Eyring-Kramers type formulas, but metastability can also have an entropic origin. The narrow escape problem is a prototypical model of this situation: a Brownian particle evolves in a domain with reflecting boundary, except on small windows through which it can escape.</p><p>In this talk, I will present recent work on this problem based on the quasi-stationary distribution approach to metastability. Starting from the quasi-stationary distribution in the domain, we derive asymptotic expansions, with error bounds, of the mean exit time and of the law of the exit point in the limit where the sizes of the windows tend to zero, in general domains of arbitrary dimension. The analysis relies on the study of the principal eigenvalue and eigenfunction of the Laplacian with mixed Dirichlet-Neumann boundary conditions. Theoretical predictions are illustrated by numerical simulations based on dedicated Monte Carlo techniques.</p><p>Joint work with Louis Carillo, Tony Lelièvre, Thomas Normand and Gabriel Stoltz.</p>",
+      "date": "2026-11-24",
+      "time": "14:50–15:40"
+    },
+    {
+      "id": "T12",
+      "speaker": "André Schlichting",
+      "title": "A fourth-order Langevin dynamics? Diffusive transport, the DLSS equation and structure-preserving discretizations",
+      "titleHtml": "A fourth-order Langevin dynamics? Diffusive transport, the DLSS equation and structure-preserving discretizations",
+      "affiliationHtml": "University of Ulm",
+      "abstractHtml": "<p>Langevin dynamics is the Wasserstein gradient flow of the relative entropy with respect to a target measure. We ask whether a natural fourth-order analogue exists. Our starting point is diffusive transport, which replaces the continuity equation in the Benamou–Brenier formula by a second-order one and relaxes martingale transport. In this geometry, the gradient flow of the entropy is the fourth-order Derrida–Lebowitz–Speer–Spohn (DLSS) equation.</p><p>A pure diffusive transport flow conserves the mean and cannot sample on its own. Combining it with the Wasserstein geometry leads to a fourth-order Langevin equation. For Gaussian targets, this is the confined DLSS equation. It has the same spectral gap as the Ornstein–Uhlenbeck process, but higher Hermite modes decay quadratically faster.</p><p>We present a structure-preserving discretization with an exact discrete Gaussian equilibrium and a decay rate uniform in the mesh size. It has a particle interpretation as a chemical reaction network of single-particle and pair jumps.</p><p>Joint work with Daniel Matthes, Eva-Maria Rott and Giuseppe Savaré, and with Alexander Mielke and Artur Stephan.</p>",
+      "date": "2026-11-25",
+      "time": "09:10–10:00"
+    },
+    {
+      "id": "T13",
+      "speaker": "Anna Shalova",
+      "title": "Gradient flow of a random quadratic functional: an RDS perspective",
+      "titleHtml": "Gradient flow of a random quadratic functional: an RDS perspective",
+      "affiliationHtml": "University of Amsterdam",
+      "abstractHtml": "<p>We introduce the Random Quadratic Form (RQF): a stochastic differential equation which formally corresponds to the gradient flow of a random quadratic functional on a sphere, and show how the properties of the deterministic gradient flow translate into the random setting. In particular, we prove that the random attractor of the RQF inherits the structure of the minimisers of its deterministic counterpart. We then consider the RQF model perturbed by a random independent forcing and recover the resulting multi-scale synchronising behaviour which illustrates the ‘metastable synchronisation by noise' phenomenon.</p><p>The RQF model is motivated by the study of the role of linear layers in transformers and demonstrates the <em>synchronization by common noise</em> phenomena arising in the simplified models of transformers. In particular, we provide an alternative (independent of self-attention) explanation of the clustering behaviour in deep transformers and show that tokens cluster even in the absence of the self-attention mechanism.</p>",
+      "date": "2026-11-25",
+      "time": "10:00–10:50"
+    },
+    {
+      "id": "T14",
+      "speaker": "Eric Vanden-Eijnden",
+      "title": "The Inner Workings of Generative Flows and Maps",
+      "titleHtml": "The Inner Workings of Generative Flows and Maps",
+      "affiliationHtml": "New York University",
+      "abstractHtml": "<p>Generative models based on dynamical transport have recently led to significant advances in unsupervised learning. At mathematical level, these models are primarily designed around the construction of a map between two probability distributions that transform samples from the first into samples from the second. While these methods were first introduced in the context of image generation, they have found a wide range of applications. In this talk, I will discuss the mathematical underpinning of generative models based on flows and their associated maps, and show how a better understanding of their inner workings can help improve their design. These results indicate how to structure the transport to best reach complex target distributions while maintaining computational efficiency, both at learning and sampling stages.</p>",
+      "date": "2026-11-25",
+      "time": "11:20–12:10"
+    },
+    {
+      "id": "T15",
+      "speaker": "Hong Duong",
+      "title": "GENERIC formulation and asymptotic limits for kinetic models",
+      "titleHtml": "GENERIC formulation and asymptotic limits for kinetic models",
+      "affiliationHtml": "University of Birmingham",
+      "abstractHtml": "<p>In non-equilibrium thermodynamics, GENERIC (General Equation for Non-Equilibrium Reversible-Irreversible Coupling), which was introduced by Grmela and Oettinger in 1997 in the context of complex fluids, describes a class of thermodynamic evolution equations for systems with both reversible and irreversible dynamics. It is formulated in terms of an energy functional, an entropy functional, and two geometric structures for the Hamiltonian and dissipative dynamics, such that it automatically fulfils the first and second laws of thermodynamics by ensuring conservation of energy and monotonic increase of entropy. Over the last three decades, the GENERIC framework has proved to be a versatile modelling tool for a variety of complex systems in physics and engineering, ranging from anisotropic inelastic solids to viscoplastic solids and thermoelastic dissipative materials. In recent years, there has been a considerable progress on establishing a mathematically rigorous foundation for the GENERIC framework.</p><p>In this talk, I will show rigorously the GENERIC formulation and using it to derive asymptotic limits for various kinetic models, including the (fuzzy) Boltzmann and Landau equations, and the kinetic wave equations. This talk is based on joint works with Zihui He and Boris Golubkov (Bielefield University).</p>",
+      "date": "2026-11-25",
+      "time": "12:10–13:00"
+    }
+  ],
+  "posters": [
+    {
+      "id": "P01",
+      "presenter": "Yifu Zhang",
+      "title": "Efficient Function Approximation Under Heteroskedastic Noise",
+      "titleHtml": "Efficient Function Approximation Under Heteroskedastic Noise",
+      "authorsHtml": "Yuji Nakatsukasa — Mathematical Institute, University of Oxford<br> Yifu Zhang — Department of Mathematics, Imperial College London",
+      "abstractHtml": "<p>Approximating a function on \\([-1,1]\\) from \\(N+1\\) noisy samples is a classical problem in numerical analysis. When the noise is heteroskedastic, with variance \\(\\sigma(x)^2\\) depending on the sampling location, existing methods do not provide an \\(O(N\\log N)\\) algorithm tailored to this setting. We introduce <em>HeteroChebtrunc</em>, an adaptation of NoisyChebtrunc designed for heteroskedastic observations. Using high-dimensional probability, we show that, with high probability, HeteroChebtrunc attains a sharper uniform-norm error bound than NoisyChebtrunc under heteroskedastic noise. Its computational cost is \\(O(N+\\widehat N\\log\\widehat N)\\), where \\(\\widehat N\\ll N\\) is a user-chosen parameter. In the course of the analysis, we also obtain a non-asymptotic high-probability relative-error bound for the sample variance estimator of subgaussian random variables. Numerical experiments illustrate the improved uniform approximation accuracy of the proposed method.</p>"
+    },
+    {
+      "id": "P02",
+      "presenter": "Adrien Vacher",
+      "title": "On the implicit regularization of Langevin dynamics with projected noise",
+      "titleHtml": "On the implicit regularization of Langevin dynamics with projected noise",
+      "authorsHtml": "Govind Menon — Brown University, USA<br> Austin J. Stromme and Adrien Vacher — ENSAE, France",
+      "abstractHtml": "<p><strong>Keywords:</strong> Implicit Bias, Langevin Dynamics, Isometric Group Actions, Geometry</p><p>We study Langevin dynamics with noise projected onto the directions orthogonal to an isometric group action. This mathematical model is introduced to shed new light on the effects of symmetry on stochastic gradient descent for over-parametrized models. Our main result identifies a novel form of implicit regularization: when the initial and target density are both invariant under the group action, Langevin dynamics with projected noise is equivalent in law to Langevin dynamics with isotropic diffusion but with an additional drift term proportional to the negative log volume of the group orbit. We prove this result by constructing a coupling of the two processes via a third process on the group itself, and identify the additional drift as the mean curvature of the orbits.</p><p><strong>References</strong></p><p>[1] G. Menon, A.J. Stromme, A. Vacher, <em>On the implicit regularization of Langevin dynamics with projected noise</em>, Conference On Learning Theory, 2026.</p>"
+    },
+    {
+      "id": "P03",
+      "presenter": "Nicola Branchini",
+      "title": "Convergence of adaptive self-normalized importance sampling",
+      "titleHtml": "Convergence of adaptive self-normalized importance sampling",
+      "authorsHtml": "Nicola Branchini — University of Warwick",
+      "abstractHtml": "<p>Estimating expectations under complex posterior distributions is a central task in machine learning and statistics. In certain challenging problems like Bayesian cross-validation and sensitivity analysis, even i.i.d sampling from the posterior distribution can produce estimators with high or infinite variance. Then using self-normalized importance sampling (SNIS) with an appropriate proposal, a distribution which differs from the posterior, is required. Yet, there is a lack of approaches which learn a proposal tailored to SNIS.</p><p>We revisit the SNIS-optimal proposal of Hesterberg (1988), long overlooked because it is doubly intractable: the very expectation being estimated enters its definition, and the resulting density cannot be evaluated. We propose a generic adaptive framework that approximates it by interleaving MCMC sampling from an approximation of the optimal proposal with running SNIS estimates, connecting stochastic approximation and adaptive importance sampling. We prove a martingale central limit theorem for the resulting estimator, show that learning the proposal incurs little asymptotic cost, and establish a non-asymptotic chi-squared contraction rate between the learned and optimal proposals. Experiments in Bayesian cross-validation confirm the theory and show substantial variance reduction over standard alternatives.</p>"
+    },
+    {
+      "id": "P04",
+      "presenter": "Tim Y. J. Wang / Alessio Spagnoletti",
+      "title": "Consistency Regularised Gradient Flows for Inverse Problems",
+      "titleHtml": "Consistency Regularised Gradient Flows for Inverse Problems",
+      "authorsHtml": "Alessio Spagnoletti<sup>1,*</sup>, Tim Y. J. Wang<sup>2,*</sup>, Marcelo Pereyra<sup>3,†</sup>, O. Deniz Akyildiz<sup>2,†</sup><br> <sup>1</sup>Laboratoire MAP5, UMR 8145, Université Paris Cité, CNRS<br> <sup>2</sup>Department of Mathematics, Imperial College London<br> <sup>3</sup>Heriot-Watt University, MACS &amp; Maxwell Institute<br> <sup>*</sup>Joint first authors. <sup>†</sup>Equal contribution.",
+      "abstractHtml": "<p>Vision-Language Latent Diffusion Models (LDMs) (Rombach et al., 2022) provide powerful generative priors for inverse problems. However, existing LDM-based inverse solvers typically require a large number of neural function evaluations (NFEs) and backpropagation through large pretrained components, leading to substantial computational cost and, in some cases, degraded reconstruction quality. We propose a unified Euclidean-Wasserstein-2 gradient-flow framework that jointly performs posterior sampling and prompt optimization in the latent space through a single flow that aligns the prior and posterior with the observed data. Combined with few-step latent text-to-image models, this formulation enables low-NFE inference without backpropagation through autoencoders. Experiments across several canonical imaging inverse problems show that our method achieves state-of-the-art performance with significantly reduced computational cost.</p>"
+    },
+    {
+      "id": "P05",
+      "presenter": "Paul Caucheteux",
+      "title": "A Unifying View of Variational Generative Wasserstein Flows",
+      "titleHtml": "A Unifying View of Variational Generative Wasserstein Flows",
+      "authorsHtml": "Paul Caucheteux<sup>1</sup>, Clément Bonet<sup>2</sup>, Anna Korba<sup>1</sup><br> <sup>1</sup>ENSAE, CREST <sup>2</sup>CMAP, Ecole Polytechnique",
+      "abstractHtml": "<p>Many modern generative models can be viewed as minimizing divergences between probability distributions, yet they rely on different algorithmic and geometric principles. Wasserstein gradient flows provide a continuous-time formulation for optimizing over distributions, and can be approximated through their implicit discretization via the Jordan–Kinderlehrer–Otto (JKO) scheme. In this work, we present a unified theoretical framework for generative modeling based on Wasserstein gradient flows, which we refer to as Generative Wasserstein Flows (GWF). We show that a broad class of existing methods can be derived as instances of parametric JKO schemes for \\(f\\)-divergence objectives, and we establish equivalences between several recently proposed algorithms. We extend this framework beyond \\(f\\)-divergences to Integral Probability Metrics and squared Maximum Mean Discrepancy, deriving new JKO-based generative algorithms and clarifying their connections with GANs. We study empirically the impact of JKO regularization for a wide range of objectives. Finally, we analyze parametric Wasserstein flows, where the dynamics are restricted to distributions induced by parametrized maps.</p><p><a href=\"https://arxiv.org/abs/2605.31369\">arXiv:2605.31369</a></p>"
+    },
+    {
+      "id": "P06",
+      "presenter": "Alexandra Borkowski",
+      "title": "The Fenchel Game of Underdamped Langevin: Insights into Accelerated Convergence",
+      "titleHtml": "The Fenchel Game of Underdamped Langevin: Insights into Accelerated Convergence",
+      "authorsHtml": "Alexandra Borkowski<sup>*</sup> and Nik Nüsken — King's College London<br> <sup>*</sup>Presenting author.",
+      "abstractHtml": "<p>Following the work of Wang, Abernethy, and Levy (2023), a two-player online optimisation game can be used to describe accelerated convex optimisation algorithms (and many others). Based on the prevailing parallels between optimisation and sampling, the question arises as to whether an analogous perspective may yield accelerated sampling dynamics.</p><p>In this context, we construct a two-player game for sampling from a probability measure \\(\\pi(dx)\\propto e^{-V(x)}\\,dx\\), where \\(V\\) is convex or strongly convex, and show that Underdamped Langevin dynamics arise from a combination of distinct strategies for the two players. Moreover, this interpretation provides a framework for analysing the convergence of Underdamped Langevin dynamics in KL divergence. In particular, for appropriate choices of the damping parameters, we show convergence rates that are accelerated compared with those of Overdamped Langevin dynamics.</p><p><strong>Preprint:</strong> <a href=\"https://arxiv.org/abs/2609.07812\">arXiv:2609.07812</a>. <strong>Reference:</strong> Wang, Abernethy, and Levy (2023), <em>No-Regret Dynamics in the Fenchel Game: A Unified Framework for Algorithmic Convex Optimization.</em></p>"
+    },
+    {
+      "id": "P07",
+      "presenter": "Andreas Habring",
+      "title": "Annealed Underdamped Langevin Sampling",
+      "titleHtml": "Annealed Underdamped Langevin Sampling",
+      "authorsHtml": "Laurenz Nagler, Alexander Falk, Andreas Habring",
+      "abstractHtml": "<p>Approaches for accelerating SDE-based sampling broadly fall into two categories: using dynamics with faster ergodic convergence or better discretization properties, such as underdamped Langevin; or non-equilibrium sampling, where the target is annealed or diffused to improve its conditioning. We combine the two and propose Annealed Underdamped Langevin Sampling (ANULD), which runs underdamped Langevin dynamics with a time-varying target interpolating from a simple reference (e.g. a standard Gaussian) to the complex target of interest. We bound the sampling error in terms of the action of the annealing path, i.e., its kinetic energy in Wasserstein space, linking sampling complexity to the geometry of the path. Because the noise in the underdamped system acts only on the velocity, standard Girsanov arguments do not apply, and we rely on a new proof strategy based on shifted Girsanov arguments. In the convex case obtain a complexity of \\(O(\\epsilon^{-2})\\) to reach accuracy \\(\\epsilon\\) in TV, compared to \\(O(\\epsilon^{-6})\\) for annealed overdamped Langevin (Guo et al., 2025; Cordero-Encinar et al., 2025). We demonstrate the method's efficacy in experiments for posterior sampling for toy problems and Bayesian MRI.</p>"
+    },
+    {
+      "id": "P08",
+      "presenter": "Emily Ehrhardt",
+      "title": "Fractional Posteriors under Model Misspecification in Generalised Linear Models",
+      "titleHtml": "Fractional Posteriors under Model Misspecification in Generalised Linear Models",
+      "authorsHtml": "Emily C. Ehrhardt, Randolf Altmeyer, Kolyan Ray — Imperial College London",
+      "abstractHtml": "<p>Polynomial time sampling guarantees ensure that posterior inference remains computationally tractable in high-dimensional problems. Nickl &amp; Wang (2022) and Altmeyer (2025) showed that for the unadjusted Langevin algorithm (ULA) the usual global log-concavity assumption of the posterior can be relaxed to a local curvature assumption combined with posterior contraction. We extend this framework to the situation when the likelihood is misspecified, so the assumed statistical model does not accurately represent the underlying data-generating process. A common approach to Bayesian inference under misspecification is the fractional posterior, which is obtained by raising the likelihood to a power \\(\\alpha\\in(0,1]\\). We focus on misspecified generalized linear models (GLMs) and prove that the fractional posterior contracts around the Kullback-Leibler projection \\(\\theta^*\\) at rate \\(\\sqrt{p\\log(\\alpha n)/(\\alpha n)}\\) in Euclidean distance. Notably, our proof includes \\(\\alpha=1\\) contrary to previously obtained contraction results. Given a suitable initialiser, we obtain polynomial time sampling guarantees for ULA applied to the fractional posterior of misspecified GLMs.</p><p><strong>References</strong></p><p>Altmeyer, R. (2025), ‘Polynomial time guarantees for sampling based posterior inference in high-dimensional generalised linear models'. arXiv:2208.13296 [math.ST].<br> URL: <a href=\"https://doi.org/10.48550/arXiv.2208.13296\">https://doi.org/10.48550/arXiv.2208.13296</a></p><p>Nickl, R. &amp; Wang, S. (2022), ‘On polynomial-time computation of high-dimensional posterior measures by Langevin-type algorithms', <em>Journal of the European Mathematical Society</em> <strong>26</strong>(3), 1031–1112.<br> URL: <a href=\"https://doi.org/10.4171/jems/1304\">https://doi.org/10.4171/jems/1304</a></p>"
+    },
+    {
+      "id": "P09",
+      "presenter": "Chenyang Tian",
+      "title": "Sobolev Regularized MMD Gradient Flow",
+      "titleHtml": "Sobolev Regularized MMD Gradient Flow",
+      "authorsHtml": "Chenyang Tian<sup>1,3,†</sup>, Bharath K. Sriperumbudur<sup>2</sup>, Arthur Gretton<sup>3,4</sup>, Zonghao Chen<sup>3,†</sup><br> <sup>1</sup>Tsinghua University <sup>2</sup>Pennsylvania State University<br> <sup>3</sup>University College London <sup>4</sup>Google Deepmind<br> <sup>†</sup>Equal contribution.",
+      "abstractHtml": "<p>We analyze Sobolev descent [MSR19], a regularized variant of maximum mean discrepancy (MMD) gradient flow based on a gradient penalty on the witness function. Such regularization mitigates the non-convexity of the MMD objective and yields provable global convergence guarantees in MMD in both continuous and discrete time. A surprising appeal is that our convergence analysis does not rely on isoperimetric assumptions on the target distribution. Instead, it is based on a regularity condition on the difference between kernel mean embeddings. We extend Sobolev descent such that it is applicable in both sampling (from an unnormalized target distribution)—using Stein kernels—and generative modeling settings, unlike previous works, where a gradient flow is suitable for only generative modeling or sampling but not both. We empirically validate the method on a broad range of tasks across both settings.</p><p><strong>References</strong></p><p>[MSR19] Youssef Mroueh, Tom Sercu, and Anant Raj. Sobolev descent. In K. Chaudhuri and M. Sugiyama, editors, <em>The 22nd International Conference on Artificial Intelligence and Statistics</em>, pages 2976–2985. PMLR, PMLR, 2019.</p>"
+    },
+    {
+      "id": "P10",
+      "presenter": "Rohan Shenoy / Pengcheng Ye",
+      "title": "\\(L^2\\) over Wasserstein: Statistical analysis for optimal transport",
+      "titleHtml": "\\(L^2\\) over Wasserstein: Statistical analysis for optimal transport",
+      "authorsHtml": "Rohan Shenoy and Pengcheng Ye",
+      "abstractHtml": "<p>Optimal transport provides an inherently geometric and highly structured framework for studying spaces of probability measures, supplying a rich theoretical toolkit for contemporary statistics, machine learning, and generative modelling. In applications, however, the measures of interest are almost never known precisely, calling for a theory of optimal transport that accounts for statistical uncertainty. We construct such a framework, lifting the classical theory to the setting of random probability measures. We introduce the space of Wasserstein random variables, establishing that it inherits the formal Riemannian structure of the Wasserstein space by characterising distances and geodesic geometry. The structure induces random flows with Wasserstein gradient flow sample paths, making it the natural extension of the Wasserstein space which allows for random gradient flow dynamics. We ensemble statistical convergence results of the optimal transport machinery using the random empirical measure within the framework. Moreover, in the setting of Bayesian analysis, we refine Schwartz's consistency theorem to the Wasserstein topology and deduce posterior convergence of the same machinery. We demonstrate that the growing theory of random token sampling for transformer models using self-attention flow paths can be embedded into the framework. The results provide a unified treatment of random optimal transport and its consequences for principled inference and generative modelling under the statistical uncertainty of random sampling.</p>"
+    },
+    {
+      "id": "P11",
+      "presenter": "Shang Ling Yap",
+      "title": "Robust MMD-Regularised Particle Filter as a Wasserstein Gradient Flow",
+      "titleHtml": "Robust MMD-Regularised Particle Filter as a Wasserstein Gradient Flow",
+      "authorsHtml": "Shang Ling Yap, Randolf Altmeyer, Ömer Deniz Akyildiz<br> Department of Mathematics, Imperial College London",
+      "abstractHtml": "<p>Standard filters presuppose a correct forecast model and degrade confidently when it is wrong. Motivated by generalised variational inference, we recast the filtering update at each assimilation step as an optimisation problem over \\(\\mathcal{P}_2(\\mathbb{R}^{d_X})\\) — a data-fit term plus a maximum mean discrepancy penalty to the forecast ensemble — and solve it by its Wasserstein gradient flow, a deterministic McKean–Vlasov dynamics whose Euler discretisation is a weight-free, resampling-free update requiring no densities. Under standard regularity assumptions, we establish well-posedness and monotone decrease of the objective along the flow, and show that the discrete scheme tracks the continuous flow to first order in the step size. Under partial observation the flow is structurally degenerate, as the unobserved coordinates receive no information from the data; we repair this by descending in a covariance-preconditioned metric frozen at the forecast, and show that all guarantees transfer. On Lorenz-63 the filter outperforms ensemble Kalman and particle filters under misspecification; on Lorenz-96 it remains competitive with a localised and inflated ensemble Kalman filter, with low variability across seeds in both cases.</p>"
+    },
+    {
+      "id": "P12",
+      "presenter": "Carlos Alberto Cardoso Correia Perelló",
+      "title": "Sharp Asymptotics for Regularised Optimal Transport",
+      "titleHtml": "Sharp Asymptotics for Regularised Optimal Transport",
+      "authorsHtml": "Carlos Alberto Cardoso Correia Perelló — Columbia University",
+      "abstractHtml": "<p>We establish sharp asymptotic expansions for entropically regularised optimal transport and \\(L^p\\)-regularised optimal transport, providing explicit limiting constants under substantially weaker assumptions than previously known. The proofs are based on a new and flexible framework that unifies these settings, and is designed to apply more broadly to general regularised optimal transport problems. This is joint work with Alberto González Sanz and Marcel Nutz.</p><p><strong>References</strong></p><p>[CGN26] Carlos Cardoso-Perelló, Alberto González-Sanz, and Marcel Nutz. “Sharp Asymptotics for Regularized Optimal Transport”. In: (2026). arXiv: <a href=\"https://arxiv.org/abs/2607.18191\">2607.18191</a> [math.OC].</p><p>[EN24] Stephan Eckstein and Marcel Nutz. “Convergence Rates for Regularized Optimal Transport via Quantization”. In: <em>Mathematics of Operations Research</em> 49 (2024), pp. 1223–1240.</p><p>[GGM24] Álvaro Garriz-Molina, Alberto González-Sanz, and Gilles Mordant. “Infinitesimal Behavior of Quadratically Regularized Optimal Transport and Its Relation with the Porous Medium Equation”. In: (2024). arXiv: <a href=\"https://arxiv.org/abs/2407.21528\">2407.21528</a> [math.OC].</p><p>[GLN22] Alberto González-Sanz, Jean-Michel Loubes, and Jonathan Niles-Weed. “Weak Limits of Entropy Regularized Optimal Transport: Potentials, Plans and Divergences”. In: (2022). arXiv: <a href=\"https://arxiv.org/abs/2207.07427\">2207.07427</a> [math.OC].</p><p>[Pal24] Soumik Pal. “On the Difference Between Entropic Cost and the Optimal Transport Cost”. In: <em>The Annals of Applied Probability</em> 34.1B (2024), pp. 1003–1028.</p>"
+    },
+    {
+      "id": "P13",
+      "presenter": "Yuyang Huang",
+      "title": "Optimal Stabilization for Global Optimization",
+      "titleHtml": "Optimal Stabilization for Global Optimization",
+      "authorsHtml": "Yuyang Huang — Mathematical Institute, University of Oxford",
+      "abstractHtml": "<p>We reformulate non-convex global minimization as a discounted infinite-horizon optimal control problem, whose associated Hamilton–Jacobi–Bellman (HJB) equation yields a value function that captures the full landscape of the objective. The optimal feedback is driven by the gradient of this value function, so trajectories follow a gradient flow of the value function rather than of original objective function and are steered towards the global minimizers. We establish explicit convergence rates for the variational behavior of the value function, for the objective value, and for pathwise convergence of trajectories to the minimizer set. These results do not require convexity, differentiability or Lojasiewicz-type conditions on the objective.</p>"
+    },
+    {
+      "id": "P14",
+      "presenter": "Paula Cordero Encinar",
+      "title": "Coresets for preserving attention and learning dynamics",
+      "titleHtml": "Coresets for preserving attention and learning dynamics",
+      "authorsHtml": "Paula Cordero Encinar, Carles Domingo-Enrich and Lester Mackey",
+      "abstractHtml": "<p>Approximating attention can reduce the computational cost of transformers (Carrell et al., 2025; Gong et al., 2026; Han et al., 2024), but accurate forward predictions alone do not guarantee accurate training gradients (Liang et al., 2024). We develop kernel-based coreset methods that simultaneously approximate attention outputs and gradients. Our construction yields guarantees for both unmasked and causal attention and extends to multilayer transformers under suitable regularity assumptions. From a gradient-flow perspective, our gradient bounds quantify the perturbation of the vector field driving parameter learning. This connects attention compression to the broader problem of efficiently approximating interacting systems while preserving their dynamics, with maximum mean discrepancy providing a common framework for controlling approximation errors.</p><p><strong>References</strong></p><p>Carrell, A. M., Gong, A., Shetty, A., Dwivedi, R., and Mackey, L. (2025). Low-rank thinning. In <em>Forty-second International Conference on Machine Learning</em>.</p><p>Gong, A., Carrell, A. M., Dwivedi, R., and Mackey, L. (2026). Express language modeling. arXiv preprint <a href=\"https://arxiv.org/abs/2606.10944\">arXiv:2606.10944</a>.</p><p>Han, I., Jayaram, R., Karbasi, A., Mirrokni, V., Woodruff, D., and Zandieh, A. (2024). Hyperattention: Long-context attention in near-linear time. In <em>The Twelfth International Conference on Learning Representations</em>.</p><p>Liang, Y., Sha, Z., Shi, Z., Song, Z., and Zhou, Y. (2024). Multi-layer transformers gradient can be approximated in almost linear time. arXiv preprint <a href=\"https://arxiv.org/abs/2408.13233\">arXiv:2408.13233</a>.</p>"
+    },
+    {
+      "id": "P15",
+      "presenter": "Marguerite Petit Talamon",
+      "title": "An analysis of Bures-Wasserstein variational inference with Gaussian Mixtures",
+      "titleHtml": "An analysis of Bures-Wasserstein variational inference with Gaussian Mixtures",
+      "authorsHtml": "Marguerite Petit Talamon — ENSAE",
+      "abstractHtml": "<p>Gaussian mixtures provide a flexible variational family, but their optimization remains challenging: even for a convex and smooth target potential, the Kullback–Leibler (KL) objective is neither geodesically convex nor globally smooth in the component-wise Bures–Wasserstein geometry. We establish non-asymptotic optimization guarantees for Bures–Wasserstein gradient schemes over finite Gaussian mixtures with uniform weights. Our main result is a descent lemma for the deterministic scheme under a smooth target potential and suitable covariance and step-size conditions. We prove this by controlling the curvature of the KL objective along each update, despite its lack of global smoothness. This yields an \\(O(1/k)\\) bound on the average squared component-wise gradient norm. Under an additional log-Sobolev inequality, we derive finite-time KL bounds with an explicit residual term arising from the Bures–Wasserstein geometry. We also analyze the associated continuous-time dynamics. This is a joint work with Anna Korba.</p>"
+    },
+    {
+      "id": "P16",
+      "presenter": "Lucas M. Moschen",
+      "title": "Feedback Control of Wasserstein Gradient Flows: Local Stabilisation, Convexification and Particle Implementation",
+      "titleHtml": "Feedback Control of Wasserstein Gradient Flows: Local Stabilisation, Convexification and Particle Implementation",
+      "authorsHtml": "Dante Kalise, Lucas M. Moschen<sup>*</sup>, and Grigorios A. Pavliotis<br> Department of Mathematics, Imperial College London, London (UK)<br> <sup>*</sup>Poster Presenter.",
+      "abstractHtml": "<p>We consider particle systems on the torus driven by a confining potential, a pairwise interaction and additive Brownian noise. Their mean-field limit is a McKean–Vlasov equation, which can be seen as the Wasserstein gradient flow of a free energy. This PDE can have multiple equilibria, both stable and unstable, and near a stable equilibrium, the convergence rate is set by the spectrum of the Wasserstein Hessian of the free energy. Under suitable assumptions on the Hessian, we prove that only finitely many modes decay slowly. At the particle level, these slow modes are reflected in metastability and slow sampling. We design a feedback control at the mean-field level that stabilises the nonlinear dynamics, including around unstable equilibria, while also convexifying the free energy locally. Using the Hessian at the target, we build a finite-rank control that acts only on the eigendirections whose decay rates fall below a chosen threshold, with gains computed from a Riccati equation. The controlled mean-field dynamics is still a gradient flow, of a modified free energy, and it is locally displacement convex around the target. Since the feedback law depends on the measure only through finitely many moments, it can be applied directly to the particle system through its empirical measure. We show that the particles converge at close to the accelerated mean-field rate until they reach the finite-\\(N\\) fluctuation level, and then stay near the target for times exponentially large in \\(N\\). When the target is a Gibbs measure, the feedback can be built from the unnormalised density alone. Numerical tests on interacting models and on multimodal and banana-shaped Gibbs targets show faster convergence than the uncontrolled dynamics.</p>"
+    },
+    {
+      "id": "P17",
+      "presenter": "Ben Boys",
+      "title": "Self-Compression: A gradient-based approach towards training LLMs for binary inference.",
+      "titleHtml": "Self-Compression: A gradient-based approach towards training LLMs for binary inference.",
+      "authorsHtml": "Ben Boys — Imagination Technologies",
+      "abstractHtml": "<p>A major cost of LLM inference is moving weights, activations, and KV-cache data between memory and the inference engine in the decode phase. Quantization reduces this cost by lowering numerical precision, but aggressive quantization typically degrades accuracy and requires costly precision-allocation schemes. We introduce Self-Compression: a simple and general framework that jointly learns model parameters and their precision by augmenting the training objective with a communication-cost regularizer. This regularizer encourages the removal of redundant parameters while reducing the representation cost of the remaining weights and KV-cache data. As a result, Self-Compression achieves state-of-the-art accuracy at 4-bit precision, and offers variable bitdepth and self-pruning as further advantages. We apply Self-Compression to LLM pretraining and demonstrate stable optimization with standard optimizers down to 1-bit weights and activations.</p>"
+    }
+  ],
+  "days": [
+    {
+      "id": "mon",
+      "date": "2026-11-23",
+      "label": "Monday 23 November",
+      "events": [
+        {
+          "kind": "session",
+          "time": "",
+          "title": "Morning chair: O. Deniz Akyildiz"
+        },
+        {
+          "kind": "event",
+          "time": "09:45–10:00",
+          "title": "Opening remarks",
+          "titleHtml": "Opening remarks",
+          "detailHtml": "O. Deniz Akyildiz"
+        },
+        {
+          "kind": "talk",
+          "time": "10:00–10:50",
+          "title": "Interacting particle formulations for stochastic optimal control",
+          "titleHtml": "Interacting particle formulations for stochastic optimal control",
+          "speaker": "Sebastian Reich",
+          "talkId": "T01",
+          "affiliationHtml": "University of Potsdam"
+        },
+        {
+          "kind": "talk",
+          "time": "10:50–11:40",
+          "title": "Convergence of replicator–mutator particle systems via a bounded Wasserstein distance",
+          "titleHtml": "Convergence of replicator–mutator particle systems via a bounded Wasserstein distance",
+          "speaker": "Giacomo Borghi",
+          "talkId": "T02",
+          "affiliationHtml": "TU Munich"
+        },
+        {
+          "kind": "event",
+          "time": "11:40–12:10",
+          "title": "Coffee break",
+          "titleHtml": "Coffee break",
+          "detailHtml": ""
+        },
+        {
+          "kind": "talk",
+          "time": "12:10–13:00",
+          "title": "Ensemble Kalman Inversion/Optimisation: Choosing and Escaping the Subspace",
+          "titleHtml": "Ensemble Kalman Inversion/Optimisation: Choosing and Escaping the Subspace",
+          "speaker": "Claudia Schillings",
+          "talkId": "T03",
+          "affiliationHtml": "Freie Universität Berlin"
+        },
+        {
+          "kind": "event",
+          "time": "13:00–14:00",
+          "title": "Lunch break",
+          "titleHtml": "Lunch break",
+          "detailHtml": ""
+        },
+        {
+          "kind": "session",
+          "time": "",
+          "title": "Afternoon chair: Louis Sharrock"
+        },
+        {
+          "kind": "talk",
+          "time": "14:00–14:50",
+          "title": "Soft Specialists: Mean-Field Langevin Dynamics and the Emergence of Diversity in LLM Post-Training",
+          "titleHtml": "Soft Specialists: Mean-Field Langevin Dynamics and the Emergence of Diversity in LLM Post-Training",
+          "speaker": "Andrew Duncan",
+          "talkId": "T04",
+          "affiliationHtml": "Imperial College London"
+        },
+        {
+          "kind": "talk",
+          "time": "14:50–15:40",
+          "title": "Convergence rates for Wasserstein gradient flows of free energies and associated particle systems",
+          "titleHtml": "Convergence rates for Wasserstein gradient flows of free energies and associated particle systems",
+          "speaker": "Pierre Monmarché",
+          "talkId": "T05",
+          "affiliationHtml": "Université Gustave Eiffel"
+        },
+        {
+          "kind": "event",
+          "time": "15:40–16:10",
+          "title": "Coffee break",
+          "titleHtml": "Coffee break",
+          "detailHtml": ""
+        },
+        {
+          "kind": "talk",
+          "time": "16:10–17:00",
+          "title": "Stein Transport for Generative Data Augmentation",
+          "titleHtml": "Stein Transport for Generative Data Augmentation",
+          "speaker": "Anna Korba",
+          "talkId": "T06",
+          "affiliationHtml": "ENSAE Paris / CREST"
+        },
+        {
+          "kind": "event",
+          "time": "17:00",
+          "title": "Closing notes",
+          "titleHtml": "Closing notes",
+          "detailHtml": ""
+        }
+      ]
+    },
+    {
+      "id": "tue",
+      "date": "2026-11-24",
+      "label": "Tuesday 24 November",
+      "events": [
+        {
+          "kind": "session",
+          "time": "",
+          "title": "Morning chair: Louis Sharrock"
+        },
+        {
+          "kind": "event",
+          "time": "09:45–10:00",
+          "title": "Opening remarks",
+          "titleHtml": "Opening remarks",
+          "detailHtml": "Louis Sharrock"
+        },
+        {
+          "kind": "talk",
+          "time": "10:00–10:50",
+          "title": "Wasserstein–Fisher–Rao gradient flows for sampling: algorithms, convergence, and numerical analysis",
+          "titleHtml": "Wasserstein–Fisher–Rao gradient flows for sampling: algorithms, convergence, and numerical analysis",
+          "speaker": "Francesca Romana Crucinio",
+          "talkId": "T07",
+          "affiliationHtml": "University of Turin"
+        },
+        {
+          "kind": "talk",
+          "time": "10:50–11:40",
+          "title": "A multiscale analysis of information propagation dynamics in deep transformer models",
+          "titleHtml": "A multiscale analysis of information propagation dynamics in deep transformer models",
+          "speaker": "Andrea Agazzi",
+          "talkId": "T08",
+          "affiliationHtml": "University of Bern"
+        },
+        {
+          "kind": "event",
+          "time": "11:40–12:10",
+          "title": "Coffee break",
+          "titleHtml": "Coffee break",
+          "detailHtml": ""
+        },
+        {
+          "kind": "talk",
+          "time": "12:10–13:00",
+          "title": "Gradient-free Riemannian Langevin sampler",
+          "titleHtml": "Gradient-free Riemannian Langevin sampler",
+          "speaker": "Olivier Zahm",
+          "talkId": "T09",
+          "affiliationHtml": "Inria / Université Grenoble Alpes"
+        },
+        {
+          "kind": "event",
+          "time": "13:00–14:00",
+          "title": "Lunch break",
+          "titleHtml": "Lunch break",
+          "detailHtml": ""
+        },
+        {
+          "kind": "session",
+          "time": "",
+          "title": "Afternoon chair: Grigorios A. Pavliotis"
+        },
+        {
+          "kind": "talk",
+          "time": "14:00–14:50",
+          "title": "On Boltzmann mean field games",
+          "titleHtml": "On Boltzmann mean field games",
+          "speaker": "Marie-Therese Wolfram",
+          "talkId": "T10",
+          "affiliationHtml": "University of Warwick"
+        },
+        {
+          "kind": "talk",
+          "time": "14:50–15:40",
+          "title": "Rare events and the narrow escape problem",
+          "titleHtml": "Rare events and the narrow escape problem",
+          "speaker": "Urbain Vaes",
+          "talkId": "T11",
+          "affiliationHtml": "Inria Paris / CERMICS"
+        },
+        {
+          "kind": "event",
+          "time": "15:40–16:00",
+          "title": "Coffee break / poster setup",
+          "titleHtml": "Coffee break / poster setup",
+          "detailHtml": ""
+        },
+        {
+          "kind": "event",
+          "time": "16:00–18:00",
+          "title": "Poster session",
+          "titleHtml": "Poster session",
+          "detailHtml": "170QG Drawing Room / <a href=\"#poster-abstracts\">Poster abstracts</a>"
+        }
+      ]
+    },
+    {
+      "id": "wed",
+      "date": "2026-11-25",
+      "label": "Wednesday 25 November",
+      "events": [
+        {
+          "kind": "session",
+          "time": "",
+          "title": "Morning chair: Grigorios A. Pavliotis"
+        },
+        {
+          "kind": "event",
+          "time": "09:00–09:10",
+          "title": "Opening remarks",
+          "titleHtml": "Opening remarks",
+          "detailHtml": "Grigorios A. Pavliotis"
+        },
+        {
+          "kind": "talk",
+          "time": "09:10–10:00",
+          "title": "A fourth-order Langevin dynamics? Diffusive transport, the DLSS equation and structure-preserving discretizations",
+          "titleHtml": "A fourth-order Langevin dynamics? Diffusive transport, the DLSS equation and structure-preserving discretizations",
+          "speaker": "André Schlichting",
+          "talkId": "T12",
+          "affiliationHtml": "University of Ulm"
+        },
+        {
+          "kind": "talk",
+          "time": "10:00–10:50",
+          "title": "Gradient flow of a random quadratic functional: an RDS perspective",
+          "titleHtml": "Gradient flow of a random quadratic functional: an RDS perspective",
+          "speaker": "Anna Shalova",
+          "talkId": "T13",
+          "affiliationHtml": "University of Amsterdam"
+        },
+        {
+          "kind": "event",
+          "time": "10:50–11:20",
+          "title": "Coffee break with snacks",
+          "titleHtml": "Coffee break with snacks",
+          "detailHtml": "30 minutes"
+        },
+        {
+          "kind": "talk",
+          "time": "11:20–12:10",
+          "title": "The Inner Workings of Generative Flows and Maps",
+          "titleHtml": "The Inner Workings of Generative Flows and Maps",
+          "speaker": "Eric Vanden-Eijnden",
+          "talkId": "T14",
+          "affiliationHtml": "New York University"
+        },
+        {
+          "kind": "talk",
+          "time": "12:10–13:00",
+          "title": "GENERIC formulation and asymptotic limits for kinetic models",
+          "titleHtml": "GENERIC formulation and asymptotic limits for kinetic models",
+          "speaker": "Hong Duong",
+          "talkId": "T15",
+          "affiliationHtml": "University of Birmingham"
+        },
+        {
+          "kind": "event",
+          "time": "13:00–13:10",
+          "title": "Workshop closing",
+          "titleHtml": "Workshop closing",
+          "detailHtml": "O. Deniz Akyildiz"
+        }
+      ]
+    }
+  ]
+}
