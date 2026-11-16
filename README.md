@@ -22,7 +22,8 @@ Mathematics uses the locally bundled KaTeX runtime and fonts in `vendor/katex/`.
 
 Compile `programme.tex` from the public programme project into a temporary build
 directory. After reviewing the PDF, copy it to
-`programme/gradient-flows-2026-programme.pdf`; the download link uses this path.
+`programme/gradient-flows-2026-programme.pdf`; the PDF link uses this path and
+opens in a new browser tab without forcing a download.
 The PDF is intentionally included in this website repository for participants.
 Generated TeX build files and ZIP archives do not belong in the Overleaf project.
 

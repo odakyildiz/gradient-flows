@@ -165,7 +165,7 @@
     render(JSON.parse(embeddedData.textContent));
   } catch (error) {
     console.error(error);
-    var fallback = '<p class="programme-fallback">Please <a href="programme/gradient-flows-2026-programme.pdf">open the programme PDF</a> for the timetable and all abstracts.</p>';
+    var fallback = '<p class="programme-fallback">Please <a href="programme/gradient-flows-2026-programme.pdf" target="_blank" rel="noopener">open the programme PDF</a> for the timetable and all abstracts.</p>';
     programmeRoot.innerHTML = fallback;
     posterRoot.innerHTML = fallback;
   }
