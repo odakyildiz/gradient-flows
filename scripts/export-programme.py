@@ -348,8 +348,8 @@ def export(source_dir: Path) -> dict:
         raise ExportError("Expected exactly T01–T15, in programme order")
     if len(slots) != len(talks):
         raise ExportError("The schedule contains a talk without an abstract")
-    if [poster["id"] for poster in posters] != [f"P{index:02}" for index in range(1, 18)]:
-        raise ExportError("Expected exactly the 17 accepted posters P01–P17")
+    if [poster["id"] for poster in posters] != [f"P{index:02}" for index in range(1, 19)]:
+        raise ExportError("Expected exactly the 18 accepted posters P01–P18")
     if any(not plain_text(item["abstractHtml"]) for item in talks + posters):
         raise ExportError("An abstract is empty")
     return {"talks": talks, "posters": posters, "days": days}

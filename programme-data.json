@@ -287,6 +287,14 @@
       "titleHtml": "Self-Compression: A gradient-based approach towards training LLMs for binary inference.",
       "authorsHtml": "Ben Boys — Imagination Technologies",
       "abstractHtml": "<p>A major cost of LLM inference is moving weights, activations, and KV-cache data between memory and the inference engine in the decode phase. Quantization reduces this cost by lowering numerical precision, but aggressive quantization typically degrades accuracy and requires costly precision-allocation schemes. We introduce Self-Compression: a simple and general framework that jointly learns model parameters and their precision by augmenting the training objective with a communication-cost regularizer. This regularizer encourages the removal of redundant parameters while reducing the representation cost of the remaining weights and KV-cache data. As a result, Self-Compression achieves state-of-the-art accuracy at 4-bit precision, and offers variable bitdepth and self-pruning as further advantages. We apply Self-Compression to LLM pretraining and demonstrate stable optimization with standard optimizers down to 1-bit weights and activations.</p>"
+    },
+    {
+      "id": "P18",
+      "presenter": "Luca Chadwick",
+      "title": "Empirical Predictively Oriented posteriors",
+      "titleHtml": "Empirical Predictively Oriented posteriors",
+      "authorsHtml": "Luca Chadwick — University of Warwick",
+      "abstractHtml": "<p>Bayesian inference is often designed for parameter estimation, but many applications prioritise predictive performance. Predictively Oriented (PrO) posteriors address this by directly optimising predictive distributions under scoring rules and can offer improved robustness under model misspecification. We introduce a particle-based optimisation approach for computing PrO posteriors through joint gradient descent over posterior distributions and hierarchical hyperparameters. Using a Wasserstein–Euclidean geometry, we derive an interacting particle system that approximates the corresponding gradient flow. We establish theoretical properties including existence and uniqueness of minimisers.</p>"
     }
   ],
   "days": [

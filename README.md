@@ -14,7 +14,7 @@ python3 scripts/export-programme.py
 
 The exporter updates both `programme-data.json` and the embedded programme data
 in `index.html`, keeping the published page and the local file preview in sync.
-It validates all 15 talks and 17 posters and preserves author lists,
+It validates all 15 talks and 18 posters and preserves author lists,
 references and LaTeX mathematics. It reads only the public programme sources.
 `programme.js` displays the timetable, day tabs and a single open abstract at a
 time across talks and posters. `programme.css` extends the existing website style.
