@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071012">
+  <title>Up next · Gradient Flows 2026</title>
+  <link rel="stylesheet" href="next.css">
+  <script src="particles.js" defer></script>
+  <script src="next.js" defer></script>
+</head>
+<body>
+  <main class="display" data-view="workshop">
+    <header class="masthead">
+      <div class="wordmark">
+        <svg viewBox="-0.3 -0.3 12.1 7.6" fill="none" stroke-width="0.25" aria-hidden="true"><polygon stroke="#69e4dc" points="0,0 7,0 0.5,7"/><polygon stroke="#b9f7c2" points="4.5,0 11.5,0 5,7"/></svg>
+        <span>Gradient Flows <span class="year">/ 2026</span></span>
+      </div>
+      <span class="masthead-date">23–25 November · Imperial College London</span>
+    </header>
+
+    <div class="stage">
+      <figure class="particles" role="img" aria-label="Particles smoothly flowing between probability distributions">
+        <canvas id="measure-canvas" aria-hidden="true"></canvas>
+      </figure>
+      <section class="scene workshop-scene" aria-labelledby="workshop-title">
+        <p class="eyebrow">3rd Workshop on</p>
+        <h1 id="workshop-title">Gradient Flows<span>for Sampling, Inference,<br>and Learning</span></h1>
+        <p class="workshop-place">Imperial College London · 170 Queen’s Gate</p>
+        <p class="workshop-date">23–25 November 2026</p>
+      </section>
+      <section class="scene next-scene" aria-labelledby="next-heading" aria-hidden="true" inert>
+        <div class="session-line"><p class="eyebrow" id="next-heading">Up next</p><p class="session-place">Monday 23 November · Council Room</p></div>
+        <div class="talk-list" id="talk-list"></div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="organisers"><span class="label">Organised by</span><p>O. Deniz Akyildiz · Louis Sharrock · Grigorios A. Pavliotis</p></div>
+      <div class="sponsors"><span class="label">With support from</span><div class="sponsor-strip">
+        <div class="sponsor"><img src="../sponsor_assets/1_transparent.png" alt="Prob_AI"></div>
+        <div class="sponsor"><img src="../sponsor_assets/2.png" alt="G-Research"></div>
+        <div class="sponsor"><img src="../sponsor_assets/qrt.png" alt="Imperial QRT Labs"></div>
+        <div class="sponsor rss"><img src="../sponsor_assets/3.jpg" alt="Royal Statistical Society"></div>
+      </div></div>
+      <div class="playback"><div class="view-controls" role="group" aria-label="Display view"><button type="button" id="show-workshop" aria-pressed="true">Workshop</button><button type="button" id="show-next" aria-pressed="false">Up next</button></div><button type="button" id="pause" aria-label="Pause automatic transitions">Pause <span aria-hidden="true">Ⅱ</span></button></div>
+    </footer>
+    <div class="progress-track" aria-hidden="true"><div id="progress"></div></div>
+  </main>
+</body>
+</html>
