@@ -118,7 +118,7 @@
       "affiliationHtml": "University of Ulm",
       "abstractHtml": "<p>Langevin dynamics is the Wasserstein gradient flow of the relative entropy with respect to a target measure. We ask whether a natural fourth-order analogue exists. Our starting point is diffusive transport, which replaces the continuity equation in the Benamou–Brenier formula by a second-order one and relaxes martingale transport. In this geometry, the gradient flow of the entropy is the fourth-order Derrida–Lebowitz–Speer–Spohn (DLSS) equation.</p><p>A pure diffusive transport flow conserves the mean and cannot sample on its own. Combining it with the Wasserstein geometry leads to a fourth-order Langevin equation. For Gaussian targets, this is the confined DLSS equation. It has the same spectral gap as the Ornstein–Uhlenbeck process, but higher Hermite modes decay quadratically faster.</p><p>We present a structure-preserving discretization with an exact discrete Gaussian equilibrium and a decay rate uniform in the mesh size. It has a particle interpretation as a chemical reaction network of single-particle and pair jumps.</p><p>Joint work with Daniel Matthes, Eva-Maria Rott and Giuseppe Savaré, and with Alexander Mielke and Artur Stephan.</p>",
       "date": "2026-11-25",
-      "time": "09:10–10:00"
+      "time": "10:00–10:50"
     },
     {
       "id": "T13",
@@ -128,20 +128,10 @@
       "affiliationHtml": "University of Amsterdam",
       "abstractHtml": "<p>We introduce the Random Quadratic Form (RQF): a stochastic differential equation which formally corresponds to the gradient flow of a random quadratic functional on a sphere, and show how the properties of the deterministic gradient flow translate into the random setting. In particular, we prove that the random attractor of the RQF inherits the structure of the minimisers of its deterministic counterpart. We then consider the RQF model perturbed by a random independent forcing and recover the resulting multi-scale synchronising behaviour which illustrates the ‘metastable synchronisation by noise' phenomenon.</p><p>The RQF model is motivated by the study of the role of linear layers in transformers and demonstrates the <em>synchronization by common noise</em> phenomena arising in the simplified models of transformers. In particular, we provide an alternative (independent of self-attention) explanation of the clustering behaviour in deep transformers and show that tokens cluster even in the absence of the self-attention mechanism.</p>",
       "date": "2026-11-25",
-      "time": "10:00–10:50"
+      "time": "10:50–11:40"
     },
     {
       "id": "T14",
-      "speaker": "Eric Vanden-Eijnden",
-      "title": "The Inner Workings of Generative Flows and Maps",
-      "titleHtml": "The Inner Workings of Generative Flows and Maps",
-      "affiliationHtml": "New York University",
-      "abstractHtml": "<p>Generative models based on dynamical transport have recently led to significant advances in unsupervised learning. At mathematical level, these models are primarily designed around the construction of a map between two probability distributions that transform samples from the first into samples from the second. While these methods were first introduced in the context of image generation, they have found a wide range of applications. In this talk, I will discuss the mathematical underpinning of generative models based on flows and their associated maps, and show how a better understanding of their inner workings can help improve their design. These results indicate how to structure the transport to best reach complex target distributions while maintaining computational efficiency, both at learning and sampling stages.</p>",
-      "date": "2026-11-25",
-      "time": "11:20–12:10"
-    },
-    {
-      "id": "T15",
       "speaker": "Hong Duong",
       "title": "GENERIC formulation and asymptotic limits for kinetic models",
       "titleHtml": "GENERIC formulation and asymptotic limits for kinetic models",
@@ -520,14 +510,14 @@
         },
         {
           "kind": "event",
-          "time": "09:00–09:10",
+          "time": "09:45–10:00",
           "title": "Opening remarks",
           "titleHtml": "Opening remarks",
           "detailHtml": "Grigorios A. Pavliotis"
         },
         {
           "kind": "talk",
-          "time": "09:10–10:00",
+          "time": "10:00–10:50",
           "title": "A fourth-order Langevin dynamics? Diffusive transport, the DLSS equation and structure-preserving discretizations",
           "titleHtml": "A fourth-order Langevin dynamics? Diffusive transport, the DLSS equation and structure-preserving discretizations",
           "speaker": "André Schlichting",
@@ -536,7 +526,7 @@
         },
         {
           "kind": "talk",
-          "time": "10:00–10:50",
+          "time": "10:50–11:40",
           "title": "Gradient flow of a random quadratic functional: an RDS perspective",
           "titleHtml": "Gradient flow of a random quadratic functional: an RDS perspective",
           "speaker": "Anna Shalova",
@@ -545,19 +535,10 @@
         },
         {
           "kind": "event",
-          "time": "10:50–11:20",
+          "time": "11:40–12:10",
           "title": "Coffee break with snacks",
           "titleHtml": "Coffee break with snacks",
           "detailHtml": "30 minutes"
-        },
-        {
-          "kind": "talk",
-          "time": "11:20–12:10",
-          "title": "The Inner Workings of Generative Flows and Maps",
-          "titleHtml": "The Inner Workings of Generative Flows and Maps",
-          "speaker": "Eric Vanden-Eijnden",
-          "talkId": "T14",
-          "affiliationHtml": "New York University"
         },
         {
           "kind": "talk",
@@ -565,7 +546,7 @@
           "title": "GENERIC formulation and asymptotic limits for kinetic models",
           "titleHtml": "GENERIC formulation and asymptotic limits for kinetic models",
           "speaker": "Hong Duong",
-          "talkId": "T15",
+          "talkId": "T14",
           "affiliationHtml": "University of Birmingham"
         },
         {

@@ -255,8 +255,8 @@ def title_macros(source: str) -> dict[str, str]:
     for match in re.finditer(r"\\newcommand\s*\{\\([A-Za-z]+title)\}", source):
         value, _ = argument(source, match.end())
         macros[match.group(1)] = value
-    if len(macros) != 15:
-        raise ExportError(f"Expected 15 invited title macros, found {len(macros)}")
+    if len(macros) != 14:
+        raise ExportError(f"Expected 14 invited title macros, found {len(macros)}")
     return macros
 
 
@@ -344,8 +344,8 @@ def export(source_dir: Path) -> dict:
         posters.append({"id": poster_id, "presenter": plain_text(renderer.inline(presenter)),
                         "title": plain_text(title_html), "titleHtml": title_html,
                         "authorsHtml": renderer.inline(authors), "abstractHtml": renderer.paragraphs(body)})
-    if [talk["id"] for talk in talks] != [f"T{index:02}" for index in range(1, 16)]:
-        raise ExportError("Expected exactly T01–T15, in programme order")
+    if [talk["id"] for talk in talks] != [f"T{index:02}" for index in range(1, 15)]:
+        raise ExportError("Expected exactly T01–T14, in programme order")
     if len(slots) != len(talks):
         raise ExportError("The schedule contains a talk without an abstract")
     if [poster["id"] for poster in posters] != [f"P{index:02}" for index in range(1, 19)]:
