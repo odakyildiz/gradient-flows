@@ -3,15 +3,10 @@ const session = {
   date: 'Monday 23 November',
   room: 'Council Room',
   talks: [{
-    time: '14:00',
-    title: 'Soft Specialists: Mean-Field Langevin Dynamics and the Emergence of Diversity in LLM Post-Training',
-    speaker: 'Andrew Duncan',
-    affiliation: 'Imperial College London'
-  }, {
-    time: '14:50',
-    title: 'Convergence rates for Wasserstein gradient flows of free energies and associated particle systems',
-    speaker: 'Pierre Monmarché',
-    affiliation: 'Université Gustave Eiffel'
+    time: '16:10',
+    title: 'Stein Transport for Generative Data Augmentation',
+    speaker: 'Anna Korba',
+    affiliation: 'ENSAE Paris / CREST'
   }]
 };
 
