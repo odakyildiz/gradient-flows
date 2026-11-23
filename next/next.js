@@ -3,10 +3,15 @@ const session = {
   date: 'Monday 23 November',
   room: 'Council Room',
   talks: [{
-    time: '12:00',
-    title: 'Ensemble Kalman Inversion/Optimisation: Choosing and Escaping the Subspace',
-    speaker: 'Claudia Schillings',
-    affiliation: 'Freie Universität Berlin'
+    time: '14:00',
+    title: 'Soft Specialists: Mean-Field Langevin Dynamics and the Emergence of Diversity in LLM Post-Training',
+    speaker: 'Andrew Duncan',
+    affiliation: 'Imperial College London'
+  }, {
+    time: '14:50',
+    title: 'Convergence rates for Wasserstein gradient flows of free energies and associated particle systems',
+    speaker: 'Pierre Monmarché',
+    affiliation: 'Université Gustave Eiffel'
   }]
 };
 
@@ -31,6 +36,7 @@ if (session.talks.length < 1 || session.talks.length > 2) {
 }
 document.querySelector('.session-place').textContent = `${session.date} · ${session.room}`;
 talkList.classList.toggle('two-talks', session.talks.length === 2);
+display.classList.toggle('two-talk-session', session.talks.length === 2);
 for (const talk of session.talks) {
   const article = document.createElement('article');
   article.className = 'talk';

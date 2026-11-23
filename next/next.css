@@ -58,8 +58,10 @@ h1 span { display: block; font-size: .55em; line-height: 1.13; letter-spacing: -
 .affiliation { margin: 0; color: #bdcac7; font-size: clamp(.9rem, 1.1vw, 1.25rem); }
 .display[data-view="next"] .workshop-scene { opacity: 0; transform: translateY(-1.5rem); filter: blur(8px); pointer-events: none; }
 .display[data-view="next"] .next-scene { opacity: 1; transform: none; filter: none; pointer-events: auto; }
-.talk-list.two-talks { display: grid; gap: 2.2rem; }
-.two-talks .talk + .talk { padding-top: 2rem; border-top: 1px solid var(--line); }
+.two-talk-session .scene { padding-block: clamp(1.2rem, 2.5vh, 2rem); }
+.two-talk-session .session-line { margin-bottom: 1.5rem; }
+.talk-list.two-talks { display: grid; gap: 1.4rem; }
+.two-talks .talk + .talk { padding-top: 1.4rem; border-top: 1px solid var(--line); }
 .two-talks .talk h2 { font-size: clamp(1.6rem, 2.6vw, 3rem); max-width: 36ch; }
 .two-talks .talk-time { font-size: clamp(2.5rem, 3.8vw, 4rem); }
 .two-talks .speaker { margin-top: .85rem; font-size: 1.35rem; }
