@@ -1,13 +1,21 @@
 // Update this session with one or two talks for the next display.
 const session = {
-  date: 'Monday 23 November',
-  room: 'Council Room',
-  talks: [{
-    time: '16:10',
-    title: 'Stein Transport for Generative Data Augmentation',
-    speaker: 'Anna Korba',
-    affiliation: 'ENSAE Paris / CREST'
-  }]
+  "date": "Tuesday 24 November",
+  "room": "Council Room",
+  "talks": [
+    {
+      "time": "10:00",
+      "title": "Wasserstein–Fisher–Rao gradient flows for sampling: algorithms, convergence, and numerical analysis",
+      "speaker": "Francesca Romana Crucinio",
+      "affiliation": "University of Turin"
+    },
+    {
+      "time": "10:50",
+      "title": "A multiscale analysis of information propagation dynamics in deep transformer models",
+      "speaker": "Andrea Agazzi",
+      "affiliation": "University of Bern"
+    }
+  ]
 };
 
 const display = document.querySelector('.display');
