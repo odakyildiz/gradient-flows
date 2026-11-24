@@ -4,10 +4,16 @@ const session = {
   "room": "Council Room",
   "talks": [
     {
-      "time": "12:10",
-      "title": "Gradient-free Riemannian Langevin sampler",
-      "speaker": "Olivier Zahm",
-      "affiliation": "Inria / Université Grenoble Alpes"
+      "time": "14:00",
+      "title": "On Boltzmann mean field games",
+      "speaker": "Marie-Therese Wolfram",
+      "affiliation": "University of Warwick"
+    },
+    {
+      "time": "14:50",
+      "title": "Rare events and the narrow escape problem",
+      "speaker": "Urbain Vaes",
+      "affiliation": "Inria Paris / CERMICS"
     }
   ]
 };
