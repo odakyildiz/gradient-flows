@@ -156,6 +156,14 @@
       card.appendChild(link);
     });
     window.addEventListener('hashchange', openFromHash);
+    var londonParts = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).formatToParts(new Date());
+    var londonDate = ['year', 'month', 'day'].map(function (type) {
+      return londonParts.find(function (part) { return part.type === type; }).value;
+    }).join('-');
+    var currentDay = data.days.find(function (day) { return day.date === londonDate; });
+    if (currentDay) selectDay(currentDay.id, false);
     openFromHash();
   }
 
