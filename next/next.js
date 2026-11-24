@@ -1,19 +1,13 @@
 // Update this session with one or two talks for the next display.
 const session = {
   "date": "Tuesday 24 November",
-  "room": "Council Room",
+  "room": "Drawing Room",
   "talks": [
     {
-      "time": "14:00",
-      "title": "On Boltzmann mean field games",
-      "speaker": "Marie-Therese Wolfram",
-      "affiliation": "University of Warwick"
-    },
-    {
-      "time": "14:50",
-      "title": "Rare events and the narrow escape problem",
-      "speaker": "Urbain Vaes",
-      "affiliation": "Inria Paris / CERMICS"
+      "time": "16:00",
+      "title": "Poster session",
+      "speaker": "Drawing Room",
+      "affiliation": "Until 18:00 · 18 posters"
     }
   ]
 };
