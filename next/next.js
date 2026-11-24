@@ -4,16 +4,10 @@ const session = {
   "room": "Council Room",
   "talks": [
     {
-      "time": "10:00",
-      "title": "Wasserstein–Fisher–Rao gradient flows for sampling: algorithms, convergence, and numerical analysis",
-      "speaker": "Francesca Romana Crucinio",
-      "affiliation": "University of Turin"
-    },
-    {
-      "time": "10:50",
-      "title": "A multiscale analysis of information propagation dynamics in deep transformer models",
-      "speaker": "Andrea Agazzi",
-      "affiliation": "University of Bern"
+      "time": "12:10",
+      "title": "Gradient-free Riemannian Langevin sampler",
+      "speaker": "Olivier Zahm",
+      "affiliation": "Inria / Université Grenoble Alpes"
     }
   ]
 };
