@@ -1,27 +1,35 @@
 // Update this session with one or two talks for the next display.
 const session = {
-  "date": "Tuesday 24 November",
-  "room": "Drawing Room",
+  "date": "Wednesday 25 November",
+  "room": "Council Room",
   "talks": [
     {
-      "time": "16:00",
-      "title": "Poster session",
-      "speaker": "Drawing Room",
-      "affiliation": "Until 18:00 · 18 posters"
+      "time": "10:00",
+      "title": "A fourth-order Langevin dynamics? Diffusive transport, the DLSS equation and structure-preserving discretizations",
+      "speaker": "André Schlichting",
+      "affiliation": "University of Ulm"
+    },
+    {
+      "time": "10:50",
+      "title": "Gradient flow of a random quadratic functional: an RDS perspective",
+      "speaker": "Anna Shalova",
+      "affiliation": "University of Amsterdam"
     }
-  ]
+  ],
+  "notice": "11:40–12:10 Coffee break · Poster awards (5 minutes)"
 };
 
 const display = document.querySelector('.display');
 const workshop = document.querySelector('.workshop-scene');
 const next = document.querySelector('.next-scene');
 const talkList = document.getElementById('talk-list');
+const sessionNotice = document.getElementById('session-notice');
 const workshopButton = document.getElementById('show-workshop');
 const nextButton = document.getElementById('show-next');
 const pauseButton = document.getElementById('pause');
 const progress = document.getElementById('progress');
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const workshopDuration = 10000;
+const workshopDuration = 5000;
 const nextDuration = 20000;
 const cycleDuration = workshopDuration + nextDuration;
 let elapsed = 0;
@@ -32,6 +40,8 @@ if (session.talks.length < 1 || session.talks.length > 2) {
   throw new Error('The next session must contain one or two talks.');
 }
 document.querySelector('.session-place').textContent = `${session.date} · ${session.room}`;
+sessionNotice.textContent = session.notice || '';
+sessionNotice.hidden = !session.notice;
 talkList.classList.toggle('two-talks', session.talks.length === 2);
 display.classList.toggle('two-talk-session', session.talks.length === 2);
 for (const talk of session.talks) {
