@@ -4,20 +4,10 @@ const session = {
   "room": "Council Room",
   "talks": [
     {
-      "time": "10:00",
-      "title": "A fourth-order Langevin dynamics? Diffusive transport, the DLSS equation and structure-preserving discretizations",
-      "speaker": "André Schlichting",
-      "affiliation": "University of Ulm"
-    },
-    {
-      "time": "10:50",
-      "title": "Gradient flow of a random quadratic functional: an RDS perspective",
-      "speaker": "Anna Shalova",
-      "affiliation": "University of Amsterdam"
-    },
-    {
-      "time": "11:40",
-      "title": "Poster awards"
+      "time": "12:10",
+      "title": "GENERIC formulation and asymptotic limits for kinetic models",
+      "speaker": "Hong Duong",
+      "affiliation": "University of Birmingham"
     }
   ]
 };
