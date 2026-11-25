@@ -1,4 +1,4 @@
-// Update this session with one or two talks for the next display.
+// Update these entries for the next display.
 const session = {
   "date": "Wednesday 25 November",
   "room": "Council Room",
@@ -14,16 +14,18 @@ const session = {
       "title": "Gradient flow of a random quadratic functional: an RDS perspective",
       "speaker": "Anna Shalova",
       "affiliation": "University of Amsterdam"
+    },
+    {
+      "time": "11:40",
+      "title": "Poster awards"
     }
-  ],
-  "notice": "11:40–12:10 Coffee break · Poster awards (5 minutes)"
+  ]
 };
 
 const display = document.querySelector('.display');
 const workshop = document.querySelector('.workshop-scene');
 const next = document.querySelector('.next-scene');
 const talkList = document.getElementById('talk-list');
-const sessionNotice = document.getElementById('session-notice');
 const workshopButton = document.getElementById('show-workshop');
 const nextButton = document.getElementById('show-next');
 const pauseButton = document.getElementById('pause');
@@ -36,14 +38,13 @@ let elapsed = 0;
 let previousFrame = null;
 let paused = motionPreference.matches;
 
-if (session.talks.length < 1 || session.talks.length > 2) {
-  throw new Error('The next session must contain one or two talks.');
+if (session.talks.length < 1 || session.talks.length > 3) {
+  throw new Error('The next session must contain one to three entries.');
 }
 document.querySelector('.session-place').textContent = `${session.date} · ${session.room}`;
-sessionNotice.textContent = session.notice || '';
-sessionNotice.hidden = !session.notice;
-talkList.classList.toggle('two-talks', session.talks.length === 2);
-display.classList.toggle('two-talk-session', session.talks.length === 2);
+talkList.classList.toggle('two-talks', session.talks.length >= 2);
+display.classList.toggle('two-talk-session', session.talks.length >= 2);
+display.classList.toggle('three-items', session.talks.length === 3);
 for (const talk of session.talks) {
   const article = document.createElement('article');
   article.className = 'talk';
@@ -56,6 +57,7 @@ for (const talk of session.talks) {
     ['p', 'speaker', talk.speaker],
     ['p', 'affiliation', talk.affiliation]
   ]) {
+    if (!text) continue;
     const element = document.createElement(tag);
     element.className = className;
     element.textContent = text;

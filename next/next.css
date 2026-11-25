@@ -65,7 +65,10 @@ h1 span { display: block; font-size: .55em; line-height: 1.13; letter-spacing: -
 .two-talks .talk h2 { font-size: clamp(1.6rem, 2.6vw, 3rem); max-width: 36ch; }
 .two-talks .talk-time { font-size: clamp(2.5rem, 3.8vw, 4rem); }
 .two-talks .speaker { margin-top: .85rem; font-size: 1.35rem; }
-.session-notice { margin: 1.3rem 0 0; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--mint); font-size: clamp(1rem, 1.4vw, 1.5rem); line-height: 1.3; }
+.three-items .session-line { margin-bottom: 1rem; }
+.three-items .talk-list.two-talks { gap: .8rem; }
+.three-items .two-talks .talk + .talk { padding-top: .8rem; }
+.three-items .two-talks .speaker { margin-top: .45rem; }
 .footer { position: relative; padding: 1.2rem 0 1rem; border-top: 1px solid var(--line); }
 .label { color: #91a19e; font-size: .59rem; }
 .organisers { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.2rem; }
